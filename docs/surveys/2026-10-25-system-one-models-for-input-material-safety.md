@@ -175,12 +175,14 @@ flowchart TB
     end
 
     subgraph GUARD["Guardrail competitors (injection-specific)"]
-        PG2["Llama Prompt Guard 2 86M<br/>CPU champion · AUC .998 · AgentDojo 81.2%<br/>50% bypass on multilingual/obfuscated (Trendyol)"]
+        PG2["Llama Prompt Guard 2 86M / 22M<br/>strongest older-gen CPU classifier<br/>Meta AUC .998 · AgentDojo 81.2% APR<br/>69.4% / 57.9% independent re-eval at 1% FPR<br/>50% bypass on multilingual/obfuscated (Trendyol)"]
+        HL["Horizon-Labs 2026 · ~308M<br/>82.2% AgentDojo matched · 100.0% tau-bench<br/>single-preprint numbers, untested here"]
+        WD["Wolf Defender 2026 · ~308M<br/>73.8% AgentDojo matched · 90.8% tau-bench<br/>single-preprint numbers, untested here"]
         PAI["ProtectAI deberta-v3 PI-v2 via llm-guard<br/>CPU ONNX ~104ms · repo archived 2026-07<br/>AgentDojo 22.2%"]
         QG["Qwen3Guard 0.6B/4B/8B<br/>harm moderation lens · 119 languages · not injection-in-content"]
         REB["Rebuff · heuristics+LLM+canary<br/>prototype · LLM in the loop"]
         NEMO["NeMo Guardrails · injection rail framework"]
-        SCAN["promptfoo · Garak · PINT<br/>test-time validation harnesses, not inline"]
+        SCAN["benign-instruction-bench · AgentDojo · BIPIA<br/>promptfoo · Garak · PINT excluded<br/>test-time validation harnesses, not inline"]
     end
 
     subgraph RUN["Local runtimes (any platform, CPU floor)"]
@@ -202,6 +204,8 @@ flowchart TB
     OLLAYA --> CPU
     OLLAMA --> CPU
     PG2 --> CPU
+    HL --> CPU
+    WD --> CPU
     PAI --> CPU
     QG --> CPU
     REB --> CPU
@@ -285,4 +289,4 @@ Referenced from search results (not fetched; claims resting on them are marked u
 
 Local prior art read: `~/Documents/code/jev-thread-classifiers/` (musing only); bb thread `thr_etqsy4sqzx` log (safety-protocol origin).
 
-**mmdc validation:** the Mermaid block in section 8 was validated with `mmdc` 11.17.0 on 2026-10-25 (rendered to SVG successfully, 44,205 bytes; run needed a puppeteer config pointing at the system Chrome — tooling detail, not a diagram defect). The diagram is valid and the fenced block stays in place.
+**mmdc validation:** the Mermaid block in section 8 was validated with `mmdc` 11.17.0 on 2026-10-25 (rendered to SVG successfully; the run needs the system Chrome via `PUPPETEER_EXECUTABLE_PATH`, a tooling detail rather than a diagram defect). After the CPU-ranking revision updated the Prompt Guard, Horizon-Labs, Wolf Defender, and test-tool labels, the block was re-validated the same day and rendered cleanly to a 47,683-byte SVG. The diagram is valid and the fenced block stays in place.
