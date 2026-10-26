@@ -13,3 +13,4 @@ Numbered records of decisions that shaped `llm-ingestion-screener`, one file per
 | ADR | Title | Status |
 |---|---|---|
 | [0001](0001-typed-decision-screening-stage.md) | Screen inbound material with typed decision-model questions | Proposed |
+| [0002](0002-detection-eval-harness-and-filter-posture.md) | Adopt a two-corpus detection eval harness; screen as a filter | Adopted |
