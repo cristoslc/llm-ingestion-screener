@@ -1,0 +1,56 @@
+name: Feature request
+description: Propose a feature or enhancement.
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: reference
+    attributes:
+      label: Related issues or PRs
+      placeholder: "#123, or None"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Where this matters — OS, Python version, screener version or commit.
+      placeholder: |
+        macOS 26.1, Python 3.15, screener 0.1.0 (abc1234)
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: The problem this solves, in the operator's terms. Problem leads; the solution follows.
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What a good outcome looks like.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance sketch
+      description: A rough sketch of how we would know this is done.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and workarounds
+      description: Current workarounds and alternatives considered. Write "None" if there are none.
+    validations:
+      required: true
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Request or recommendation
+      description: The specific change requested. Write "None" if you only want the problem recorded.
+    validations:
+      required: true

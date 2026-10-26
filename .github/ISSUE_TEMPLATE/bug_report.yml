@@ -1,0 +1,60 @@
+name: Bug report
+description: Report something that is broken or behaves against the documentation.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: input
+    id: reference
+    attributes:
+      label: Issue reference
+      description: Any related issue, PR, or discussion number.
+      placeholder: "#123, or None"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, screener version or commit, and the model/endpoint involved.
+      placeholder: |
+        macOS 26.1, Python 3.15, screener 0.1.0 (abc1234), Ollama 0.40.6 with clef:27b
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: The exact steps to reproduce the problem, ideally headless.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include the full error text, not a summary.
+    validations:
+      required: true
+  - type: textarea
+    id: workarounds
+    attributes:
+      label: Workarounds
+      description: Any workaround found. Write "None" if there is none.
+    validations:
+      required: true
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Request or recommendation
+      description: What you would like to happen. Write "None" if you have no recommendation.
+    validations:
+      required: true

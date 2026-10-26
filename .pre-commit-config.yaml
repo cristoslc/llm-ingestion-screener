@@ -1,0 +1,23 @@
+# Local, offline-safe pre-commit hooks.
+# The installed .git/hooks/pre-commit chains git-secrets and this config.
+repos:
+  - repo: local
+    hooks:
+      - id: trailing-whitespace
+        name: strip trailing whitespace (non-markdown)
+        language: system
+        entry: >-
+          bash -c 'files=$(git diff --cached --name-only --diff-filter=ACM | grep -v "\.md$");
+          [ -z "$files" ] && exit 0;
+          echo "$files" | xargs sed -i "" -E "s/[[:space:]]+$//"'
+        pass_filenames: false
+        stages: [pre-commit]
+      - id: check-merge-conflicts
+        name: check merge conflict markers
+        language: system
+        entry: >-
+          bash -c 'files=$(git diff --cached --name-only --diff-filter=ACM);
+          [ -z "$files" ] && exit 0;
+          echo "$files" | xargs grep -n "^<<<<<<< " && exit 1; exit 0'
+        pass_filenames: false
+        stages: [pre-commit]

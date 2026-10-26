@@ -1,0 +1,32 @@
+[project]
+name = "llm-ingestion-screener"
+version = "0.1.0"
+description = "Local-first pre-read safety screener for LLM ingestion, built on System One decision models."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "Cristos" }]
+dependencies = []
+
+[project.scripts]
+llm-ingestion-screener = "llm_ingestion_screener.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llm_ingestion_screener"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
