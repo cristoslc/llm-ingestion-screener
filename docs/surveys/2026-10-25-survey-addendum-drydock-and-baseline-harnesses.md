@@ -2,7 +2,7 @@
 
 - **Date:** 2026-10-25
 - **Author:** top-level workspace thread (`thr_t6uy5w4dmf`), answering the operator's question about drydock and existing baseline tooling
-- **Status:** working note; held in the gitignored `.tmp/` tree until the survey and this addendum are landed as a docs pull request
+- **Status:** landing in draft pull request 1 on `cristoslc/llm-ingestion-screener`, branch `docs/survey-system-one-models`, as `docs/surveys/`. The committed copy describes the quarantined payloads by class; the verbatim copy is kept in the gitignored `.tmp/` tree.
 - **Relation to the survey:** supplements `2026-10-25-system-one-models-for-input-material-safety.md`. It does not replace it. Where the two disagree, this addendum is newer.
 
 ---
@@ -131,7 +131,7 @@ Also worth including: **Vigil** (Deadsimply, MIT) and **Qwen3Guard 0.6B**, both 
 
 **The survey's number-one CPU pick does not survive scrutiny for this job.**
 
-The survey ranked Meta's Llama Prompt Guard 2 86M first on the CPU floor, on the strength of Meta's own AgentDojo attack-prevention-rate of 81.2% at a 3% utility cost. The independent re-evaluation measures the same model at 69.4% detection at 1% false-positive rate on AgentDojo's matched tool outputs and 57.9% on τ-bench, against 82.2% and 100.0% for Horizon-Labs and 73.8% and 90.8% for Wolf Defender. Its explanation is that AgentDojo's own attack templates are explicit instructions addressed to the model, resembling direct prompt injections, while injecAgent's attacks inside product names and BIPIA's inside emails and tables do not. A detector high on one is often weak on the other.
+The survey ranked Meta's Llama Prompt Guard 2 86M first on the CPU floor, on the strength of Meta's own AgentDojo attack-prevention-rate of 81.2% at a 3% utility cost. The independent re-evaluation measures the same model at 69.4% detection at 1% false-positive rate on AgentDojo's matched tool outputs and 57.9% on τ-bench, against 82.2% and 100.0% for Horizon-Labs and 73.8% and 90.8% for Wolf Defender. Its explanation is that AgentDojo's own attack templates are explicit instructions addressed to the model, resembling direct prompt injections, while InjecAgent's attacks inside product names and BIPIA's inside emails and tables do not. A detector high on one is often weak on the other.
 
 Three consequences:
 
