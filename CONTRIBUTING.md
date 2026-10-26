@@ -15,6 +15,19 @@ Every change must pass the project test command before it is proposed:
 uv run pytest -q
 ```
 
+## Remotes
+
+Two remotes, following the operator's forge convention (`~/.agents/agents-md-detail/cove.md`):
+
+- `origin` — <https://github.com/cristoslc/llm-ingestion-screener> — the primary collaboration forge. Issues and pull requests live here.
+- `fj` — `ssh://git@git.cove.local:2222/cristos/llm-ingestion-screener.git` — the local Cove/Forgejo mirror and backup.
+
+`main` tracks `origin/main`. Push to `origin` first, then mirror to `fj`:
+
+```bash
+git push origin <branch> && git push fj <branch>
+```
+
 ## How to open an issue
 
 - **Bugs** use the bug report template (`.github/ISSUE_TEMPLATE/bug_report.yml`). A bug report must include the environment, reproduction steps, the expected result, the actual result, and any workarounds. A section with nothing to report is filled with "None", never omitted.
