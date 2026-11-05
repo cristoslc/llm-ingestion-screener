@@ -25,7 +25,8 @@ packages = ["src/llm_ingestion_screener"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+addopts = ["-q", "-m", "not model"]
+markers = ["model: requires the local decision-model endpoint"]
 
 [tool.pyright]
 venvPath = "."

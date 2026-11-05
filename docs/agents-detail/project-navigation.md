@@ -20,6 +20,7 @@ Domain architecture (what the system means to its domain):
 - `docs/domain-architecture/CONTEXT-MAP.md` — bounded context relationships
 - `docs/domain-architecture/DOMAIN-EVENTS.md` — cross-context integration events
 - `docs/domain-architecture/DOMAIN-MODEL-L2.md` — L2 ubiquitous language
+- `docs/domain-architecture/SCREENING-CORE.md` — implemented rule ids, question set, policy thresholds, verdict invariants, and fail-loud paths
 - `docs/domain-architecture/events/` — event contract YAML specs
 
 Cross-cutting:

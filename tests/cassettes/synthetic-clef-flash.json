@@ -1,0 +1,128 @@
+{
+  "comment": "SYNTHETIC CASSETTE. These answers were written by hand for the recorded-client tests; they are not measured model output and must not be read as a benchmark result. The material is a sanitised behavioural shape with an example.invalid host and no live payload.",
+  "entries": {
+    "1413fb1570319a639872617a554e0698a297f7b69083116ba8bb2f191db0eee1": {
+      "answer": {
+        "noul": 0.93,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
+    "7bedec660e533c5571d8e9ea153612362994942a2e793ac5005c860e8ff79f00": {
+      "answer": {
+        "noul": 0.11,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "9cd48d676bfccbc5ec9fa9fb94a29738de878d3ef654f79cdd23b12ee3143903": {
+      "answer": {
+        "confidence": 0.78,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.02,
+          "2": 0.05,
+          "3": 0.82,
+          "4": 0.1
+        },
+        "score": 3.4,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "c23229f7d759ffb3e569eecb118e1d3460d226ffeef83ec628413a9b36bbaee2": {
+      "answer": {
+        "noul": 0.88,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "e80fd8d4945f1b477c3fbd25199c38c1969224ce8d4df285f1c26a3b1ec9b125": {
+      "answer": {
+        "choice": "agent-directed-imperative",
+        "confidence": 0.84,
+        "probabilities": {
+          "agent-directed-imperative": 0.86,
+          "encoded-obfuscated": 0.01,
+          "exfiltration-request": 0.05,
+          "instruction-override": 0.04,
+          "none": 0.02,
+          "tool-invocation-lure": 0.02
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    }
+  },
+  "format": "llm-ingestion-screener/cassette/v1",
+  "model": "synthetic-clef-flash-reference",
+  "synthetic": true
+}
