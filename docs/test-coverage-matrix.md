@@ -95,4 +95,65 @@ Master coverage matrix for `llm-ingestion-screener`. Each row is a behaviour; ea
 | The inquiry returns typed answers and rejects a non-mapping response | `tests/test_decision_model.py::test_decision_inquiry_returns_typed_answers`, `test_decision_inquiry_rejects_a_non_mapping_response` | happy, sad |
 | The opt-in live client answers against clef-flash, or fails loudly | `tests/test_live_decision_model.py::test_live_clef_flash_answers_a_noul_question` | happy, opt-in `model` |
 
-The default run deselects `model`-marked tests through `pyproject.toml`; the live row is exercised only by `uv run pytest -q -m model`.
+
+## Eval fixture loader and validator
+
+| Behaviour | Test | Kind |
+|---|---|---|
+| The committed starter corpus loads with a stable fingerprint | `tests/test_eval_fixtures.py::test_loads_the_committed_starter_corpus` | happy |
+| An unknown verdict level is rejected | `tests/test_eval_fixtures.py::test_rejects_an_unknown_verdict` | sad |
+| A missing label is rejected | `tests/test_eval_fixtures.py::test_rejects_a_missing_label` | sad |
+| A duplicate fixture id is rejected | `tests/test_eval_fixtures.py::test_rejects_a_duplicate_id` | sad |
+| A derived source without provenance is rejected | `tests/test_eval_fixtures.py::test_rejects_missing_provenance_for_a_derived_source` | sad |
+| A non-`example.invalid` host in an exfiltration position is rejected, while an ordinary URL is allowed | `tests/test_eval_fixtures.py::test_rejects_a_non_example_host_in_an_exfiltration_position`, `test_allows_a_non_example_host_with_no_exfiltration_context` | sad, edge |
+| An empty or missing corpus directory is rejected | `tests/test_eval_fixtures.py::test_rejects_an_empty_corpus_directory`, `test_rejects_a_missing_corpus_directory` | sad |
+| Label and expected verdict cannot contradict | `tests/test_eval_fixtures.py::test_rejects_a_benign_fixture_expecting_a_non_clean_verdict`, `test_rejects_a_malicious_fixture_expecting_clean` | sad |
+| Transform derivations must be complete and point at a malicious base | `tests/test_eval_fixtures.py::test_rejects_a_transform_without_derived_from`, `test_rejects_a_transform_derived_from_an_unknown_fixture` | sad |
+| Unknown rule ids, fields, and malformed YAML are rejected | `tests/test_eval_fixtures.py::test_rejects_an_unknown_expected_rule_id`, `test_rejects_an_unknown_field`, `test_rejects_a_malformed_yaml_file` | sad |
+
+## Eval runner
+
+| Behaviour | Test | Kind |
+|---|---|---|
+| The runner records verdicts, rule ids, answers, and evidence | `tests/test_eval_runner.py::test_the_runner_records_verdicts_and_evidence` | happy |
+| The screen never receives the truth label | `tests/test_eval_runner.py::test_the_screen_never_sees_the_truth_label` | edge |
+| Two recorded batches are byte-identical | `tests/test_eval_runner.py::test_two_recorded_batches_are_byte_identical` | happy |
+| A malformed answer fails the batch | `tests/test_eval_runner.py::test_a_malformed_answer_fails_the_batch` | sad |
+
+## Eval metrics
+
+| Behaviour | Test | Kind |
+|---|---|---|
+| Recall, false-positive rate, frontier recall, and per-class arithmetic are correct | `tests/test_eval_metrics.py::test_recall_false_positives_and_frontier_arithmetic` | happy |
+| Transform blocked rate and rule retention are correct | `tests/test_eval_metrics.py::test_transform_blocked_rate_and_rule_retention` | happy |
+| Every plan metric is present and every not-applicable row carries a reason | `tests/test_eval_metrics.py::test_every_plan_metric_is_present_and_na_rows_carry_a_reason` | edge |
+| A short corpus fails its coverage floor | `tests/test_eval_metrics.py::test_coverage_floor_fails_when_a_directory_is_short` | sad |
+| Malformed coverage floors are rejected | `tests/test_eval_metrics.py::test_coverage_floor_requires_a_mapping_per_section` | sad |
+| A non-failing malformed-answer probe is reported as a failure | `tests/test_eval_metrics.py::test_a_malformed_answer_that_does_not_fail_is_reported_and_gated` | sad |
+
+## Eval gates
+
+| Behaviour | Test | Kind |
+|---|---|---|
+| The committed registry tags all 19 metrics with the operator's gated set | `tests/test_eval_gates.py::test_committed_gate_registry_tags_every_metric` | happy |
+| Unknown metrics, missing metrics, and bad statuses are rejected | `tests/test_eval_gates.py::test_rejects_an_unknown_metric`, `test_rejects_a_missing_metric`, `test_rejects_an_unknown_status` | sad |
+| Gated metrics need thresholds, reported metrics must not carry one, and boolean gates are thresholdless | `tests/test_eval_gates.py::test_rejects_a_gated_metric_without_a_threshold`, `test_rejects_a_reported_metric_with_a_threshold`, `test_rejects_a_boolean_gate_with_a_threshold` | sad |
+| Coverage floors reject unknown keys and negative values | `tests/test_eval_gates.py::test_rejects_an_unknown_coverage_key`, `test_rejects_a_negative_coverage_floor` | sad |
+| A deliberately broken recall gate fails | `tests/test_eval_gates.py::test_a_deliberately_broken_recall_gate_fails` | sad |
+
+## Eval harness, baseline, and report
+
+| Behaviour | Test | Kind |
+|---|---|---|
+| The default run passes every gate and writes both reports with evidence | `tests/test_eval_harness.py::test_the_default_run_passes_every_gate` | happy |
+| The report is byte-deterministic across runs | `tests/test_eval_harness.py::test_the_report_is_byte_deterministic` | happy |
+| A broken gate fails the run but still writes the report | `tests/test_eval_harness.py::test_a_broken_gate_fails_the_run` | sad |
+| A report-write failure raises | `tests/test_eval_harness.py::test_a_report_write_failure_raises` | sad |
+| An ordinary run never updates the baseline | `tests/test_eval_harness.py::test_a_normal_run_does_not_update_the_baseline` | edge |
+| A golden output change is an exact-output regression | `tests/test_eval_harness.py::test_a_golden_output_change_is_a_regression` | sad |
+| A gated metric regression is distinguished from a corpus change | `tests/test_eval_harness.py::test_a_gated_metric_regression_is_distinguished_from_a_corpus_change`, `test_a_corpus_change_is_not_a_metric_regression` | sad, edge |
+| A missing baseline is an error, and updating it is deliberate | `tests/test_eval_harness.py::test_a_missing_baseline_is_an_error`, `test_updating_the_baseline_is_deliberate` | sad, happy |
+| A deleted corpus directory is caught end to end | `tests/test_eval_harness.py::test_a_deleted_corpus_directory_is_caught` | sad |
+| The eval CLI exits zero, one, or two for pass, gate failure, and validation error | `tests/test_eval_cli.py::test_cli_runs_recorded_mode`, `test_cli_returns_nonzero_when_a_gate_fails`, `test_cli_returns_two_on_validation_error` | happy, sad, sad |
+
+The default run deselects `model`-marked tests through `pyproject.toml`; the live row is exercised only by `uv run pytest -q -m model`. The eval-harness rows run in the same default gate and assert the committed baseline; no test rewrites it.
