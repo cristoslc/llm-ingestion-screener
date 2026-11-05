@@ -1,5 +1,5 @@
 {
-  "corpus_fingerprint": "abd9580576b70acb2406436f7812542a32fea396952cce8e00c1cb281dfed1f5",
+  "corpus_fingerprint": "eab2358e2f29af7fe4bb0ea81c4c3e91597832e9ac659f3229cbf4e8bb748508",
   "fixtures": {
     "document-exfiltration-request": {
       "content_sha256": "f404aa754b83ec2cd0985dcea58fd8ab353407ba79a8b2a41d53fb4b3b2e27e9",
@@ -18,7 +18,7 @@
       "verdict": "quarantine"
     },
     "document-instruction-override": {
-      "content_sha256": "b0ab336177da499bd374997707db7651a90d9a96125bd39d952302605483e4e8",
+      "content_sha256": "8c10a404075be29d4f33552d1a05e8c33c2b49c5eb60f034023258955c5ecd6e",
       "corpus": "eval",
       "rule_ids": [
         "rule.instruction-override"
@@ -26,7 +26,7 @@
       "verdict": "quarantine"
     },
     "document-instruction-override-second": {
-      "content_sha256": "1fc6db947bf30e86eb18e5627569b8e6dc4a1cf8cde6d3173755db0a05a0f389",
+      "content_sha256": "86a77714b081890cbea7ea5982102767a6248d5c144b8d5ffeb9b67fdaa0ccba",
       "corpus": "eval",
       "rule_ids": [
         "rule.instruction-override"
@@ -211,7 +211,7 @@
       "verdict": "clean"
     },
     "web-page-non-english": {
-      "content_sha256": "e57145d82b29423edeb99e19d2b8774abe9f124036e9608f45a182bfbc099dd4",
+      "content_sha256": "0885ae4c6ec1f5fbc21bbb97d2d0a669716a618078eb9cc2adbbc97cd1e52dff",
       "corpus": "eval",
       "rule_ids": [],
       "verdict": "clean"
