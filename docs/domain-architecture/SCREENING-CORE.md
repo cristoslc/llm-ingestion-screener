@@ -1,7 +1,7 @@
 # Screening core
 
 - **Status:** Phase 1 of the detection eval-harness plan, implemented 2026-11-04.
-- **Scope:** the rule engine, typed-question schema, policy, verdict assembly, screening log, and the three decision-model clients. The fixture corpus, metrics engine, report writer, gate registry, and baseline are later phases.
+- **Scope:** the rule engine, typed-question schema, policy, verdict assembly, screening log, and the three decision-model clients. The Phase 2 eval harness that drives this code is documented in [`../developer-workflows/eval-harness.md`](../developer-workflows/eval-harness.md).
 
 The screening core is the production code path the eval harness will drive. It follows the vocabulary in [`../DOMAIN-MODEL-L1.md`](../DOMAIN-MODEL-L1.md) and the invariants in [`DOMAIN-MODEL-L2.md`](DOMAIN-MODEL-L2.md). This page records the stable rule ids, the question set, and the thresholds in force.
 

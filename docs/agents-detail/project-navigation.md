@@ -25,6 +25,7 @@ Domain architecture (what the system means to its domain):
 
 Cross-cutting:
 - `docs/DEVELOPER-WORKFLOWS.md` → `docs/developer-workflows/`
+  - `docs/developer-workflows/eval-harness.md` — detection eval harness runbook
 - `docs/USER-EXPERIENCE.md` → `docs/user-experience/`
 - `AGENTS.md` → `docs/agents-detail/`
 - `docs/adr/` — numbered decision records (no hub)

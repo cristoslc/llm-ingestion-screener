@@ -47,7 +47,7 @@ flowchart TD
 
 ## Cross-cutting
 
-- [`DEVELOPER-WORKFLOWS.md`](DEVELOPER-WORKFLOWS.md) — build, test, deploy, local dev
+- [`DEVELOPER-WORKFLOWS.md`](DEVELOPER-WORKFLOWS.md) — build, test, deploy, local dev, and the detection eval harness
 - [`USER-EXPERIENCE.md`](USER-EXPERIENCE.md) — the caller's experience, UX principles, quality attributes
 - [`agents-detail/`](agents-detail/README.md) — agent-facing spokes
 - [`adr/`](adr/README.md) — numbered decision records

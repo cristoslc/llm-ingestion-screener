@@ -26,6 +26,16 @@ uv run pytest -q
 
 `tests/` holds the suite. The test command is the whole gate: there is no separate lint gate. `pyright` runs on demand for type checking.
 
+## Detection eval harness
+
+The offline eval gate loads the committed fixture corpus, screens every fixture through the production code path with the recorded decision-model client, computes the metrics, applies the gate registry and baseline, and writes a report.
+
+```bash
+uv run python -m llm_ingestion_screener.eval run
+```
+
+See [`developer-workflows/eval-harness.md`](developer-workflows/eval-harness.md) for the corpus layout, gate registry, baseline update procedure, and metric status.
+
 ## Model endpoint (local prerequisite)
 
 The screener calls a local Ollama endpoint's System One API. To try it locally:

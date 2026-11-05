@@ -32,7 +32,10 @@ Early. Scaffolded and orchestrated; the first work item is a survey of how the S
 - `docs/` — the documentation tree; start at [`docs/README.md`](docs/README.md)
 - `src/llm_ingestion_screener/` — the Python package
 - `tests/` — the test suite
+- `tests/eval/` — the detection-eval gate registry and baseline
+- `tests/fixtures/screener-corpus/` — the sanitised, provenance-tagged eval corpus
 - `scripts/staging/` — the two-stage pipeline scripts
+- `screening-artifacts/` — gitignored local eval reports
 
 ## Quick start
 
@@ -40,6 +43,7 @@ Early. Scaffolded and orchestrated; the first work item is a survey of how the S
 uv sync
 uv run llm-ingestion-screener --version
 uv run pytest -q
+uv run python -m llm_ingestion_screener.eval run
 ```
 
 ## How work happens here
