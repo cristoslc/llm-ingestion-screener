@@ -52,7 +52,7 @@ The policy maps rule hits and `noul`/`score` answers to one level. The level is 
 | `score.flagged_at` | `>=` | 2.0 | A severity score at or above this level raises the verdict to `flagged`. |
 | `score.quarantined_at` | `>=` | 3.5 | A severity score at or above this level raises the verdict to `quarantine`. |
 
-The values are explicit in `Policy` and are copied into every verdict and every screening-log entry. Changing a threshold is an operator ruling under `AGENTS.md`, not an implementation detail.
+The values are explicit in `Policy` and are copied into every verdict and every screening-log entry. Changing a threshold is an operator ruling under `AGENTS.md`, not an implementation detail. Confidence is recorded with every answer but is not a policy threshold in Phase 1; a low-confidence answer is never discarded or silently softened.
 
 ## Verdict assembly
 
