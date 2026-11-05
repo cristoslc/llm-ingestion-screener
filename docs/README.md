@@ -42,6 +42,7 @@ flowchart TD
 - [`domain-architecture/CONTEXT-MAP.md`](domain-architecture/CONTEXT-MAP.md) — bounded contexts and their relationships
 - [`domain-architecture/DOMAIN-EVENTS.md`](domain-architecture/DOMAIN-EVENTS.md) — integration events crossing context boundaries
 - [`domain-architecture/DOMAIN-MODEL-L2.md`](domain-architecture/DOMAIN-MODEL-L2.md) — L2 ubiquitous language: entities, value objects, invariants
+- [`domain-architecture/SCREENING-CORE.md`](domain-architecture/SCREENING-CORE.md) — implemented rule ids, question set, policy thresholds, verdict invariants, and fail-loud paths
 - [`domain-architecture/events/`](domain-architecture/events/README.md) — event contract YAML specs
 
 ## Cross-cutting
