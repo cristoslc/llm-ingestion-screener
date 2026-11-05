@@ -33,3 +33,7 @@ class ScreeningError(ScreenerError):
 
 class FaultInjectionError(ScreenerError):
     """A fault-injection request is invalid for the question set."""
+
+
+class EvaluationError(ScreenerError):
+    """The evaluation corpus, gates, baseline, or report cannot be used."""

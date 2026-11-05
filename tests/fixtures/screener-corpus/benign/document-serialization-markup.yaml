@@ -1,0 +1,17 @@
+id: "document-serialization-markup"
+title: "A document whose YAML structure resembles an attack manifest"
+surface: document
+label: benign
+expect_min_verdict: clean
+threat_class: benign-serialization-markup
+source: synthetic
+intent: "Hard negative: serialization markup that looks dangerous."
+content: |
+  workflow:
+    name: nightly-report
+    steps:
+      - read: notes.md
+      - write: report.md
+    enabled: true
+expect_any_rule: []
+notes: "Starter Phase 2 fixture; sanitised shape only."
