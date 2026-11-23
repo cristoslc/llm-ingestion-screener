@@ -1,5 +1,5 @@
 {
-  "comment": "SYNTHETIC CASSETTE. Every answer is a fixed neutral value written for the starter eval corpus; these are not measured clef-flash output and must not be read as a benchmark result. The material is sanitised with example.invalid hosts and no live payload.",
+  "comment": "SYNTHETIC CASSETTE. Every answer is a fixed neutral value written for the committed-derived eval corpus; these are not measured clef-flash output and must not be read as a benchmark result. The material is sanitised with example.invalid hosts and no live payload.",
   "entries": {
     "000233b1fe1294c445774423afa2a4f777d44659af75824f067b67debf31f1c1": {
       "answer": {
