@@ -100,7 +100,15 @@ Master coverage matrix for `llm-ingestion-screener`. Each row is a behaviour; ea
 
 | Behaviour | Test | Kind |
 |---|---|---|
-| The committed starter corpus loads with a stable fingerprint | `tests/test_eval_fixtures.py::test_loads_the_committed_starter_corpus` | happy |
+| The committed corpus loads with a stable fingerprint | `tests/test_eval_fixtures.py::test_loads_the_committed_corpus` | happy |
+| Every committed fixture validates | `tests/test_eval_fixtures.py::test_every_committed_fixture_validates` | happy |
+| The committed manifest covers every fixture and no others | `tests/test_eval_manifest.py::test_committed_manifest_covers_every_fixture_and_no_others` | happy |
+| A missing, extra, duplicate, or unpinned manifest row is rejected | `tests/test_eval_manifest.py::test_rejects_a_manifest_that_misses_a_fixture`, `test_rejects_a_manifest_entry_for_a_missing_fixture`, `test_rejects_a_benchmark_fixture_without_a_pinned_upstream`, `test_rejects_a_manifest_commit_that_is_not_the_pin`, `test_rejects_a_provenance_line_without_its_pinned_commit`, `test_rejects_a_duplicate_manifest_id`, `test_rejects_a_missing_manifest` | sad |
+| Every fixture satisfies the Phase 3 class and surface targets | `tests/test_eval_corpus_targets.py::test_the_committed_corpus_meets_the_phase_three_targets` | happy |
+| Every eval and golden malicious fixture meets its expected rule | `tests/test_eval_corpus_targets.py::test_every_eval_and_golden_malicious_fixture_meets_its_expected_rule` | happy |
+| Every benign fixture is clean on the production path, and every eval malicious fixture is caught | `tests/test_eval_corpus_targets.py::test_every_benign_fixture_is_clean_on_the_production_path`, `test_every_eval_malicious_fixture_is_caught` | happy |
+| Frontier holds an expected miss, and the committed coverage floors hold | `tests/test_eval_corpus_targets.py::test_frontier_holds_at_least_one_expected_miss`, `test_the_committed_coverage_floors_hold` | edge |
+| The distiller refuses a missing or moving pin, sanitises hosts, and renders valid YAML | `tests/test_corpus_distiller.py::test_assert_pins_rejects_an_empty_pin_set`, `test_assert_pins_rejects_a_missing_pin`, `test_assert_pins_rejects_a_moving_ref`, `test_clean_replaces_hosts_and_addresses`, `test_clean_keeps_an_ordinary_documentation_host`, `test_offline_without_a_source_directory_refuses_to_run`, `test_render_fixture_is_valid_yaml_with_the_plan_fields`, `test_the_recipe_list_rejects_duplicate_ids` | sad, happy, edge |
 | An unknown verdict level is rejected | `tests/test_eval_fixtures.py::test_rejects_an_unknown_verdict` | sad |
 | A missing label is rejected | `tests/test_eval_fixtures.py::test_rejects_a_missing_label` | sad |
 | A duplicate fixture id is rejected | `tests/test_eval_fixtures.py::test_rejects_a_duplicate_id` | sad |

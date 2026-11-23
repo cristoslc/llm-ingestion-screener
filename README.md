@@ -33,7 +33,8 @@ Early. Scaffolded and orchestrated; the first work item is a survey of how the S
 - `src/llm_ingestion_screener/` — the Python package
 - `tests/` — the test suite
 - `tests/eval/` — the detection-eval gate registry and baseline
-- `tests/fixtures/screener-corpus/` — the sanitised, provenance-tagged eval corpus
+- `tests/fixtures/screener-corpus/` — the sanitised, provenance-tagged eval corpus and its manifest
+- `scripts/corpus/` — the pinned fetch-and-distil maintenance script for the corpus
 - `scripts/staging/` — the two-stage pipeline scripts
 - `screening-artifacts/` — gitignored local eval reports
 

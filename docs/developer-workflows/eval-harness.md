@@ -1,6 +1,6 @@
 # Detection eval harness
 
-- **Status:** Phase 2 implemented 2026-11-04. The corpus is a starter set; Phase 3 expands it from the public benchmarks.
+- **Status:** Phase 3 implemented 2026-11-23. The harness is the Phase 2 runner; the corpus is now the committed-derived set distilled from three pinned upstreams.
 - **Plan:** [`docs/plans/2026-10-29-ingestion-screener-eval-harness.md`](../plans/2026-10-29-ingestion-screener-eval-harness.md), sections 5 to 8.
 - **Production contract:** [`docs/domain-architecture/SCREENING-CORE.md`](../domain-architecture/SCREENING-CORE.md).
 
@@ -47,16 +47,49 @@ uv run python -m llm_ingestion_screener.eval run --update-baseline
 
 ```text
 tests/fixtures/screener-corpus/
-├── golden/       exact-output regression, checked against the baseline
-├── eval/         truth-labelled quality set, feeds the gated recall metric
-├── frontier/     hard cases expected to be missed; reported, not gated
-├── benign/       benign hard negatives; feeds the false-positive ceiling
-└── transforms/   named evasion variants derived from eval fixtures
+├── manifest.yaml  per-fixture upstream, pin, sample id, class, and sanitisation
+├── README.md      directory jobs, sanitisation policy, and BIPIA exclusion
+├── golden/        exact-output regression, checked against the baseline
+├── eval/          truth-labelled quality set, feeds the gated recall metric
+├── frontier/      hard cases expected to be missed; reported, not gated
+├── benign/        benign hard negatives; feeds the false-positive ceiling
+└── transforms/    named evasion variants derived from eval fixtures
 ```
 
-Every fixture is one YAML mapping following plan section 5.1. The loader rejects a run on an unknown verdict, a missing label, a duplicate id, a missing `provenance` for `real-sanitized` or `benchmark-derived`, a non-`example.invalid` host in an exfiltration or command-and-control position, an empty corpus directory, a missing directory, a bad derivation, an unknown expected rule id, or an unknown field.
+The corpus holds 115 fixtures: 5 golden, 56 eval, 20 frontier, 32 benign, and 2 transforms. Each malicious class in the plan's taxonomy has at least eight samples and each benign class at least six. Both a malicious and a benign fixture exist on every ingestion surface.
 
-Fixtures are sanitised before they enter the repository. Hosts are `example.invalid`, secrets are stripped, and the behavioural shape is kept without a live payload.
+Every fixture is one YAML mapping following plan section 5.1. The loader rejects a run on an unknown verdict, a missing label, a duplicate id, a missing `provenance` for `real-sanitized` or `benchmark-derived`, a non-`example.invalid` host in an exfiltration or command-and-control position, an empty corpus directory, a missing directory, a bad derivation, an unknown expected rule id, or an unknown field. It also rejects a corpus whose manifest misses a fixture, names a fixture that does not exist, disagrees with a fixture's surface, label, class, or source, or gives a benchmark-derived fixture a provenance line that does not name its pinned commit.
+
+Fixtures are sanitised before they enter the repository. Hosts are `example.invalid`, email addresses and financial identifiers are replaced, secrets are stripped, and the behavioural shape is kept without a live payload.
+
+## Corpus provenance
+
+The corpus is committed-derived. The distilled, sanitised fixtures are committed, and a pinned script can regenerate them from the upstreams. The default eval run therefore stays offline and deterministic, and a reviewer can audit a fixture from its manifest row without the network.
+
+| Upstream | Pin | What the corpus uses |
+|---|---|---|
+| `ethz-spylab/agentdojo` | `089ed468cf3ed0322acc66b0211f26d9d90dbf60` | Injection goals, attack frames, tool names, and benign environment data. |
+| `microsoft/BIPIA` | `a004b69ec0dd446e0afd461d98cb5e96e120a5d0` | Text attack goals and benign task prompts. |
+| `lzwhehe/benign-instruction-bench` | `5d0ae7c438a7b01be2ac0a2e8bc943e45c8f851f` | The benign-replay method and the imperative-density vocabulary. |
+
+BIPIA's repository licence is MIT, but its task contexts carry dataset-specific terms. The WebQA and Summarization tasks require generating context data under the NewsQA and XSum terms, and the EmailQA and TableQA contexts carry the WikiTableQuestions and Stack Exchange terms. No BIPIA context task is included because none of those terms were read as permitting redistribution of derived fixtures. The corpus uses only the MIT-licensed attack-goal and benign-task JSON. The exclusion is recorded in [`tests/fixtures/screener-corpus/README.md`](../../tests/fixtures/screener-corpus/README.md) and in the manifest.
+
+## Regenerating the corpus
+
+The distiller is a maintenance tool, run by hand with the network available:
+
+```bash
+python scripts/corpus/fetch_and_distil.py --check
+python scripts/corpus/fetch_and_distil.py --prune
+uv run python scripts/eval-build-cassette.py
+uv run python -m llm_ingestion_screener.eval run --update-baseline
+```
+
+`--check` exits non-zero when the committed fixtures or manifest differ from the pinned upstreams. `--prune` deletes fixtures the recipe no longer produces. The script refuses to run when a pin is missing or is not a full commit SHA, verifies every fetched file against a recorded SHA-256, and prints created, updated, unchanged, and stale counts. `--source-dir` reads verified local clones for development without network. The test suite never imports the distiller and never depends on the network.
+
+The cassette builder writes one fixed neutral answer per fixture and question. It is synthetic test data, not measured model output. The baseline update is deliberate and must be reviewed.
+
+The frontier set records what the rules still miss: eight non-English injections, four encoded payloads with no visible decoder, four paraphrased task-irrelevant requests, two exfiltration requests with no URL, the AgentDojo important-instructions template, and the AgentDojo ignore-previous typo. These are reported, not gated. No rule or threshold was changed to catch them. The three upstreams are English-only, so the non-English class is synthetic: eight translations of the direct-address shape, recorded as `synthetic-adversarial`.
 
 ## Gate registry
 
@@ -79,7 +112,7 @@ The engine is pure arithmetic over counts. It imports no numpy and no scikit-lea
 |---|---|
 | Gated | malicious recall, benign false-positive rate, determinism, evidence-record well-formedness, malformed-answer batch failure, corpus coverage |
 | Reported and computed | per-class recall, evasion blocked rate, evasion rule retention, frontier recall, per-surface recall and FPR |
-| Reported, not applicable in Phase 2 | blocked-task share (no task id in the schema), detection at a fixed FPR (the verdict is ordinal), latency (recorded client), calibration (no single probability per fixture), out-of-distribution recall (no held-out split), rule-only lift (no control run), format sensitivity (no normalisation pass), threshold sensitivity (no threshold sweep) |
+| Reported, not applicable in Phase 3 | blocked-task share (no task id in the schema), detection at a fixed FPR (the verdict is ordinal), latency (recorded client), calibration (no single probability per fixture), out-of-distribution recall (no held-out split), rule-only lift (no control run), format sensitivity (no normalisation pass), threshold sensitivity (no threshold sweep) |
 
 Every not-applicable row carries its reason in the report.
 
@@ -101,6 +134,6 @@ The runner passes only fixture content, surface, and provenance into `screen()`.
 
 A malformed decision-model answer is probed through the production path on every run. The probe must raise `MalformedAnswerError`; any other outcome fails the gated `malformed_answer_batch_failure` metric. A report that cannot be written raises and fails the command.
 
-## Out of scope in Phase 2
+## Out of scope in Phase 3
 
-The full Phase 3 corpus, the Phase 4 transform suite beyond the two starter variants, the Phase 5 head-to-head, live latency and calibration measurement, and the Phase 6 generators. The live client and its opt-in `model` run still exist in Phase 1 form, but the harness CLI exposes only recorded mode until Phase 5 defines its operating point.
+The Phase 4 transform suite beyond the two starter variants, the Phase 5 head-to-head, live latency and calibration measurement, and the Phase 6 generators. The live client and its opt-in `model` run still exist in Phase 1 form, but the harness CLI exposes only recorded mode until Phase 5 defines its operating point.
