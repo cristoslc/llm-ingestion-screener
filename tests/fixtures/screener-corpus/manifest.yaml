@@ -1,0 +1,1802 @@
+format: llm-ingestion-screener/corpus-manifest/v1
+pins:
+  ethz-spylab/agentdojo: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+  microsoft/BIPIA: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+  lzwhehe/benign-instruction-bench: 5d0ae7c438a7b01be2ac0a2e8bc943e45c8f851f
+exclusions:
+- upstream: microsoft/BIPIA
+  tasks:
+  - WebQA
+  - Summarization
+  - EmailQA
+  - TableQA
+  reason: 'BIPIA context data carry separate dataset terms: the WebQA and Summarization tasks require generating context data under the NewsQA and XSum terms, and the EmailQA and TableQA contexts carry
+    the WikiTableQuestions and Stack Exchange terms. None of those terms were read as permitting redistribution of derived fixtures, so no BIPIA context task is included. Only the MIT-licensed attack-goal
+    and benign-task JSON is used.'
+fixtures:
+- id: benign-document-imperative-03
+  path: benign/benign-document-imperative-03.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: benign-task/train/Programming Help/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-document-legitimate-02
+  path: benign/benign-document-legitimate-02.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/workspace/include/cloud_drive.yaml#initial_files
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-document-legitimate-04
+  path: benign/benign-document-legitimate-04.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/banking/environment.yaml#transactions
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-document-markup-03
+  path: benign/benign-document-markup-03.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/3
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-document-markup-04
+  path: benign/benign-document-markup-04.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/4
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-document-quoted-03
+  path: benign/benign-document-quoted-03.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/Clickbait/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-document-quoted-04
+  path: benign/benign-document-quoted-04.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/Persuasion/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-document-quoted-08
+  path: benign/benign-document-quoted-08.yaml
+  corpus: benign
+  surface: document
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/README
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-search-result-imperative-02
+  path: benign/benign-search-result-imperative-02.yaml
+  corpus: benign
+  surface: search-result
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: benign-task/train/Content Creation/1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-search-result-imperative-04
+  path: benign/benign-search-result-imperative-04.yaml
+  corpus: benign
+  surface: search-result
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: benign-task/train/Language Translation/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-search-result-imperative-05
+  path: benign/benign-search-result-imperative-05.yaml
+  corpus: benign
+  surface: search-result
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: benign-task/train/Learning and Tutoring/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-search-result-legitimate-06
+  path: benign/benign-search-result-legitimate-06.yaml
+  corpus: benign
+  surface: search-result
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/travel/environment.yaml#flights
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-search-result-markup-02
+  path: benign/benign-search-result-markup-02.yaml
+  corpus: benign
+  surface: search-result
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/2
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-search-result-quoted-02
+  path: benign/benign-search-result-quoted-02.yaml
+  corpus: benign
+  surface: search-result
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/Social Interaction/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-third-party-skill-imperative-06
+  path: benign/benign-third-party-skill-imperative-06.yaml
+  corpus: benign
+  surface: third-party-skill
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: benign-task/train/Programming Help/2
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-third-party-skill-legitimate-08
+  path: benign/benign-third-party-skill-legitimate-08.yaml
+  corpus: benign
+  surface: third-party-skill
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/synthetic/skill-manifest
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-third-party-skill-markup-05
+  path: benign/benign-third-party-skill-markup-05.yaml
+  corpus: benign
+  surface: third-party-skill
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/5
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-third-party-skill-quoted-05
+  path: benign/benign-third-party-skill-quoted-05.yaml
+  corpus: benign
+  surface: third-party-skill
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/Instruction/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-tool-output-imperative-08
+  path: benign/benign-tool-output-imperative-08.yaml
+  corpus: benign
+  surface: tool-output
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: lzwhehe/benign-instruction-bench
+    commit: 5d0ae7c438a7b01be2ac0a2e8bc943e45c8f851f
+    sample_id: scripts/build_corpus.py#IMPERATIVES
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-tool-output-legitimate-01
+  path: benign/benign-tool-output-legitimate-01.yaml
+  corpus: benign
+  surface: tool-output
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/workspace/include/inbox.yaml#initial_emails/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-tool-output-legitimate-03
+  path: benign/benign-tool-output-legitimate-03.yaml
+  corpus: benign
+  surface: tool-output
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/workspace/include/calendar.yaml#initial_events
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-tool-output-legitimate-05
+  path: benign/benign-tool-output-legitimate-05.yaml
+  corpus: benign
+  surface: tool-output
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/slack/environment.yaml#channel_inbox
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-tool-output-markup-06
+  path: benign/benign-tool-output-markup-06.yaml
+  corpus: benign
+  surface: tool-output
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/6
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-tool-output-markup-08
+  path: benign/benign-tool-output-markup-08.yaml
+  corpus: benign
+  surface: tool-output
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/8
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-tool-output-quoted-06
+  path: benign/benign-tool-output-quoted-06.yaml
+  corpus: benign
+  surface: tool-output
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/Base Encoding/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-web-page-imperative-01
+  path: benign/benign-web-page-imperative-01.yaml
+  corpus: benign
+  surface: web-page
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: benign-task/train/Information Retrieval/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-web-page-imperative-07
+  path: benign/benign-web-page-imperative-07.yaml
+  corpus: benign
+  surface: web-page
+  label: benign
+  threat_class: benign-imperative-vocabulary
+  source: benchmark-derived
+  upstream:
+    repository: lzwhehe/benign-instruction-bench
+    commit: 5d0ae7c438a7b01be2ac0a2e8bc943e45c8f851f
+    sample_id: scripts/build_corpus.py#IMPERATIVES
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-web-page-legitimate-07
+  path: benign/benign-web-page-legitimate-07.yaml
+  corpus: benign
+  surface: web-page
+  label: benign
+  threat_class: benign-legitimate-tool-output
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: data/suites/travel/environment.yaml#user
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-web-page-markup-01
+  path: benign/benign-web-page-markup-01.yaml
+  corpus: benign
+  surface: web-page
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/1
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-web-page-markup-07
+  path: benign/benign-web-page-markup-07.yaml
+  corpus: benign
+  surface: web-page
+  label: benign
+  threat_class: benign-serialization-markup
+  source: synthetic
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/markup/7
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: benign-web-page-quoted-01
+  path: benign/benign-web-page-quoted-01.yaml
+  corpus: benign
+  surface: web-page
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/Task Automation/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: benign-web-page-quoted-07
+  path: benign/benign-web-page-quoted-07.yaml
+  corpus: benign
+  surface: web-page
+  label: benign
+  threat_class: benign-quoted-instruction
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: quoted/README
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-agent-directed-03
+  path: eval/eval-document-agent-directed-03.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask2
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-agent-directed-08
+  path: eval/eval-document-agent-directed-08.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask5
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-encoded-04
+  path: eval/eval-document-encoded-04.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/Reverse Text/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-exfiltration-03
+  path: eval/eval-document-exfiltration-03.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/workspace/InjectionTask4
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-exfiltration-08
+  path: eval/eval-document-exfiltration-08.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/travel/InjectionTask3
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-instruction-override-03
+  path: eval/eval-document-instruction-override-03.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/workspace/InjectionTask2
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-instruction-override-08
+  path: eval/eval-document-instruction-override-08.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/workspace/InjectionTask5
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-task-irrelevant-03
+  path: eval/eval-document-task-irrelevant-03.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Instruction/2
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-task-irrelevant-08
+  path: eval/eval-document-task-irrelevant-08.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Social Interaction/4
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-tool-invocation-06
+  path: eval/eval-document-tool-invocation-06.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/travel/InjectionTask3/get_user_information
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-document-tool-result-07
+  path: eval/eval-document-tool-result-07.yaml
+  corpus: eval
+  surface: document
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/slack/InjectionTask2/post_message
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-agent-directed-02
+  path: eval/eval-search-result-agent-directed-02.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-agent-directed-07
+  path: eval/eval-search-result-agent-directed-07.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/travel/InjectionTask6
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-encoded-03
+  path: eval/eval-search-result-encoded-03.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/Substitution Ciphers/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-exfiltration-07
+  path: eval/eval-search-result-exfiltration-07.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/travel/InjectionTask1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-instruction-override-02
+  path: eval/eval-search-result-instruction-override-02.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/workspace/InjectionTask1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-instruction-override-07
+  path: eval/eval-search-result-instruction-override-07.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/travel/InjectionTask4
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-task-irrelevant-02
+  path: eval/eval-search-result-task-irrelevant-02.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Social Interaction/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-task-irrelevant-07
+  path: eval/eval-search-result-task-irrelevant-07.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/Information Dissemination/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-tool-invocation-07
+  path: eval/eval-search-result-tool-invocation-07.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/slack/InjectionTask2/post_message
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-search-result-tool-result-08
+  path: eval/eval-search-result-tool-result-08.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/banking/InjectionTask4/update_scheduled_transaction
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-agent-directed-04
+  path: eval/eval-third-party-skill-agent-directed-04.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask3
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-encoded-05
+  path: eval/eval-third-party-skill-encoded-05.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/Emoji Substitution/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-exfiltration-04
+  path: eval/eval-third-party-skill-exfiltration-04.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/workspace/InjectionTask5
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-instruction-override-04
+  path: eval/eval-third-party-skill-instruction-override-04.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/workspace/InjectionTask3
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-task-irrelevant-04
+  path: eval/eval-third-party-skill-task-irrelevant-04.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Persuasion/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-tool-invocation-01
+  path: eval/eval-third-party-skill-tool-invocation-01.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/workspace/InjectionTask0/send_email
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-tool-invocation-05
+  path: eval/eval-third-party-skill-tool-invocation-05.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/workspace/InjectionTask2/create_calendar_event
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-tool-invocation-08
+  path: eval/eval-third-party-skill-tool-invocation-08.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/banking/InjectionTask4/update_scheduled_transaction
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-third-party-skill-tool-result-06
+  path: eval/eval-third-party-skill-tool-result-06.yaml
+  corpus: eval
+  surface: third-party-skill
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/travel/InjectionTask3/get_user_information
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-agent-directed-05
+  path: eval/eval-tool-output-agent-directed-05.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/banking/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-encoded-06
+  path: eval/eval-tool-output-encoded-06.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Social Interaction/1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-encoded-07
+  path: eval/eval-tool-output-encoded-07.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Persuasion/1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-encoded-08
+  path: eval/eval-tool-output-encoded-08.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/Information Dissemination/1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-exfiltration-05
+  path: eval/eval-tool-output-exfiltration-05.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/banking/InjectionTask8
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-instruction-override-05
+  path: eval/eval-tool-output-instruction-override-05.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/banking/InjectionTask4
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-task-irrelevant-05
+  path: eval/eval-tool-output-task-irrelevant-05.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Clickbait/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-tool-invocation-02
+  path: eval/eval-tool-output-tool-invocation-02.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/workspace/InjectionTask1/delete_file
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-tool-invocation-04
+  path: eval/eval-tool-output-tool-invocation-04.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/banking/InjectionTask5/send_money
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-tool-result-01
+  path: eval/eval-tool-output-tool-result-01.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/workspace/InjectionTask0/send_email
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-tool-result-02
+  path: eval/eval-tool-output-tool-result-02.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/workspace/InjectionTask1/delete_file
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-tool-result-03
+  path: eval/eval-tool-output-tool-result-03.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/banking/InjectionTask7/update_password
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-tool-result-04
+  path: eval/eval-tool-output-tool-result-04.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/banking/InjectionTask5/send_money
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-tool-output-tool-result-05
+  path: eval/eval-tool-output-tool-result-05.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: tool-result-injection
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: tool-result-frame/v1/workspace/InjectionTask2/create_calendar_event
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-agent-directed-01
+  path: eval/eval-web-page-agent-directed-01.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-agent-directed-06
+  path: eval/eval-web-page-agent-directed-06.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/slack/InjectionTask1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-encoded-02
+  path: eval/eval-web-page-encoded-02.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/Base Encoding/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-exfiltration-01
+  path: eval/eval-web-page-exfiltration-01.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/workspace/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-exfiltration-06
+  path: eval/eval-web-page-exfiltration-06.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/slack/InjectionTask2
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-instruction-override-01
+  path: eval/eval-web-page-instruction-override-01.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/workspace/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-instruction-override-06
+  path: eval/eval-web-page-instruction-override-06.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: InjecAgentAttack/v1/slack/InjectionTask4
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-task-irrelevant-01
+  path: eval/eval-web-page-task-irrelevant-01.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Instruction/0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-task-irrelevant-06
+  path: eval/eval-web-page-task-irrelevant-06.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Instruction/1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: eval-web-page-tool-invocation-03
+  path: eval/eval-web-page-tool-invocation-03.yaml
+  corpus: eval
+  surface: web-page
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ToolKnowledgeAttack/v1/banking/InjectionTask7/update_password
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: search-result-exfiltration-request
+  path: eval/search-result-exfiltration-request.yaml
+  corpus: eval
+  surface: search-result
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/workspace/InjectionTask3
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: tool-output-encoded-execution
+  path: eval/tool-output-encoded-execution.yaml
+  corpus: eval
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_train/Instruction/3
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: frontier-document-encoded-miss-03
+  path: frontier/frontier-document-encoded-miss-03.yaml
+  corpus: frontier
+  surface: document
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/encoded/3
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: frontier-document-exfiltration-miss-02
+  path: frontier/frontier-document-exfiltration-miss-02.yaml
+  corpus: frontier
+  surface: document
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/exfiltration-no-url
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-document-non-english-03
+  path: frontier/frontier-document-non-english-03.yaml
+  corpus: frontier
+  surface: document
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/german
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-document-non-english-04
+  path: frontier/frontier-document-non-english-04.yaml
+  corpus: frontier
+  surface: document
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/portuguese
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-document-task-irrelevant-miss-03
+  path: frontier/frontier-document-task-irrelevant-miss-03.yaml
+  corpus: frontier
+  surface: document
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/task-irrelevant-paraphrase
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-search-result-non-english-02
+  path: frontier/frontier-search-result-non-english-02.yaml
+  corpus: frontier
+  surface: search-result
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/french
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-search-result-non-english-08
+  path: frontier/frontier-search-result-non-english-08.yaml
+  corpus: frontier
+  surface: search-result
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/korean
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-search-result-task-irrelevant-miss-02
+  path: frontier/frontier-search-result-task-irrelevant-miss-02.yaml
+  corpus: frontier
+  surface: search-result
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/task-irrelevant-paraphrase
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-third-party-skill-encoded-miss-04
+  path: frontier/frontier-third-party-skill-encoded-miss-04.yaml
+  corpus: frontier
+  surface: third-party-skill
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/encoded/4
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: frontier-third-party-skill-non-english-05
+  path: frontier/frontier-third-party-skill-non-english-05.yaml
+  corpus: frontier
+  surface: third-party-skill
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/italian
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-third-party-skill-task-irrelevant-miss-04
+  path: frontier/frontier-third-party-skill-task-irrelevant-miss-04.yaml
+  corpus: frontier
+  surface: third-party-skill
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/task-irrelevant-paraphrase
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-tool-output-encoded-miss-01
+  path: frontier/frontier-tool-output-encoded-miss-01.yaml
+  corpus: frontier
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/encoded/1
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: frontier-tool-output-ignore-previous-typo-miss
+  path: frontier/frontier-tool-output-ignore-previous-typo-miss.yaml
+  corpus: frontier
+  surface: tool-output
+  label: malicious
+  threat_class: instruction-override
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: IgnorePreviousAttack/v1/workspace/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: frontier-tool-output-non-english-07
+  path: frontier/frontier-tool-output-non-english-07.yaml
+  corpus: frontier
+  surface: tool-output
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/chinese
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-web-page-encoded-miss-02
+  path: frontier/frontier-web-page-encoded-miss-02.yaml
+  corpus: frontier
+  surface: web-page
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: benchmark-derived
+  upstream:
+    repository: microsoft/BIPIA
+    commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
+    sample_id: text_attack_test/encoded/2
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: frontier-web-page-exfiltration-miss-01
+  path: frontier/frontier-web-page-exfiltration-miss-01.yaml
+  corpus: frontier
+  surface: web-page
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/exfiltration-no-url
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-web-page-important-instructions-miss
+  path: frontier/frontier-web-page-important-instructions-miss.yaml
+  corpus: frontier
+  surface: web-page
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: frontier-web-page-non-english-01
+  path: frontier/frontier-web-page-non-english-01.yaml
+  corpus: frontier
+  surface: web-page
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/spanish
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-web-page-non-english-06
+  path: frontier/frontier-web-page-non-english-06.yaml
+  corpus: frontier
+  surface: web-page
+  label: malicious
+  threat_class: non-english
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/non-english/japanese
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: frontier-web-page-task-irrelevant-miss-01
+  path: frontier/frontier-web-page-task-irrelevant-miss-01.yaml
+  corpus: frontier
+  surface: web-page
+  label: malicious
+  threat_class: task-irrelevant-injection
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/task-irrelevant-paraphrase
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: document-exfiltration-request
+  path: golden/document-exfiltration-request.yaml
+  corpus: golden
+  surface: document
+  label: malicious
+  threat_class: exfiltration-request
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: exfiltration-goal/v1/workspace/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: search-result-bidi-override
+  path: golden/search-result-bidi-override.yaml
+  corpus: golden
+  surface: search-result
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/bidi-override
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: third-party-skill-tool-invocation-lure
+  path: golden/third-party-skill-tool-invocation-lure.yaml
+  corpus: golden
+  surface: third-party-skill
+  label: malicious
+  threat_class: tool-invocation-lure
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/tool-invocation-lure
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: tool-output-ignore-previous
+  path: golden/tool-output-ignore-previous.yaml
+  corpus: golden
+  surface: tool-output
+  label: malicious
+  threat_class: instruction-override
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: synthetic/instruction-override
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: web-page-agent-directed-imperative
+  path: golden/web-page-agent-directed-imperative.yaml
+  corpus: golden
+  surface: web-page
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: benchmark-derived
+  upstream:
+    repository: ethz-spylab/agentdojo
+    commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
+    sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask0
+  sanitisation:
+  - hosts replaced with example.invalid
+  - email addresses replaced with example.invalid
+  - verbatim upstream payload not stored
+  - inert behavioural shape only
+- id: tool-output-encoded-execution-base64
+  path: transforms/base64-wrap/tool-output-encoded-execution-base64.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:tool-output-encoded-execution
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: search-result-exfiltration-request-split
+  path: transforms/split-string-literals/search-result-exfiltration-request-split.yaml
+  corpus: transforms
+  surface: search-result
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:search-result-exfiltration-request
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target

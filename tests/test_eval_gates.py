@@ -129,7 +129,7 @@ def test_a_deliberately_broken_recall_gate_fails(tmp_path: Path) -> None:
     broken = gates_with(
         tmp_path,
         lambda payload: payload["metrics"]["malicious_recall"].__setitem__(
-            "threshold", 0.99
+            "threshold", 1.01
         ),
     )
     broken_registry = load_gates(broken)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Build the synthetic recorded cassette for the starter eval corpus.
+"""Build the synthetic recorded cassette for the committed eval corpus.
 
 The answers are fixed neutral values, not measured model output. They exist so
 the default run exercises the recorded-client path offline and byte for byte.
@@ -18,7 +18,7 @@ from llm_ingestion_screener.questions import Question, QuestionKind, questions_f
 
 COMMENT = (
     "SYNTHETIC CASSETTE. Every answer is a fixed neutral value written for the "
-    "starter eval corpus; these are not measured clef-flash output and must not "
+    "committed-derived eval corpus; these are not measured clef-flash output and must not "
     "be read as a benchmark result. The material is sanitised with "
     "example.invalid hosts and no live payload."
 )

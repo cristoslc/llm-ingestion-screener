@@ -34,7 +34,7 @@ def test_cli_returns_nonzero_when_a_gate_fails(tmp_path: Path, capsys) -> None:
     broken = gates_with(
         tmp_path,
         lambda payload: payload["metrics"]["malicious_recall"].__setitem__(
-            "threshold", 0.99
+            "threshold", 1.01
         ),
     )
     code = main(

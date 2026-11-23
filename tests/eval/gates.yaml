@@ -57,26 +57,26 @@ metrics:
 coverage:
   directories:
     golden: 5
-    eval: 12
-    frontier: 3
-    benign: 10
+    eval: 56
+    frontier: 20
+    benign: 32
     transforms: 2
   surfaces:
-    web-page: 1
-    search-result: 1
-    document: 1
-    third-party-skill: 1
-    tool-output: 1
+    web-page: 20
+    search-result: 18
+    document: 20
+    third-party-skill: 15
+    tool-output: 22
   threat_classes:
-    agent-directed-imperative: 1
-    instruction-override: 1
-    tool-result-injection: 1
-    exfiltration-request: 1
-    tool-invocation-lure: 1
-    task-irrelevant-injection: 1
-    encoded-obfuscated: 1
-    non-english: 1
-    benign-imperative-vocabulary: 1
-    benign-serialization-markup: 1
-    benign-legitimate-tool-output: 1
-    benign-quoted-instruction: 1
+    agent-directed-imperative: 8
+    instruction-override: 8
+    tool-result-injection: 8
+    exfiltration-request: 8
+    tool-invocation-lure: 8
+    task-irrelevant-injection: 8
+    encoded-obfuscated: 8
+    non-english: 8
+    benign-imperative-vocabulary: 6
+    benign-serialization-markup: 6
+    benign-legitimate-tool-output: 6
+    benign-quoted-instruction: 6

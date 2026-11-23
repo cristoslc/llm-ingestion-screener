@@ -33,7 +33,7 @@ def test_the_runner_records_verdicts_and_evidence() -> None:
     assert len(results) == len(corpus.fixtures)
     by_id = {result.fixture_id: result for result in results}
     assert by_id["web-page-agent-directed-imperative"].caught
-    assert not by_id["web-page-non-english"].caught
+    assert not by_id["frontier-web-page-non-english-01"].caught
     for result in results:
         if result.verdict != "clean":
             assert result.evidence_ok
@@ -41,7 +41,7 @@ def test_the_runner_records_verdicts_and_evidence() -> None:
 
 def test_the_screen_never_sees_the_truth_label() -> None:
     corpus = load_corpus(CORPUS)
-    fixture = corpus.by_id["web-page-non-english"]
+    fixture = corpus.by_id["frontier-web-page-non-english-01"]
     assert fixture.label == "malicious"
     benign_content = "An ordinary page about gardening and the weather.\n"
     disguised = replace(
