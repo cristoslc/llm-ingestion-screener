@@ -71,7 +71,7 @@ def test_a_broken_gate_fails_the_run(tmp_path: Path) -> None:
     broken = gates_with(
         tmp_path,
         lambda payload: payload["metrics"]["malicious_recall"].__setitem__(
-            "threshold", 0.99
+            "threshold", 1.01
         ),
     )
     run = run_default(tmp_path, gates=broken)
@@ -119,7 +119,7 @@ def test_a_gated_metric_regression_is_distinguished_from_a_corpus_change(
 ) -> None:
     baseline = tmp_path / "baseline.json"
     payload = json.loads(BASELINE.read_text(encoding="utf-8"))
-    payload["metrics"]["malicious_recall"]["value"] = 0.99
+    payload["metrics"]["malicious_recall"]["value"] = 1.01
     baseline.write_text(
         json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
@@ -168,10 +168,23 @@ def test_a_deleted_corpus_directory_is_caught(tmp_path: Path) -> None:
 def test_a_corpus_change_is_not_a_metric_regression(tmp_path: Path) -> None:
     root = copy_corpus(tmp_path)
     extra = root / "benign" / "extra-benign.yaml"
-    payload = load_yaml(root / "benign" / "web-page-imperative-vocabulary.yaml")
+    source = root / "benign" / "benign-web-page-markup-01.yaml"
+    payload = load_yaml(source)
     payload["id"] = "extra-benign"
     payload["title"] = "An extra benign page"
     write_yaml(extra, payload)
+    manifest_path = root / "manifest.yaml"
+    manifest = load_yaml(manifest_path)
+    entry = next(
+        item
+        for item in manifest["fixtures"]
+        if item["id"] == "benign-web-page-markup-01"
+    )
+    extra_entry = dict(entry)
+    extra_entry["id"] = "extra-benign"
+    extra_entry["path"] = "benign/extra-benign.yaml"
+    manifest["fixtures"].append(extra_entry)
+    write_yaml(manifest_path, manifest)
     baseline = tmp_path / "baseline.json"
     shutil.copy(BASELINE, baseline)
     run = run_eval(

@@ -13,18 +13,27 @@ from eval_support import CORPUS, copy_corpus, mutate_yaml
 
 GOLDEN_WEB = "golden/web-page-agent-directed-imperative.yaml"
 GOLDEN_DOCUMENT = "golden/document-exfiltration-request.yaml"
-EVAL_NON_ENGLISH = "eval/web-page-non-english.yaml"
-BENIGN = "benign/tool-output-json-keys-look-like-commands.yaml"
+EVAL_NON_ENGLISH = "frontier/frontier-web-page-non-english-01.yaml"
+BENIGN = "benign/benign-web-page-markup-01.yaml"
 TRANSFORM = "transforms/split-string-literals/search-result-exfiltration-request-split.yaml"
 
 
-def test_loads_the_committed_starter_corpus() -> None:
+def test_loads_the_committed_corpus() -> None:
     corpus = load_corpus(CORPUS)
-    assert len(corpus.fixtures) == 32
-    assert len(corpus.by_id) == 32
+    assert len(corpus.fixtures) == 115
+    assert len(corpus.by_id) == 115
     assert len(corpus.fingerprint) == 64
     assert {fixture.corpus for fixture in corpus.fixtures} == set(CORPUS_DIRECTORIES)
     assert all(fixture.path.is_file() for fixture in corpus.fixtures)
+
+
+def test_every_committed_fixture_validates() -> None:
+    corpus = load_corpus(CORPUS)
+    assert corpus.fixtures
+    for fixture in corpus.fixtures:
+        assert fixture.id
+        assert fixture.content
+        assert fixture.provenance
 
 
 def test_rejects_an_unknown_verdict(tmp_path: Path) -> None:
@@ -84,14 +93,14 @@ def test_allows_a_non_example_host_with_no_exfiltration_context(
 ) -> None:
     root = copy_corpus(tmp_path)
     mutate_yaml(
-        root / "benign/search-result-legitimate-tool-output.yaml",
+        root / "benign/benign-web-page-markup-01.yaml",
         lambda payload: payload.__setitem__(
             "content",
             "Documentation is at https://docs.example.org/weather.\n",
         ),
     )
     corpus = load_corpus(root)
-    assert "search-result-legitimate-tool-output" in corpus.by_id
+    assert "benign-web-page-markup-01" in corpus.by_id
 
 
 def test_rejects_an_empty_corpus_directory(tmp_path: Path) -> None:

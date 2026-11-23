@@ -211,6 +211,21 @@ def load_corpus(root: str | Path) -> Corpus:
         by_id[fixture.id] = fixture
 
     _validate_derivations(by_id)
+
+    from llm_ingestion_screener.eval.manifest import (
+        MANIFEST_NAME,
+        load_manifest,
+        validate_manifest,
+    )
+
+    manifest_path = corpus_root / MANIFEST_NAME
+    if not manifest_path.is_file():
+        raise EvaluationError(
+            f"corpus manifest is missing at {manifest_path}"
+        )
+    manifest = load_manifest(manifest_path)
+    validate_manifest(corpus_root, tuple(loaded), manifest)
+
     return Corpus(root=corpus_root, fixtures=tuple(loaded))
 
 

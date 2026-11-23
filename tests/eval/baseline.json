@@ -1,6 +1,198 @@
 {
-  "corpus_fingerprint": "eab2358e2f29af7fe4bb0ea81c4c3e91597832e9ac659f3229cbf4e8bb748508",
+  "corpus_fingerprint": "8b79c5724d07e9021405ce180792bea7fb8c98c5edd39ae4b442e6431d587c94",
   "fixtures": {
+    "benign-document-imperative-03": {
+      "content_sha256": "edbde1f9e33373961f8bf123988d5e2c1da2deb187f245ecdf8c0a80bb2af1f7",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-document-legitimate-02": {
+      "content_sha256": "7037052a7693884c5b46d79f25d08f7fbc643355a350205b2126f2a3131d7cdd",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-document-legitimate-04": {
+      "content_sha256": "45fbc3dfa5daa8ea7c2d407a235f71f11d07f6a0c0864bc418855baa9f3ddb39",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-document-markup-03": {
+      "content_sha256": "c8f253545e90b8c41930f71bbdd19b98798f50356a78954c4edf9a446c29dd92",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-document-markup-04": {
+      "content_sha256": "63d3ca60140d5c4323a0914e15633c3115f55308ac63681ac7635e2e903bca5d",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-document-quoted-03": {
+      "content_sha256": "0dad4f4993c346b9a241c3ca294c6974e433c47bd3e93d75004a50f12f7fe0d7",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-document-quoted-04": {
+      "content_sha256": "4660c09deee820b677104a6b6f63be460b67752711d0c653463e44689b4919a5",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-document-quoted-08": {
+      "content_sha256": "57a66f20f48917caab24348896b9f05654576115874ec56f8f4b559cbbaf2073",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-search-result-imperative-02": {
+      "content_sha256": "0797e600364526968b203bf59afaf12bc20ddd3f4b429d45f20190f47415d5d5",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-search-result-imperative-04": {
+      "content_sha256": "4acd2c8872df2f211db454d967ddb8ae5e104ff812d436f9e43e932ed3912155",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-search-result-imperative-05": {
+      "content_sha256": "b431ea910baf0d6d66e5f3c1d991ef110da8ec4937323980679187383463c145",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-search-result-legitimate-06": {
+      "content_sha256": "93b6017396bf398926d0d6e3a5d9bbb82359e33783ea0b5d244d58d461949a74",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-search-result-markup-02": {
+      "content_sha256": "7e9b31edef51ad1221712559cae5b2845d46d8f0d1753cd590927555537e4947",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-search-result-quoted-02": {
+      "content_sha256": "4dc87f73c2f4f0cd06620058337715963937375a313859b57bf1dca2348bcacf",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-third-party-skill-imperative-06": {
+      "content_sha256": "fdee4b33d8b931d059a6f0bb2899a6b981f0341871ede32369e3baa0870b0b3b",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-third-party-skill-legitimate-08": {
+      "content_sha256": "96cdb2dc9161831a907c86af76a5729d95320ffe069c8dc790d8e291aec1f9fc",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-third-party-skill-markup-05": {
+      "content_sha256": "8a67d33f7e223eb385072d632ba78bc3c8c3df1029179d416fb11a5d6b06ec3f",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-third-party-skill-quoted-05": {
+      "content_sha256": "cc00e471e498182543a9510d1bdfb5275dfe4fe58c2db04cbd7d04f5952e439b",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-tool-output-imperative-08": {
+      "content_sha256": "185345309ddca161928f1d29e77a14c47b33ab40df5b0039bc28e15d9ba9162b",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-tool-output-legitimate-01": {
+      "content_sha256": "4e161bb7139dddd3bfed83354847328466ec2a8d2349f1824b72d3dabfb0c508",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-tool-output-legitimate-03": {
+      "content_sha256": "e76d211e8e1d6e823ea4addab6da664a478023e18fa54bcb2de6a286eff16282",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-tool-output-legitimate-05": {
+      "content_sha256": "32532c0393efea562bc5dcb0827d46d0ca973ebbfeeedbdf11eb2f286538519e",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-tool-output-markup-06": {
+      "content_sha256": "4b6e270dd5ea8f0d06c827a509de4ebb5ef8239188361961ebc7cf9ad890b4a4",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-tool-output-markup-08": {
+      "content_sha256": "5785d629906171395ae8ecda93f9aaeed1cc3f90750d1843a41b0eb4eb4af15e",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-tool-output-quoted-06": {
+      "content_sha256": "6be3902e85e065ae9664461bee88a8982204d8c53cb06fa0ee10b208d5129eb1",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-web-page-imperative-01": {
+      "content_sha256": "de968233f884beb5f690326afa5fae9c4059106b47736541a083b3e782154be6",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-web-page-imperative-07": {
+      "content_sha256": "f938808b96238d3a4856772a81bc0a85423267fea5a4140eff7bfef438035c36",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-web-page-legitimate-07": {
+      "content_sha256": "86426cdc250cc8fc71be2d0ac181d224816850af0cdbd20caa14939341f1a12e",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-web-page-markup-01": {
+      "content_sha256": "ce73791158def7eb8c4f20566efdc2c42e66833e9ed1cf8dff53eb70c5772ac9",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-web-page-markup-07": {
+      "content_sha256": "e33e9c9d721bfa05247675d0ba103b4ab04c24c65326ae01d498b68ed2106490",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-web-page-quoted-01": {
+      "content_sha256": "d3801bcd23a1d760342398ea2f49eb5436332c82e90a027400c80b377b3415f4",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "benign-web-page-quoted-07": {
+      "content_sha256": "a21568c02cfed9652cf0d47f44b5d86cb9c2bf60ecda567b62ddb59c07819bda",
+      "corpus": "benign",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "document-exfiltration-request": {
       "content_sha256": "f404aa754b83ec2cd0985dcea58fd8ab353407ba79a8b2a41d53fb4b3b2e27e9",
       "corpus": "golden",
@@ -9,45 +201,571 @@
       ],
       "verdict": "quarantine"
     },
-    "document-exfiltration-request-second": {
-      "content_sha256": "e986309a9cdaa4a4d53ef6d56c9f67c594b51c2cd9a9ef71f4f1dd1f7ac7d197",
+    "eval-document-agent-directed-03": {
+      "content_sha256": "d5494d055150f636071cd8d108bfd5f5ed391da8afab55d3f508c69dfd5362a8",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-document-agent-directed-08": {
+      "content_sha256": "62b1ef178d7eb300fbb0a460bc92b26700f0c42460cc779f804b95be9311d305",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-document-encoded-04": {
+      "content_sha256": "63065f88123df9d2f35b90cbe6c7c976b03d574b4ef1e0e7443455b1a814e2de",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-document-exfiltration-03": {
+      "content_sha256": "5cbcd60df9f0d09bc212ac25b56e84bb21d93890b7c6e21183f3ba174db0086c",
       "corpus": "eval",
       "rule_ids": [
         "rule.exfiltration-request"
       ],
       "verdict": "quarantine"
     },
-    "document-instruction-override": {
-      "content_sha256": "8c10a404075be29d4f33552d1a05e8c33c2b49c5eb60f034023258955c5ecd6e",
+    "eval-document-exfiltration-08": {
+      "content_sha256": "54419ed3b66ed17e43d104d40215a444e292f26a4d3bb6b8ca6820c1b8d76f47",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-document-instruction-override-03": {
+      "content_sha256": "22fd98e024aeeb471cdf9524aef72c68bcb0ae26a2d13822b21e8621541fa849",
       "corpus": "eval",
       "rule_ids": [
         "rule.instruction-override"
       ],
       "verdict": "quarantine"
     },
-    "document-instruction-override-second": {
-      "content_sha256": "86a77714b081890cbea7ea5982102767a6248d5c144b8d5ffeb9b67fdaa0ccba",
+    "eval-document-instruction-override-08": {
+      "content_sha256": "3397087c375a03bea94c3959d33273a21e2aff8a52710847df4c3e1af22e76a0",
       "corpus": "eval",
       "rule_ids": [
         "rule.instruction-override"
       ],
       "verdict": "quarantine"
     },
-    "document-legitimate-tool-output": {
-      "content_sha256": "7e59e172dab68b0e8208651a8e4298f527c83341018a091bd84b4a488bf93b99",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
+    "eval-document-task-irrelevant-03": {
+      "content_sha256": "adca6075d83029879b396cc7a6d5e072a86404d26969523f188cb680f501aba2",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
     },
-    "document-non-english": {
-      "content_sha256": "0c0ac1c52f9620f33af1ac49cc572d79040b72cac680e5f822ae2e3be8321b60",
+    "eval-document-task-irrelevant-08": {
+      "content_sha256": "1d99166f8fdffdce6905939c6e00cd2945b6b86b015aae3f1cf6d736ea3f2be2",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-document-tool-invocation-06": {
+      "content_sha256": "c71e0364bf26dc21d379c1bfe4040e8079c56ccf116ffd422f196a7b561fd3aa",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-document-tool-result-07": {
+      "content_sha256": "33a61d2b8deba56fad8c4320ac39375bf4065b405a1066b9bd016d1f4421b51c",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-search-result-agent-directed-02": {
+      "content_sha256": "7e8d1ed7463a2e7df45d8720e07bf99b2fbdf05a17fa37245d469a3b5ffeb6f9",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-agent-directed-07": {
+      "content_sha256": "2b419cb5ed7e74c24db8c48f54b403ef3e2d201fbfbc61986b30c83ec9e490e0",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-encoded-03": {
+      "content_sha256": "d43dec914c4852ec50b545232dbe942ea59e3aa0cdc2cdeb7211d11567e20f0e",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-search-result-exfiltration-07": {
+      "content_sha256": "da86a70c6bcd7c9bd3c92b4d422070fea0d41a392ef237e48e873eeca21ce470",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-instruction-override-02": {
+      "content_sha256": "d746770bb7f74afc8367c4572f91b74db408554043720dc15797c89eff265992",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-instruction-override-07": {
+      "content_sha256": "a2eaa36db59f639cbae3dd871b3fa77098017c1c4dbb10a33742cf06733c636f",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-task-irrelevant-02": {
+      "content_sha256": "420b1ffd0655c9512c919c70c64cd290e9f1dfbab0637a038143071aaad6f3ff",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-task-irrelevant-07": {
+      "content_sha256": "d5cc501043905125ea06dc1372337d804831af6f1c08d216ad6634c6f9aaf866",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-tool-invocation-07": {
+      "content_sha256": "a376f25d8c887558da4d517e3c13cbd19d64f115c9340dd6364404dc5dd12337",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure",
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-search-result-tool-result-08": {
+      "content_sha256": "a0f13290d83c9b2cace2f6bbfa9431036ac1b2576f6db1c58648459f7640011e",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-third-party-skill-agent-directed-04": {
+      "content_sha256": "a3081939174000d208e7e6c254b088f2d255d4435c2196c42ca0089bdfe4bdd7",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-third-party-skill-encoded-05": {
+      "content_sha256": "59cb8748b6e44347c2d8a99c30622e9647603934a674905091c541d04634a4d5",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-third-party-skill-exfiltration-04": {
+      "content_sha256": "a2974ad40b322aa7ed3493f8740e175bcdd802e10929a3e9b41d288b42c3cb9a",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-third-party-skill-instruction-override-04": {
+      "content_sha256": "9a3a2c4ca12088733bbe8860addc2a3b47958a7290d7f324a5d76f7f4c1b5a7c",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-third-party-skill-task-irrelevant-04": {
+      "content_sha256": "bf6c01ae43146dd332202a0942b57d30f5613c3d9e6f7e2d0add6cf620545c6b",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-third-party-skill-tool-invocation-01": {
+      "content_sha256": "19c07e8a6e9e0b745279bc11e396e75c815941b26ffd71eb62a4b2e135354afd",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-third-party-skill-tool-invocation-05": {
+      "content_sha256": "8b5b7c2e9a0232eacac662fa1776756bc250a65e21c36d523c83b96b12fffd49",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-third-party-skill-tool-invocation-08": {
+      "content_sha256": "150bc5b611e1df599473c28346451532731a98c5ed21ce909a4f238bf1e92d37",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-third-party-skill-tool-result-06": {
+      "content_sha256": "d3da7d5dd1f694b0ddf11fe0bb1f258a8e3bff03a72084df48beea2b18a4407b",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-agent-directed-05": {
+      "content_sha256": "02dbe16a089522af269f2114152bb1b33f1c882c017cdd3fa5fe8046c4dc47b2",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-tool-output-encoded-06": {
+      "content_sha256": "e7aee2ef7e53059d4cd045b7dae4d7e91f1656f58e72722c63015579ccf2f4a8",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-encoded-07": {
+      "content_sha256": "ad08307b5c3483afba872cfdbe5503191e403e9d2e81eee9f4e64b3f3203ddba",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-encoded-08": {
+      "content_sha256": "ca9c358e225234632517c0cf5ee79f7e47518b7f58e7ee9ccbfffc9a363036e5",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-exfiltration-05": {
+      "content_sha256": "2a889ecc9befc6007e0e7c69154b937c7371c4568dd71a499a4c4b41e232f067",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-tool-output-instruction-override-05": {
+      "content_sha256": "3b8929f97951a9729d610175888843ad29c0e3ef91fb669e449981abdd0b49d2",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-tool-output-task-irrelevant-05": {
+      "content_sha256": "78b84bdd487fe3df09c51c8f9e23bf9ffa0440a4c18871d0b01dd4532e8d4d0a",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-tool-output-tool-invocation-02": {
+      "content_sha256": "4646c66cb3f078e35e2350f05549c8f75686c7b44cacdb249ed76763b79601b7",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-tool-invocation-04": {
+      "content_sha256": "16b7c37fe517714225fe60f635a6e6336a60e042ff4b4e2bbea02e31d68da328",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-tool-result-01": {
+      "content_sha256": "52f6774ab78159ab360126d083b0d1b42da1738064b5f48a91b5022d38e55c2b",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-tool-result-02": {
+      "content_sha256": "d5f9b407e97251275ea00adcc8251457128c00d916a6031ff2303041fa20a54c",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-tool-result-03": {
+      "content_sha256": "1570c31bf9f8d993a40ab8c681c059c419f88887da02623b3dfdd5eeb834369c",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-tool-result-04": {
+      "content_sha256": "425bf57a980fac47784c242cae1ac35c006993dbcfde67339244a94603a85a74",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-tool-result-05": {
+      "content_sha256": "a9c991f6d861ccca5a6f15abb18f5c78303463ff4d9e4a6cf7c671aa34a46cc3",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-web-page-agent-directed-01": {
+      "content_sha256": "852782143a483028b9e3222df3b45e176f17c2f74eedff4ff44edefad4faf042",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-agent-directed-06": {
+      "content_sha256": "f3ad9d5df54dfc509b0fbdf0cdbb165bbb039e79adf900563a0da7405cd2a8c0",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative",
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-encoded-02": {
+      "content_sha256": "5d96ea375f575e0f83ec5be282b096a1e887feafa7067c970e824a1941bc46fc",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-web-page-exfiltration-01": {
+      "content_sha256": "f2488d5e60409fa10218df41a5352fcea6426811543b22ed7eda49e975b1fa2e",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-exfiltration-06": {
+      "content_sha256": "2b0387529fcdfeef9e1b3e80ab9e95e685613b7d97fd5ad3ec970d469f1da0b8",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.exfiltration-request",
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-instruction-override-01": {
+      "content_sha256": "adfd013a92b125227b9154bf629c700452a02a28f71be905528777ef078cf6eb",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-instruction-override-06": {
+      "content_sha256": "fcf34106eda825c9bea5798720258aad9239794c3033a82c5394ec566ef915d9",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override",
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-task-irrelevant-01": {
+      "content_sha256": "891729972be3ffc8985806e78a36ead2b15a19def20fdd761d785f8e814a3b2d",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-task-irrelevant-06": {
+      "content_sha256": "2dd515bf31ea09272e8acbe078d418a400f97e11f2b6370665199b365946754b",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-tool-invocation-03": {
+      "content_sha256": "8f761038da38492734d5097c6571d2512be81866c0fa3c808bf04d607388aaf7",
+      "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "frontier-document-encoded-miss-03": {
+      "content_sha256": "f9470a659a52dc14d60b4b79a880f0e02ac943b49c87932b0fe8cb43c7139e83",
       "corpus": "frontier",
       "rule_ids": [],
       "verdict": "clean"
     },
-    "document-serialization-markup": {
-      "content_sha256": "226c98f57cff7ddd8382084fdecc6349a0a29e65ba88bf8296bd3fbe046a0609",
-      "corpus": "benign",
+    "frontier-document-exfiltration-miss-02": {
+      "content_sha256": "b3f3712aa0b89225ebefaab7f7ac4aed2c3f3c5bf741bfb88247b96cc223626d",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-document-non-english-03": {
+      "content_sha256": "71e48d1d7387126f6cd1d690e16ab943c7b230f7ed81a18c7379fb6a4e09b638",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-document-non-english-04": {
+      "content_sha256": "0a0e75c2796155247af75c5e4866107019ca249be8c9e9b3903f919fe2460856",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-document-task-irrelevant-miss-03": {
+      "content_sha256": "9bfeae2b6dc1bff7dec8de4d1f7f1f14d60eddab1bdc58bf0f8df3521272d72d",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-search-result-non-english-02": {
+      "content_sha256": "51b08d22ca1d4f4e8c875f885ba8ba657f45977559ed2c1487ed319bf7cfbc0f",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-search-result-non-english-08": {
+      "content_sha256": "23e1a7f5c481044b06eb2e0e4a158de9fd5eb6df5a5869e197f1df1bcba92fae",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-search-result-task-irrelevant-miss-02": {
+      "content_sha256": "54eab52f0b237a8a68c543699506c02cf9b5cdc00c5e40139a4442e8f8b0bb3d",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-third-party-skill-encoded-miss-04": {
+      "content_sha256": "c15bf645fef06a7ff73202bca3692efd87c1d883cf813e468f61d856370606a9",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-third-party-skill-non-english-05": {
+      "content_sha256": "cb1ba504e82d4e818f1063e862ce0a62292f6cd6d3a86e4cf01ce5191429835f",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-third-party-skill-task-irrelevant-miss-04": {
+      "content_sha256": "22f861745d47f8b3c4851f862491c9adf39905ff86a44515b3b84663b2e37c7b",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-tool-output-encoded-miss-01": {
+      "content_sha256": "6376993655f94201e56a3e17a185b7dac5cc3dab430eaed134e2b02f318f32c3",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-tool-output-ignore-previous-typo-miss": {
+      "content_sha256": "9587f7e4253044560303edc8015ad3c4f3907660e424b6daeec8799b970ecd05",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-tool-output-non-english-07": {
+      "content_sha256": "abedd4218689ac1bb7df5f9fa513b32298c9575f10ebc7ce6fef154f33c006ec",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-web-page-encoded-miss-02": {
+      "content_sha256": "1ba408e0131a0f695ea74874cbde45604ca9c033de150c1fb262823280714420",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-web-page-exfiltration-miss-01": {
+      "content_sha256": "e3263ee3651bea7051ced2f3e58bd89438ad5a6b200911517daabea33e71eae2",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-web-page-important-instructions-miss": {
+      "content_sha256": "6549c93068e2fa6c46abf03d9800f134d3c15ddaf18d7f569aec15e32b2d447f",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-web-page-non-english-01": {
+      "content_sha256": "d09764ef454aaefe2d8a73d81514e3222a0d1a923f63ebef0727cb4e2afd2c0a",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-web-page-non-english-06": {
+      "content_sha256": "c700aafab3e2c4afec4c675c9a5c28d162d2f218758a48f81f4862ffff5b4ff0",
+      "corpus": "frontier",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "frontier-web-page-task-irrelevant-miss-01": {
+      "content_sha256": "0ac9fb396e430fef036564244b7e79e9d39b4b46231fb1c59eafb034379122ed",
+      "corpus": "frontier",
       "rule_ids": [],
       "verdict": "clean"
     },
@@ -60,7 +778,7 @@
       "verdict": "flagged"
     },
     "search-result-exfiltration-request": {
-      "content_sha256": "f29388bf7acd46133695c8e49c1f0a6a106fee2b9afea2fdf26030150e261913",
+      "content_sha256": "82561ce064feff12d966df654429883165dd65e5080995fb3e9d02b7570c7005",
       "corpus": "eval",
       "rule_ids": [
         "rule.exfiltration-request"
@@ -73,38 +791,6 @@
       "rule_ids": [],
       "verdict": "clean"
     },
-    "search-result-imperative-vocabulary": {
-      "content_sha256": "ff94b6cc58b1c6b21a5c8812c18c596ee2e507e4c41ff16a5179cce7f3d3e3c5",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "search-result-legitimate-tool-output": {
-      "content_sha256": "faf81ccce21adad596ea685d1293eaf18f916b0624aac3ad3c043b4be06a3fc7",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "search-result-tool-invocation-lure-second": {
-      "content_sha256": "8594bb6790387c847516fd8b7ace53f5811e94771d51cc319756ef61c2857a74",
-      "corpus": "eval",
-      "rule_ids": [
-        "rule.tool-invocation-lure"
-      ],
-      "verdict": "flagged"
-    },
-    "third-party-skill-manifest": {
-      "content_sha256": "5ac2fe4405bf101769eb6b2b4832c3db1b80c68796c6886b0da2492cf229262a",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "third-party-skill-quoted-instruction": {
-      "content_sha256": "28d155ff1bbf02d0e3b2d8dbf04ed1b268b481d4fee6870d3df02d7bbb30d85f",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
     "third-party-skill-tool-invocation-lure": {
       "content_sha256": "05c80cf62f5f0778ea07188a3cc77d1fe6777e2d59c79e3524e4c56fd38e9f7b",
       "corpus": "golden",
@@ -113,24 +799,11 @@
       ],
       "verdict": "flagged"
     },
-    "third-party-skill-tool-invocation-lure-eval": {
-      "content_sha256": "fadc1312e88bf9178319f0f0778e92ce36e02e6d3c5105d30d514f6608b65cfd",
-      "corpus": "eval",
-      "rule_ids": [
-        "rule.tool-invocation-lure"
-      ],
-      "verdict": "flagged"
-    },
-    "tool-output-base64-payload": {
-      "content_sha256": "b60cab52d0059b012dab8a2b42f57f7553e3d547b313412a8ca09ae1e9ca18ac",
-      "corpus": "frontier",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
     "tool-output-encoded-execution": {
-      "content_sha256": "97b5e43f435a4eddd565eaa1730edc5fc48be5bc3f933a4d658eec59329835a4",
+      "content_sha256": "5bdbaac6d5111d30b6b9d28b3ea4e23dd8a642b5909ff47274e6f13e5434716e",
       "corpus": "eval",
       "rule_ids": [
+        "rule.encoded-execution",
         "rule.encoded-execution"
       ],
       "verdict": "flagged"
@@ -151,27 +824,6 @@
       ],
       "verdict": "quarantine"
     },
-    "tool-output-json-keys-look-like-commands": {
-      "content_sha256": "48b7718bf1086b7fb80e3a42341231ff80b9595cb2904d79231a4dd52fca3572",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "tool-output-quoted-instruction": {
-      "content_sha256": "0959a17c44d9b60c612d9bf2f2e21b62d5a24a4f98bfb187d9403871e4b9e054",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "tool-output-tool-result-injection": {
-      "content_sha256": "e7f5d1bb3e25a4990f8179f00f9aa9ebddb9130ecb90551483950690aa1de555",
-      "corpus": "eval",
-      "rule_ids": [
-        "rule.tool-result-injection",
-        "rule.tool-invocation-lure"
-      ],
-      "verdict": "flagged"
-    },
     "web-page-agent-directed-imperative": {
       "content_sha256": "71041220a708ae072713ad636c0a1fe3e99bf9074b3ee80afcb4a2176b5554f5",
       "corpus": "golden",
@@ -180,55 +832,6 @@
         "rule.exfiltration-request"
       ],
       "verdict": "quarantine"
-    },
-    "web-page-agent-directed-reveal": {
-      "content_sha256": "ac2a05a368bba2a379a473ecb5e91a831918ee47b1f64db9ac898a1b88a39a06",
-      "corpus": "eval",
-      "rule_ids": [
-        "rule.agent-directed-imperative",
-        "rule.system-prompt-exfiltration"
-      ],
-      "verdict": "quarantine"
-    },
-    "web-page-agent-directed-second": {
-      "content_sha256": "24528e57e13ca8a0b0c533b6236d7f33a561ca019feec683be8373fd1e6f7fec",
-      "corpus": "eval",
-      "rule_ids": [
-        "rule.agent-directed-imperative"
-      ],
-      "verdict": "quarantine"
-    },
-    "web-page-html-markup": {
-      "content_sha256": "5a854e84080084bb53fe8d82734c8fac0480315c9c908ddf55a1e1bc2d96e8d1",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "web-page-imperative-vocabulary": {
-      "content_sha256": "aae0f877b2b8db903c6c0225b763aac99351a359dbf3787a0a919822f18e9558",
-      "corpus": "benign",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "web-page-non-english": {
-      "content_sha256": "0885ae4c6ec1f5fbc21bbb97d2d0a669716a618078eb9cc2adbbc97cd1e52dff",
-      "corpus": "eval",
-      "rule_ids": [],
-      "verdict": "clean"
-    },
-    "web-page-task-irrelevant-injection": {
-      "content_sha256": "0f42e31dd14a0204f26bf88ad0bcfc35cfe3bc92af0730371ca48b77ebe9b40f",
-      "corpus": "eval",
-      "rule_ids": [
-        "rule.agent-directed-imperative"
-      ],
-      "verdict": "quarantine"
-    },
-    "web-page-task-irrelevant-paraphrase": {
-      "content_sha256": "d99225971e43cea6a3025234b28a6d1b1d99a220ebb10a7b5cb14803cfeacecc",
-      "corpus": "frontier",
-      "rule_ids": [],
-      "verdict": "clean"
     }
   },
   "format": "llm-ingestion-screener/eval-baseline/v1",
@@ -287,7 +890,7 @@
     },
     "malicious_recall": {
       "status": "computed",
-      "value": 0.9411764705882353
+      "value": 1.0
     },
     "malicious_recall_by_threat_class": {
       "status": "computed",
