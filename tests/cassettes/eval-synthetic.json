@@ -74,6 +74,19 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "00c55c455ed5477c32f0a1029a761a58d70fd4924fd24bc48d506cbcec80b8a3": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "012ed7f821ab8d079a9b77a2d4e34a6116a3b1205289d8be1e65c335b69b3b64": {
       "answer": {
         "noul": 0.05,
@@ -147,6 +160,53 @@
       },
       "question_id": "q.instruction-override"
     },
+    "025d3e97a06d20d49c5d81733b59a9045aabdd9c8d911f98ca3c318f8dcba09d": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "0265367b17827c562e4ee93e6be56df574c20eec195fe8c13f8d817a42781df2": {
       "answer": {
         "noul": 0.05,
@@ -172,6 +232,53 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "02d71e3f4c75e1049a959e5484393487aa66b5c9a2c3c3c812cd44dc484301ce": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "037123a628292642d88a101675506dbeb67079462660a94cc823c11d4f169e48": {
       "answer": {
@@ -339,6 +446,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "07eb1071d44a3f2c07e47b259c4091114156a81958c7ae7ec69b2a310c142434": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "07f78dc0cee63d5c3b77abf8db76feac3f6bca494f971b723a73d8df121413dc": {
       "answer": {
@@ -601,6 +721,19 @@
       },
       "question_id": "q.tool-result-instruction"
     },
+    "0a8bca630c6b285aab7786a7f2251d5205aad824984b9dfd8b47dc2bc55eef6b": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "0c197362af486620b1bd4b7c5c159d7b933b831e4e9fcebe2d28dcc933ab73f2": {
       "answer": {
         "noul": 0.05,
@@ -613,6 +746,19 @@
         "kind": "noul"
       },
       "question_id": "q.tool-result-instruction"
+    },
+    "0c7fd2c092625885c6520363248958b14f2ec8dee1012947cf333700b4d701c2": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "0cfd48d6be1998b3c41e676730869b698d22ec931fda6bc408acb0f0f84db028": {
       "answer": {
@@ -673,6 +819,19 @@
         "kind": "choice"
       },
       "question_id": "q.injection-class"
+    },
+    "0d724768fa025a693007e9e542bbb3a76e74ff6d198b38ea6b95070b8fad0dd0": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "0e4f406dde41d2c8eabc46983fb2e5a622076582ac9757442b2964712f17e2bb": {
       "answer": {
@@ -841,6 +1000,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "0e9dba249142a89596ec9f5968ce86404ebc9af03ca4c575c6ccbef9d2299863": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "0ebd0843c1c10bf1828187959ee2d4c3288f1b281a9aad741f7b2ee639f34789": {
       "answer": {
         "noul": 0.05,
@@ -880,6 +1052,53 @@
       },
       "question_id": "q.instruction-override"
     },
+    "0f7c226788d053074c72a5b2dec799b131d7cc84e5915d268decd6b12d281f0b": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "0fb0955a822aa5f0c15a67a8e46b73c93d25bf989cc8490d627e92cf033d523e": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "0ff80ac81704a47e6b60bb485b094c2fbf64d8248695c9d2a5a2fb52e3f74ec1": {
       "answer": {
         "noul": 0.05,
@@ -918,6 +1137,53 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "10c54abeee4a5b452d72041d0435dc0ef695d4ddda3379abb242a7db3a2cb000": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "1124115750042267593a9e2880575217cd44c52af8cc8ab8e568edf785948d52": {
       "answer": {
@@ -978,19 +1244,6 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
-    },
-    "12939c112dcb2d174b9e143b8574b318a8ac89d3d578688d1e040f0c8145e59f": {
-      "answer": {
-        "noul": 0.05,
-        "type": "noul"
-      },
-      "question": {
-        "criteria": null,
-        "id": "q.agent-directed-instruction",
-        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
-        "kind": "noul"
-      },
-      "question_id": "q.agent-directed-instruction"
     },
     "137c8500db1d935e6504efca38dcc47c8651b3b535fa641a487dc08a9de55686": {
       "answer": {
@@ -1232,39 +1485,18 @@
       },
       "question_id": "q.exfiltration"
     },
-    "17786703b03ea3377fb698be76edf22cb7e9f9562570dec11252b67d3e48eff2": {
+    "1794e630fc3b9062afab324c616c947a931c10e5bc4c93974eb6aba62a190f09": {
       "answer": {
-        "confidence": 0.9,
-        "legend": {
-          "0": "none",
-          "1": "low",
-          "2": "moderate",
-          "3": "high",
-          "4": "critical"
-        },
-        "probabilities": {
-          "0": 0.85,
-          "1": 0.0375,
-          "2": 0.0375,
-          "3": 0.0375,
-          "4": 0.0375
-        },
-        "score": 0.0,
-        "type": "score"
+        "noul": 0.05,
+        "type": "noul"
       },
       "question": {
-        "criteria": [
-          "none",
-          "low",
-          "moderate",
-          "high",
-          "critical"
-        ],
-        "id": "q.risk-severity",
-        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
-        "kind": "score"
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
       },
-      "question_id": "q.risk-severity"
+      "question_id": "q.tool-result-instruction"
     },
     "17ac3a66896d428535272b997a5f5844b5e59aaa825a5c89d3b2ddd5948dec2e": {
       "answer": {
@@ -1407,6 +1639,19 @@
       },
       "question_id": "q.risk-severity"
     },
+    "18e91b2d5c9cc2d2efdb80b0786509051e08a4939f1e0369902f7ed5a3adea36": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
+    },
     "18f7d1fd142f3c94d7b548487cd0d5476b79fcdb9a87b75267a779e4b726c1f2": {
       "answer": {
         "noul": 0.05,
@@ -1479,6 +1724,19 @@
         "kind": "choice"
       },
       "question_id": "q.injection-class"
+    },
+    "1944d4bd38ef00a8d82d4245de58f9a52bf8bc80de9c1a1409f8dbbf38e2e788": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
     },
     "1a7fc2b6300cba7574aee1c99261007048f1f0d3088ef50b43ee19796b3af56f": {
       "answer": {
@@ -1560,6 +1818,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "1a985b0d57a712e6042c6f9700590b970e9a5d3b1f46ee9ffffb211ec39c6c92": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "1aa9e1b99cf28d7f9d91e20264a8884b45a9fdec5be603613ac03ab0019817a4": {
       "answer": {
@@ -1682,6 +1953,19 @@
       "question_id": "q.exfiltration"
     },
     "1c8705ea256f536a083f670bbb5d9f628b913f437a2d63d537f3f22ae417e3f1": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "1c873d9f253ead39ac18d5842f4eedf77e5190a7d62b9ef1b3ad8d6f98eb79a0": {
       "answer": {
         "noul": 0.05,
         "type": "noul"
@@ -2007,6 +2291,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "2296952bcde0d9b3db10becfc63717bad872533467e373f8ab41b5b730b95d7d": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "2298689bb3d218f13e1e5adc60077eb8c441e779a7ae34e10f6323cae0d22389": {
       "answer": {
         "confidence": 0.9,
@@ -2088,6 +2385,53 @@
       },
       "question_id": "q.risk-severity"
     },
+    "2399596ddb316060ed3a29102865b2f6d2453ca849e8212e852d6a500a2078cb": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "23ad3d5c0f33b0a4649c2ed2ca6662fcffba7a221db283fd1d3724abc0a5337f": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "23ebb7d08e00277d88845ff2f1857d21092e192cc1987e037b7d891b1ca4b737": {
       "answer": {
         "noul": 0.05,
@@ -2100,6 +2444,19 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "241c3932947ec673983aab9476c1682855bad4f3589496dbc61702d167994795": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "243ad8381a72c86fdc90abef1c3bd607a4fd7eca38b0aecbc2d54bae3caa5a4d": {
       "answer": {
@@ -2294,6 +2651,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "26484e88ffbe5f3538a4581f11aa58f27cb7857e38fb1d4086b82321a1b04532": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "2698e386eca667e58a3f7526d6496ef3ab655f53b4aa53a594184e383acc9620": {
       "answer": {
         "confidence": 0.9,
@@ -2327,6 +2697,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "26f173be3c4347e597e53d51a369a6cfe313c5b452acd0a20ce6f63c71d4938a": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "28535725f61c03478bf4c99744895090889af85ca2a9604b69ab1d80fda9f612": {
       "answer": {
@@ -2435,6 +2818,19 @@
       },
       "question_id": "q.risk-severity"
     },
+    "2ab639d316f6ed0361d1e8cb161f3b63b4e26eb7ff5ccc697c9872eebf9d7d76": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "2b3428057f8ac8332e54ac3be1cec66825e9699389802f5b1add7b7296f4d261": {
       "answer": {
         "noul": 0.05,
@@ -2447,6 +2843,19 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "2b3d68a6808cabe542523fbaa78379f0478b47970ae6d8fca23af75d557e58d7": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "2babaa1022237c49065d92372ac30b365ed5325d706ddc498fbca51f44a69f14": {
       "answer": {
@@ -2521,6 +2930,40 @@
       },
       "question_id": "q.injection-class"
     },
+    "2d025690dff3bbc1be1e9573b07bd136dbc380b0c97f087c6ef1704fb7c247e0": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "2d0d514d9a8b28445ac2b70224a7d88175249784b2ed7f73c562fd49d18856ce": {
       "answer": {
         "noul": 0.05,
@@ -2534,6 +2977,53 @@
       },
       "question_id": "q.exfiltration"
     },
+    "2d2f9d77fdce6ade85b63ffac472485261195c920db2744cb8c17c156ab04381": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "2d4d9344dbb6bc6eb5afe9d6d7ce1133813ef28523772caa80f03d83ffdd6bbc": {
       "answer": {
         "noul": 0.05,
@@ -2546,6 +3036,32 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "2e3839b9d89053f82490b1dba05249bd4a0bb8263bb2dafd1ae8418460275c40": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
+    "2eae3115c6eabd9aadbbcb9060094c7500afed2a69f6b7d6379a2baf88156432": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "2f8496724f5876eb3091e73135a941e55bef30d0b27ae16ae9448ccbd94778de": {
       "answer": {
@@ -2594,6 +3110,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "2f9df3212b775e2ce61b5cf97f5dbb2aff042d8cfe5b485a302c4b3d37e817f9": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
     "2fbd84bf115f6f19d1213e60647a5a7e4fde3c9e0652a4ff9e727ff49a153ce7": {
       "answer": {
         "noul": 0.05,
@@ -2608,6 +3137,19 @@
       "question_id": "q.agent-directed-instruction"
     },
     "2fc4e8567b687c5c924b545ef10220a951f665f79bf90e15b4e5459d665669ec": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "303ec03cb61fb1086a87baa7200bbf6dde151e2875bea06c971c8b7a32a06187": {
       "answer": {
         "noul": 0.05,
         "type": "noul"
@@ -2692,6 +3234,19 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "31afadb49fafae89cdc282af3b9822cddb861fde9d6fb89ed49b6af7bd62e008": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "32d767cd0cdb9ebdeb2e43a873c3706fd5be48f52b828c5f19435b216dc9a3a1": {
       "answer": {
@@ -2975,6 +3530,19 @@
       },
       "question_id": "q.risk-severity"
     },
+    "35f2ff2a190b825ae611eff2c8b27f906239fb6f6dbadb127a71064a2ade49df": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "36686f0bb2d81674786929610265a596f0f25f877dcaaa921e2370c8fed5a4bf": {
       "answer": {
         "choice": "none",
@@ -3082,6 +3650,40 @@
       },
       "question_id": "q.risk-severity"
     },
+    "395313cd6b01a68bc1570001cb030a557401db5d9edec6f9cafc4ced1dc10a3e": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "397f712c3d1d683eb9fed942f99b284ac53848e60527f2ce86f3345eca28538b": {
       "answer": {
         "noul": 0.05,
@@ -3094,6 +3696,32 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "3afb89be5854f7a57d13684d35bf3b15cf5bab69585e0ccde8af7a7e5d783be6": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
+    "3b487529eaaab72dcc93e935aa971447035567b7e4afb81aecb7397482a84391": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "3ba87f5de746ee1c169b8a248e1d53942eaf44ac9b8cfa718315827f354d4f85": {
       "answer": {
@@ -3120,6 +3748,40 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "3cf1ed53721f42180510b6bb744e4a99259db816634a50e148d3af41e6178ed6": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "3d13f3d1ab2e1b1969a0aab08b0df9e4761e6eaac99181c656dc9a7fa0ee19a7": {
       "answer": {
@@ -3202,6 +3864,19 @@
       },
       "question_id": "q.risk-severity"
     },
+    "3ded85ce5ea7c5257858588543a68d47a682cc86b2d7cdc3c3dd3030b6ea8197": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
+    },
     "3e0e701d3c153b1399e460c6b2ca75ac62a04164ebb0c0e16d15819316d15203": {
       "answer": {
         "noul": 0.05,
@@ -3253,6 +3928,40 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "3ee08b231586fafa76eb31688f491467c65b5922b0ce3b5cd452a3fd309e1e85": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "3f3fd53cb00cdc777454dd9135deeda3c708c4a011ccaf989a472d5ea360941c": {
       "answer": {
@@ -3313,6 +4022,53 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "3fe181b1c510ba599e025dfc4f9c65907f09e049bf3a5b0c23b4aa12415622c1": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "3fe7fe6ba3538de3764dfb1ce763feb5e8a34f51883b517a5416955f99e435c2": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "40986a0a53ab40324eee61021e82eb3d760981b1f1ccc710662d4733fe971dd1": {
       "answer": {
@@ -3455,6 +4211,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "419af4655c9dafcb54038bc9591e9a7bae357f5967fc4646d3ed6f1f598c03cf": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "426faef4548691a76563dbd9148c9e4c02053da75c899d1ca277b4779dfa755d": {
       "answer": {
         "noul": 0.05,
@@ -3562,6 +4331,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "44152f277201ae559cfec1462f775073d336c8f617d49ae103fb07fcf832098a": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "448be4fd426c3873d0504ccf6ef99add09073eeee8cdc59cca2a929341c05929": {
       "answer": {
         "noul": 0.05,
@@ -3655,6 +4437,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "46bec1880b223f8e35031808e1ddd230f671bd87759b550a64405e4c13fc10aa": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "46c04734cab1a130a8b2222cb3bec84806cbc04f377e67696c941bc592e237b9": {
       "answer": {
@@ -3836,6 +4631,66 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "48ec28529df5db1b7c3079afff3f9da1da6d6510029d48fb9a1e61fb4baae214": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "49683042dcea86ab7ae78c7a3cc64beb93bfff3531add3e5cd769a290dae988c": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
     "49c14984ae708d0de959d19b62deb547ff86e2e810fe77156f0850610b0df239": {
       "answer": {
         "noul": 0.05,
@@ -3948,6 +4803,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "4d32fbd5587b50b9b22afcd64b2d5cf4831a9b1fbcc447654f2ca3aea73c5d0d": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
+    },
     "4d34cd85ba8990857c778c62601eebbc890fa7bce2d163ee310129d16026e33f": {
       "answer": {
         "confidence": 0.9,
@@ -3981,6 +4849,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "4d542965cc96ef1ee578c7cc85a0f72216e41c698707658d210a5eeab0588d62": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "4e081426df28b4f0d5d3146416e574b2b6c537a00a749f1d74f3480d155f40e3": {
       "answer": {
@@ -4041,6 +4922,19 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "4edac8c8819042e0f482ff5093d644d4d7646c4a9d8db07053bc11f3c1813ec1": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
     },
     "4f1387a29da72b711764f000ea5d381a6032e43a0ca90f5ef726c88019c40caa": {
       "answer": {
@@ -4161,6 +5055,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "50854e2ca7d4258ad41c55a4bd1e7976d4a5168aa2bb5e8a6594113e264c5e65": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "50e53c25234585a103d3a081cd04106f6d93bd6ca4bf065734ad87696a3fc8e3": {
       "answer": {
@@ -4308,20 +5215,122 @@
       },
       "question_id": "q.instruction-override"
     },
-    "5348e93fec449c44099dc9a2638dab81e357762c6bf9226d8b6398408412e89b": {
+    "538ee2b681013a87ef618fd190c16f9c6af77393e97592d6a0864d3f8934408f": {
       "answer": {
         "noul": 0.05,
         "type": "noul"
       },
       "question": {
         "criteria": null,
-        "id": "q.exfiltration",
-        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
         "kind": "noul"
       },
-      "question_id": "q.exfiltration"
+      "question_id": "q.instruction-override"
+    },
+    "53a35670b6780effff2e91184f0b7f6de511e89a0526a987c9e6eeea5bb3d67b": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "53d0b40670d6cb7e34356eb93ba914b03ec693ddea7c3841ac73dea5befc6080": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "54640585e7dde6a0afdafa481874006efb13bd6f459a3e77803869c078724028": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "5486d2cd78714fe2fff980833c73ce08146929f8f592e25647656e846d2d5b98": {
       "answer": {
         "confidence": 0.9,
         "legend": {
@@ -4540,6 +5549,53 @@
       },
       "question_id": "q.instruction-override"
     },
+    "592c2d940e2db457aaac97b8a9b8b71edb12debc093ee9e9b628f30202cafa2c": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "594dfde0d3c437a04ea3ab565a76f15513cb415b1f3148920f157f0d89505bef": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
     "5a087afcb4c0a149f1eb7a92739d38af687927cbedd4bb9954efea7bbd901f5c": {
       "answer": {
         "noul": 0.05,
@@ -4565,6 +5621,19 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "5a1d5f5d908153d9c53e2297c316080530b8a68755aa2960fcea6c05dae161ea": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "5a24d07f87ef6e84344813443ace6cbbf89775c762db3cb400bdc2fed3adca7d": {
       "answer": {
@@ -4733,6 +5802,19 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "5bdbfff1adf96691e90eeafe7bac9c1066cdcb0d8871e74339a2fbe57755c24e": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "5c3a06a0643da365b07221b1004bbd97c2563cb69c7fe61ded9addd5c7afcacf": {
       "answer": {
         "confidence": 0.9,
@@ -4779,6 +5861,32 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "5cce130e7afc6608e6f6fa7ec8d94eac6f087a5694159b659335bfb41855ba42": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
+    "5ce8a7c36a54b178a06c90c28b883485d4de9fa18f7eec53f6dd39bcdb342605": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "5d5123f7435ddc7b0c19aa84d8fc7c69c2399446ef0ff938b87f9353f0018587": {
       "answer": {
@@ -4831,6 +5939,53 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "5ffd33e594f5e4fcda5f2e5e813bfe6c58954116c8763e4c7763a6ac9ae6805a": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "5fff3df08118955a66d853c00ba42c3f69fb47ac33f8336c4b80b9df083b0716": {
       "answer": {
@@ -4944,6 +6099,53 @@
       },
       "question_id": "q.exfiltration"
     },
+    "61ad703d668648ed1535c4154d701aec5c040e0cc27a4b88c2e23d0c37e38039": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "621ff4a2d6430f9a92de04ea28e65e09233ceb625e8cac7162591a4123db831c": {
       "answer": {
         "choice": "none",
@@ -5017,6 +6219,19 @@
       },
       "question_id": "q.exfiltration"
     },
+    "655f5be3f93126c3becabaa67458ce61cd781011be978094ba2cdc8464ffcbf0": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
+    },
     "65b4a06776cab70da0db1b9bea2aa4ac079496dce71bb955907cff0b1341e6c2": {
       "answer": {
         "noul": 0.05,
@@ -5077,19 +6292,6 @@
       },
       "question_id": "q.injection-class"
     },
-    "67cbe8c60f789e65b3db5781c1905b147626f209c98f2ecc8fb2db2a8b0813ad": {
-      "answer": {
-        "noul": 0.05,
-        "type": "noul"
-      },
-      "question": {
-        "criteria": null,
-        "id": "q.instruction-override",
-        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
-        "kind": "noul"
-      },
-      "question_id": "q.instruction-override"
-    },
     "67d78b4e88f98914ce8c273ac08fb8ca3019edba9188c3a93ac9916791e7b61d": {
       "answer": {
         "noul": 0.05,
@@ -5115,6 +6317,53 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "682faf591091dbbe7900c3aae16958ddba46739854ab418cb66832b5cf3fc485": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "686380fd0dd60e0a3a072d7c6a1af1ecc9d0e18a0645dfed247c92d7247b1829": {
       "answer": {
@@ -5163,6 +6412,19 @@
       },
       "question_id": "q.risk-severity"
     },
+    "693ed4c071b1b2d356df104d467cefff8da391511b837893670941320924acd2": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
+    },
     "6950fe8322176a215cfd901e2aa2a179f813a6dfb9b65cfbe12d5c8edcdade59": {
       "answer": {
         "noul": 0.05,
@@ -5175,6 +6437,19 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "6993c001e555dae6e4d9ef19a2db36659f78a107ca03ee8b319ee89d3aabbea0": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "6a5a9c7f4789cd263776684c9b559edc2eff1a24b44c2708b37d9cb3a493dd4c": {
       "answer": {
@@ -5274,6 +6549,19 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "6afe2c0a75c30b937da6c9667e5d252441b196dddaf35d495c1570060e4d324a": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "6b89dfd0b0a25cd4a01591061c7be68d740b212ad4b568b3b26599e65797183f": {
       "answer": {
@@ -5485,6 +6773,40 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "6ff30e1525ac0d92d1d26ff41ab97712660bd21a9a800918d355e3342c4b206f": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "703c47a5a4436737267459b04a985b05a6530db1bc7ad749bde769ae94d66afd": {
       "answer": {
@@ -5794,6 +7116,40 @@
       },
       "question_id": "q.instruction-override"
     },
+    "72f0d043ed6e9b6b40e937b0c9804f6fad6c8993f09cca7de05e6b292c14d4e6": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "73157c9a285e132c72300732eed656c7aab023cf9639b53dac66e3c789299f3d": {
       "answer": {
         "choice": "none",
@@ -5840,6 +7196,19 @@
         "kind": "choice"
       },
       "question_id": "q.injection-class"
+    },
+    "7356eddb3e737eb3f3e3abcf2427c1bc8406efb7d591686650326877443dda09": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "73769136d18cd665df80cc5ba75c56f22e9759685d9d6fca078b3c0162f68cb1": {
       "answer": {
@@ -5934,53 +7303,6 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
-    },
-    "74d86a4d51473a81622f4739eed977519aee54b54ccdca24679f2f6332b4ecc2": {
-      "answer": {
-        "choice": "none",
-        "confidence": 0.9,
-        "probabilities": {
-          "agent-directed-imperative": 0.03,
-          "encoded-obfuscated": 0.03,
-          "exfiltration-request": 0.03,
-          "instruction-override": 0.03,
-          "none": 0.85,
-          "tool-invocation-lure": 0.03
-        },
-        "type": "choice"
-      },
-      "question": {
-        "criteria": [
-          {
-            "description": "No instruction aimed at the reader.",
-            "label": "none"
-          },
-          {
-            "description": "An imperative addressed to an AI assistant or agent.",
-            "label": "agent-directed-imperative"
-          },
-          {
-            "description": "A directive to ignore or replace existing instructions.",
-            "label": "instruction-override"
-          },
-          {
-            "description": "A directive to send data to an external destination.",
-            "label": "exfiltration-request"
-          },
-          {
-            "description": "A directive to call a tool or function the user did not request.",
-            "label": "tool-invocation-lure"
-          },
-          {
-            "description": "An instruction hidden or encoded to evade review.",
-            "label": "encoded-obfuscated"
-          }
-        ],
-        "id": "q.injection-class",
-        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
-        "kind": "choice"
-      },
-      "question_id": "q.injection-class"
     },
     "753f4febeea2052c758db75c791b0255765761a969d379081de5c9423daa73b2": {
       "answer": {
@@ -6122,6 +7444,19 @@
         "kind": "choice"
       },
       "question_id": "q.injection-class"
+    },
+    "76c096588752421ef7bb86f9540f76012b6bf6a385bf79caabbd3349e8e46ddb": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "785a20dee0186e4332f4b12e1b6528e5f2c75167c60a79fb427ebc44f7be739e": {
       "answer": {
@@ -6290,7 +7625,41 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
-    "7ad0b4f815e92d14bf966092cc7e181cd874f968f41defcaa9159307c7318565": {
+    "7b1c081fce35382ca29694aeae4d1c5cc4057b5ce2e2c729d3eecf428d42c697": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "7b36ea6a851abcf753dcefb861c14b49a80454cac775c8b57a5c0c4c1fb0ab9e": {
       "answer": {
         "choice": "none",
         "confidence": 0.9,
@@ -6336,40 +7705,6 @@
         "kind": "choice"
       },
       "question_id": "q.injection-class"
-    },
-    "7b1c081fce35382ca29694aeae4d1c5cc4057b5ce2e2c729d3eecf428d42c697": {
-      "answer": {
-        "confidence": 0.9,
-        "legend": {
-          "0": "none",
-          "1": "low",
-          "2": "moderate",
-          "3": "high",
-          "4": "critical"
-        },
-        "probabilities": {
-          "0": 0.85,
-          "1": 0.0375,
-          "2": 0.0375,
-          "3": 0.0375,
-          "4": 0.0375
-        },
-        "score": 0.0,
-        "type": "score"
-      },
-      "question": {
-        "criteria": [
-          "none",
-          "low",
-          "moderate",
-          "high",
-          "critical"
-        ],
-        "id": "q.risk-severity",
-        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
-        "kind": "score"
-      },
-      "question_id": "q.risk-severity"
     },
     "7b8e27d5c24df45c411b1f5fbd888a5ed2753d9600ca1923268f4cdfefb22439": {
       "answer": {
@@ -6517,6 +7852,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "7e11cb5d2902c9f2c782385e7b05e041c184dd94b53c2fa02068aa8fff81ca1f": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "7e671416002c1b56a4307052a33e43d0f50eb3fd9c40c1bffd0b336af2510f02": {
       "answer": {
         "noul": 0.05,
@@ -6578,6 +7926,40 @@
       "question_id": "q.risk-severity"
     },
     "7f96e101dd7462e3ea11894f183289ca64927a210d56bb8e39aa062808309923": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "7ff42a2e3f8e5066a93cabde93704fd1f6345fb7d661af94ec8d57602cf9ef09": {
       "answer": {
         "confidence": 0.9,
         "legend": {
@@ -6804,6 +8186,32 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "825cee5449921f91732b15648ccbef4643b3366d83a53dd2cad5552eefca62b0": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
+    "82634ed05cdb005cb5d246abd502afcc5d27ab7111a4bdeb80fd812c4eea9a20": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "82a07729884065c694ecf2466f0bdcd679bfacf1f0e7e3768be389fa0a9fce91": {
       "answer": {
         "noul": 0.05,
@@ -6816,6 +8224,53 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "82b7b45a6d0f9340e7e3a3c8bdf6945ad06552007c25ed6ad69d479018477e64": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "831cf8a4cb1d5134a11629a54b4b5fb806611102f5e138a2bd8029b809a7a909": {
       "answer": {
@@ -6855,6 +8310,19 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "84794af9ddb6af5028bdb8933ebaed14f92e9a811aff5c00aea6868122bd0117": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "847b1acfa6830e3fff23503d668383034aad2a5bc3c4e76776a24940dc8fb398": {
       "answer": {
@@ -7078,6 +8546,40 @@
       },
       "question_id": "q.exfiltration"
     },
+    "87db9e7c68b87f8eb50152595ed57c8eb9cdfea54365948bfe9a908acdcadb7a": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "87f7eb5e44857669e5a70f7b5fc77284625ba8dd396301e37b893c4df7c90497": {
       "answer": {
         "confidence": 0.9,
@@ -7112,7 +8614,20 @@
       },
       "question_id": "q.risk-severity"
     },
-    "884ecefb3c10fa9f5450ab3d30ebddb5817d7b3d27a2b32afb5577c5c9c8e5e4": {
+    "88a847f2251fc3fa5a8bc141ad7c3a2d3f6a39cdf7447cf89bce3df9929f89eb": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
+    "89422609181e57a9ce1d4bd36add8a75915da1cb3e3f0a6ad388670607b82557": {
       "answer": {
         "noul": 0.05,
         "type": "noul"
@@ -7125,7 +8640,7 @@
       },
       "question_id": "q.instruction-override"
     },
-    "89422609181e57a9ce1d4bd36add8a75915da1cb3e3f0a6ad388670607b82557": {
+    "89d47480b94801a682884079d10fbb5b761b218cced9afa643562d6b7720fef0": {
       "answer": {
         "noul": 0.05,
         "type": "noul"
@@ -7177,6 +8692,40 @@
       },
       "question_id": "q.exfiltration"
     },
+    "8ae5427ed6588301a9c2fae818341382767c1b60e97f27cbbb2e94e83c3ecdee": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "8ae9c2d27cdd958a40bef12d1a008cf151b988f0bae9f2694b23f9de9abe36ba": {
       "answer": {
         "confidence": 0.9,
@@ -7212,6 +8761,53 @@
       "question_id": "q.risk-severity"
     },
     "8b250abab851f09ee73297f7926dba77a4d7f13c0a6aa2797d326508169840d3": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "8b2fdf4c5f5664dd60ecd4b6d73a59a992c7f3fbb4de2c80b42884ed678a8399": {
       "answer": {
         "choice": "none",
         "confidence": 0.9,
@@ -7366,6 +8962,100 @@
       "question_id": "q.exfiltration"
     },
     "8d0d55ef7a67aaac334bbc04be6a4d34d3490186c9d1a9f9be6b01ce1ef660ca": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "8df357119fc6e7338cdfd66b60e146af6741f6a12126841f8fb0f517c6ee316c": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "8e5584a94e58c3970c63b2401e24aa44a840d229e84a3e0c117c31f5ef6d2ee1": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "8e5de1d76a72e374a27990ea7f218d70fc9b70b06fbe2a1219ff9d9d631c6e19": {
       "answer": {
         "confidence": 0.9,
         "legend": {
@@ -7565,6 +9255,19 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "9180673fac31e712cfda9578bf8b6d1aa816eb99e515bfe52378e7c3c7e21b0e": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "926411023d8b3789f337db02b90d66ba5bae198db1768bdc5c768179c053a7c3": {
       "answer": {
@@ -7814,6 +9517,53 @@
       },
       "question_id": "q.risk-severity"
     },
+    "9671838fa9136a46983c3ac8177233e634a28d41e94142215fafa92b95d798ef": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "968779b6c3ed34bb27b12a1f3204214f2a69a487419ff0189ca4c219aac9b653": {
       "answer": {
         "confidence": 0.9,
@@ -7989,6 +9739,40 @@
       },
       "question_id": "q.risk-severity"
     },
+    "9722364b3f8ae9b5c9df6651c84ee8b600af812967fccdf554f4c7c114427f9f": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "97798bb63d9dc733c19de944b027ace7bf54ccbdbcafd2430253b1c26a8627a3": {
       "answer": {
         "choice": "none",
@@ -8035,6 +9819,19 @@
         "kind": "choice"
       },
       "question_id": "q.injection-class"
+    },
+    "977a366b484b5a08a3b85e1357143a580133d6b298b19b2ac90d6818478d839a": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "97a3b860c70fd6dced9946ef03bd5df81dcdb983297ba78c7bac5ad82dceabc2": {
       "answer": {
@@ -8108,6 +9905,147 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "98ced632c2b84f05cc1041765e7611d8e932eb544a0871c722b9244c37a2c3af": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "9906f835b571441ad91bc12e01068a05b5b9baf654c82152339b583bdf0b488a": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "99371fbba97110b41fabe84fc6272ca82638167c0c58a383c7b246a4b4a65a0f": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "99909e6c14ad2f771487c7b336d7bdd14f1d0637527703eeed5d3e06ba21b0e4": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "99a99620aabafad23667ed71ba5a8a6510eb82d920e29ff8a89a608239573e9c": {
       "answer": {
@@ -8242,6 +10180,53 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "9aa208a070a732fb8fd84491314c4d63beffdf1a3bffc302e9ba2ba8add1a8f3": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "9ae4ff681b33214589fdc7a7f84fa2748fc936132b8bc4fc7e71451a6c11823c": {
       "answer": {
         "noul": 0.05,
@@ -8314,6 +10299,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "9bae62d8e57f3888e1f4b86ea19c93df3c92f64c177c6e0f6fe3f7c362db9c8f": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "9c5672256eb02b6024f3de3fdbbe4b18c406ce482041bc170c220add7b3dc183": {
       "answer": {
@@ -8546,6 +10544,19 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "a1ea5689a47c467d76538c46c325208248a2773b08bc86b7488b2142bafd006f": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "a21809a1f2a339abd3990dbe8cd1990f6eb79ea79166ec7daa52831c05492645": {
       "answer": {
@@ -8873,6 +10884,19 @@
       },
       "question_id": "q.instruction-override"
     },
+    "a5dc4e9f26166321cffd7815f3bc11ae354c7abc1aa53e90ad7bb567f068a89c": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "a5e1c13d47e3b1ce898b973a0deac9bf2f0c6fdb4518bfe2c9e4940e266002ac": {
       "answer": {
         "noul": 0.05,
@@ -8946,6 +10970,19 @@
       },
       "question_id": "q.instruction-override"
     },
+    "a7c9869ff5737d696ec1914ab327b4450b330f638fdc012e1afdb9270638a63d": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "a8b7c1e22305c2141f24d17b244ad52cfb0f7c83a7e044d53edac7f07c9a3a35": {
       "answer": {
         "confidence": 0.9,
@@ -8979,6 +11016,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "a8d1125084c2b72db05bd7daecbd972fe1def7d9b49765016706ef9dad604451": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "a913b3c854fb9fa60d88e6191890d1123be3149aefadba4094123d1da95fd00f": {
       "answer": {
@@ -9045,6 +11095,19 @@
       },
       "question_id": "q.exfiltration"
     },
+    "aa0c3a6c37caaf5a23b5ea42dae30749610cec0be1260360d382db03f7521ee6": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "aa6f34a9907653df6c551520026672e1e541e753b860c79e254bd55554aeb3cb": {
       "answer": {
         "noul": 0.05,
@@ -9057,6 +11120,66 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "aa7d60a39a48e1bd6409aee4c7d87b2d1e78bc30ed86f3cfd20c9b69ede528c9": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "aa9c195fa1d171b082d60729aa85200ccdec0d649fb833145a0239cd6179f483": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "ab201f7e46daaf39268fe8ffc2f29a34a32f39022990501bd65b23872fd521c6": {
       "answer": {
@@ -9091,6 +11214,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "ab2600c9253ecf7f065511120a502953c988fa9f222683e3ab20c1ee0457c2b5": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "ab42680f827d3241b023f1b97333e4a3ba0f1f173b1f35086bb0ab9a93a99ea2": {
       "answer": {
@@ -9233,6 +11369,40 @@
       },
       "question_id": "q.risk-severity"
     },
+    "ad14ef6e878b96c3c71e6285df78d35a402a912f29b322fef9e54f1a92442961": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "ad3f2fc6159d44a7b5193da07b721f9172f99c8138ae959b2bd8340fb28b7831": {
       "answer": {
         "choice": "none",
@@ -9292,6 +11462,53 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "adbda71e2b0bdcc505f32af4e3d8774618b9dd4fc0b80c408ddb8e53840f60da": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "adff5a2df0bc1b10d8a59c199a80b80eb60cfe2c75ac6818cf96732eddeb2f42": {
       "answer": {
@@ -9494,6 +11711,66 @@
       },
       "question_id": "q.risk-severity"
     },
+    "af84cea98c6a82807f54c59a9cd22a16df58dc97f9c567dde8fcf6f7e21246e6": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "b048e0f80e1d3e7301d70e4f5a0cba23e025219ef679367ca720b6176296cd6a": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "b09e10e71278ca81785352d5cd9bb5dc1b3c7dc72b774801e088dbddd028230b": {
       "answer": {
         "choice": "none",
@@ -9587,6 +11864,66 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "b183d355bfda59d99c6358e2f0cd99d29a820f176b8576cd70399191e024ba84": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "b1ca885c2aa5d1f23e9733a8b3778037a6da34e0b76a5af437b922929d8b1140": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "b268ca7e026727be52fc70ef919c4852af08727c0c1e8543c345341752b5d3af": {
       "answer": {
@@ -9814,6 +12151,19 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "b44faae05284fe386fe2812fda5cda4f53fd00c64ccc7c2c4abf0185a0828082": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "b4aac66908fba35dca588d0878fd52fe2b4a4b7e448f0d5e6d2289827d76d945": {
       "answer": {
@@ -10170,6 +12520,19 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "b828500adf5ba70402c3721b666c0d633d04f2a3463fa2c25914c894097800c3": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "b869f633d15edb62d887d24636785d1e830681b4e879e264c9aeb88d6bae3125": {
       "answer": {
         "noul": 0.05,
@@ -10208,6 +12571,32 @@
         "kind": "noul"
       },
       "question_id": "q.tool-result-instruction"
+    },
+    "b99f6281539b9eb1a014e66cb34daa900498179a67a5b020951aa09cbabe59b6": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "b9da9954d5e3990db1a83a97298da7453522fc4a7cd4eb2b6b5f21a1abdb1ed2": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "bb65348fe52daa945dc7af157088c4393e43b8be4076d62d1d4cb929dbb868ec": {
       "answer": {
@@ -10315,6 +12704,19 @@
         "kind": "choice"
       },
       "question_id": "q.injection-class"
+    },
+    "bccbbf1435bb3dce3d42eacb069479b71f0d0a9753fba0aa38a97f1683216f4c": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "bd0a330307785533d88837589872567c6de9e3964762597c6fcaaaf052511e95": {
       "answer": {
@@ -10504,6 +12906,40 @@
       },
       "question_id": "q.exfiltration"
     },
+    "bde365be7549d847e8654ff5650a745f96f1d2a4d336a39bc95271cc385cbbbe": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "bdecc8778691e997a248da9830c00f057ecb904b7dcf9652d18efc32a1f8a72b": {
       "answer": {
         "confidence": 0.9,
@@ -10550,6 +12986,40 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "be79f56d024c6cfd8094abf9c85804c4566419a00eacb1238491c6180ae154d5": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "bf4727d439ccac599ce31e32e3527564dfb564592e93d174b23aaefd563178da": {
       "answer": {
@@ -10602,6 +13072,147 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "c0d175c757460090616e2785ad44046b88936db1556d1f292a0a6650e492643a": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "c124eaa71410256821459e8b7fc77736dfacb50c1c31726669a7f1a691579b59": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "c1acedc15ed2ea533da805394c266f9837c4dbdcb76729516b32df94af690d22": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "c1b17fd6a7c30ca350b6da74270d62e794e52d7b9d9675d90e73c82ba535bcf2": {
       "answer": {
@@ -10684,39 +13295,18 @@
       },
       "question_id": "q.risk-severity"
     },
-    "c347f206c3733171d23c35262404073c0c29c1c577071e2dd13031ec883cc018": {
+    "c35247fc031d820d27a23556222d9dde935a526567042a20c4efe6a4ae790c92": {
       "answer": {
-        "confidence": 0.9,
-        "legend": {
-          "0": "none",
-          "1": "low",
-          "2": "moderate",
-          "3": "high",
-          "4": "critical"
-        },
-        "probabilities": {
-          "0": 0.85,
-          "1": 0.0375,
-          "2": 0.0375,
-          "3": 0.0375,
-          "4": 0.0375
-        },
-        "score": 0.0,
-        "type": "score"
+        "noul": 0.05,
+        "type": "noul"
       },
       "question": {
-        "criteria": [
-          "none",
-          "low",
-          "moderate",
-          "high",
-          "critical"
-        ],
-        "id": "q.risk-severity",
-        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
-        "kind": "score"
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
       },
-      "question_id": "q.risk-severity"
+      "question_id": "q.agent-directed-instruction"
     },
     "c3afa7d3efec4b3fa6d3787038c44deb67fd0301a9b13b162a57624fb24bc0fe": {
       "answer": {
@@ -10851,6 +13441,19 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "c781d39432ab2c01ad0967f58fa37568405c8b58a973b02497ad5132174d676f": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
+    },
     "c7995c355a8f56b43a7d909ad95bc7014510ccf2f8456a5d9872edc921d23346": {
       "answer": {
         "confidence": 0.9,
@@ -10932,6 +13535,19 @@
       },
       "question_id": "q.exfiltration"
     },
+    "c83bd5c10355b5df856a92ae013b75f4fe1d175e908d2ca6b87ed4b43c700422": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "c8e2c60ac7e68423f32f3fe618804d65083d95352670bd0afa8b2d996760852c": {
       "answer": {
         "noul": 0.05,
@@ -10944,6 +13560,19 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "c9f0831a553e0247c06d81496c4a9bf50f560249ca983d8ca36d3fd1fefeb8a2": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "ca30d833a7cd5c74a2ddf4856f6a8105f3b9f9e4584cc117c9d1c1f7769eb1c4": {
       "answer": {
@@ -11099,6 +13728,40 @@
       },
       "question_id": "q.tool-result-instruction"
     },
+    "cb72526f80d48fda93a0250518a19ffcc82f19bd2c60d9ce0d8b4f5b8396147d": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "cbe2428af8403c6cf9c12424159c450b83c17e5babb37c41a6f5b918a842b557": {
       "answer": {
         "noul": 0.05,
@@ -11113,6 +13776,40 @@
       "question_id": "q.tool-result-instruction"
     },
     "cbfc1e1755978eb9b5bdfaee5b8a1e0c67bd99d19e4d84b3a5238b42f03530c8": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "cc0c5dae2ec50ba83390acdbce71ac9da14bc8c401b7fd2e675c973c730f275c": {
       "answer": {
         "confidence": 0.9,
         "legend": {
@@ -11219,6 +13916,100 @@
       },
       "question_id": "q.instruction-override"
     },
+    "cd3bfeea43a0257763752923b81e64838b5cdd3eb151e06859cd65a04bece12f": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "cde4f5a0c719251937edfd194ed712309246b3166f653be3a8aa250edb124cd9": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "ce6d50e136e83628d765ca66b8fa169af83e70ddc3da26f0807f1ffee63f451c": {
       "answer": {
         "noul": 0.05,
@@ -11279,6 +14070,53 @@
       },
       "question_id": "q.injection-class"
     },
+    "ce89f0506eaa3217ff99011a3d07c3974a44b82f1f56ddebdaeaa3752aae1ba3": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "cec703ccf910b18dc1adf565f89e7d21d7188efdddab9767d899844e1c2000b0": {
       "answer": {
         "noul": 0.05,
@@ -11292,6 +14130,32 @@
       },
       "question_id": "q.instruction-override"
     },
+    "cee820244548563581152267d4e170ae3cdc950cf14a2d6cb282bb5d1a84f8cb": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "ceee9b965d06ec8f8be07b244de645d0096de7a3873f4c02f73f21cc05ddac6c": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
+    },
     "cf6149fc766c167487b32209f1fd7cb2e7f9d1c38116284bbd35fb5694d03c07": {
       "answer": {
         "noul": 0.05,
@@ -11304,6 +14168,19 @@
         "kind": "noul"
       },
       "question_id": "q.exfiltration"
+    },
+    "cf99dacc40ebbd63ebb06298747d854ca49081f8e6b7983be927d29be798112b": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
     },
     "cfe3b42239274928d80cddcb67657188fc91b1c5f9e2b66782ea9de3343628a3": {
       "answer": {
@@ -11332,6 +14209,87 @@
       "question_id": "q.exfiltration"
     },
     "d14f2b4e313ada5af7505abe3d214ed06781357add68a67ffa2a8a5e5bfb01b4": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "d17a0c2eba4653f25ebed865c6435566079ff88ddc8a1d48f3d8373057c348ae": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
+    "d17ac9c13853948819df0c201fdf9b8588740b8382eb0d5233396796ec42ed73": {
       "answer": {
         "confidence": 0.9,
         "legend": {
@@ -11398,6 +14356,32 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "d19b349fb6905a7e7d03e12753a79fb6c1534b7faccf3b84c39cf3f76fdee919": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
+    "d201bc73917f36aa4fd8bb626d4108a8592113cf760a68c11e9cb6d255516089": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "d211dad2771585fc748d72d77db7bc7b481824ce982977a52e5ddd4610393bed": {
       "answer": {
@@ -11673,19 +14657,6 @@
       },
       "question_id": "q.exfiltration"
     },
-    "d529ce506c8a35fe92c80343a3ece7fbd846746d87efc917280794362311fc6f": {
-      "answer": {
-        "noul": 0.05,
-        "type": "noul"
-      },
-      "question": {
-        "criteria": null,
-        "id": "q.exfiltration",
-        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
-        "kind": "noul"
-      },
-      "question_id": "q.exfiltration"
-    },
     "d52ffed6a68ba795a2bf9eac9b15456eea9ef570fb9c4ebf2fe5d4528b949172": {
       "answer": {
         "confidence": 0.9,
@@ -11780,6 +14751,19 @@
       },
       "question_id": "q.injection-class"
     },
+    "d64511f1375d34efafb90042560cc25501473fee5d76f72a904340fd3abcb835": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "d68443f5e400058750baf56882841940dd803c71156793c933c13776bd91cbf6": {
       "answer": {
         "choice": "none",
@@ -11827,18 +14811,99 @@
       },
       "question_id": "q.injection-class"
     },
-    "d79f8dcb7135baa1c35190c87361cde25683965e3ddcc4af002d370c35efb3ad": {
+    "d6d403762f01e636a9ea39d801839128ec0444683884b2814384805ddc8820cf": {
       "answer": {
-        "noul": 0.05,
-        "type": "noul"
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
       },
       "question": {
-        "criteria": null,
-        "id": "q.tool-result-instruction",
-        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
-        "kind": "noul"
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
       },
-      "question_id": "q.tool-result-instruction"
+      "question_id": "q.injection-class"
+    },
+    "d72a0a21a7c488c4e63744dcf9815aae97e6c1c10a47b0263a1183f0aa598236": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "d7c1f4b2e600836cbea42a75e8bea0c9504824015b001f27d4c68bf399cfa5c2": {
       "answer": {
@@ -11973,6 +15038,40 @@
       },
       "question_id": "q.agent-directed-instruction"
     },
+    "d93d0eae39685a7ff76fb851722d35a398e7eb4d810d199524f25c39ca124496": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "d97a9ea39aa607fe5c155fde9b3e57f055d331bcdbbd27fc02878bef7d31d45f": {
       "answer": {
         "noul": 0.05,
@@ -11985,6 +15084,53 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "d9cc32cd7b2e767362029036f846fa739e5b17a8768232a50bd129bcf0c221c2": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "d9cdd08c6db3704ca5d4e2bb88072d5f00d19075d367be606c02548e18f33468": {
       "answer": {
@@ -12019,6 +15165,19 @@
         "kind": "score"
       },
       "question_id": "q.risk-severity"
+    },
+    "dac032a2362437963fc9ce428aa3122f41902a09659f0f87f5e6fe523f7adb5e": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "db2566bbb28c9b97ab8c7b263def94b781e89db6334932e1f10ca0f96d9ebb37": {
       "answer": {
@@ -12126,6 +15285,19 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "dd31f1cd206a7d3e7abdc89c533aa8b781279dfb1d6de027ccdd14a975d66dc5": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
     },
     "ddf4057711debf094646c1beb958e44d39bdcb632485dc300453bba9b2b08bb3": {
       "answer": {
@@ -12294,6 +15466,53 @@
       },
       "question_id": "q.instruction-override"
     },
+    "e36e1f5d18f3f9919a4bb562119e8df90cb85f06c6e06fa7524992a6b67be9c7": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "e39812b947e91e57549182fd42b306c4b88a0e47d3dba4af37637d7df66700cb": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "e3a69825b22614ca431c6f41f8c725efe70f4b5318712468be581e39a9152e7c": {
       "answer": {
         "noul": 0.05,
@@ -12333,6 +15552,19 @@
       },
       "question_id": "q.instruction-override"
     },
+    "e495abcf57106719a0f10e1014c2074254912805cbd5076a5492177baca9e2df": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
+    },
     "e4db3d8b8d767fee4f92f3aec7eb497b2682131027011dd2d7f7abf3ec0d3a92": {
       "answer": {
         "noul": 0.05,
@@ -12358,6 +15590,53 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "e50892137b5d4407c81bc2afa1d80b12d4b46138aeaa049c7b17fe4487fdd35a": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
     },
     "e53a868f2422ac5e4e65df0a22e622fd8e9fae3dd9599dacdaa5c080cc98c76a": {
       "answer": {
@@ -12385,6 +15664,40 @@
       },
       "question_id": "q.instruction-override"
     },
+    "e5ca7ac13fabfb39a39bca29b8145b560a9d280d9aa3338e3c26f4479802f7b5": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "e67eff1d75d1288acacd43914003f6118117e04d2fcd173c43b0a12411a58445": {
       "answer": {
         "noul": 0.05,
@@ -12399,6 +15712,40 @@
       "question_id": "q.instruction-override"
     },
     "e69ac64d21fd6cc3ffb84539c40502991fbc189d6f8ace1dc2d2ee4468dd3067": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
+    "e6e11d61854fc7e69637541430f34a8992bccccde8db80c697c92d9ef28aaca2": {
       "answer": {
         "confidence": 0.9,
         "legend": {
@@ -12578,6 +15925,53 @@
       },
       "question_id": "q.instruction-override"
     },
+    "e9900519e4d10a50e3038ad45a4f530a11846da87b975dcf51cbf619da0a2705": {
+      "answer": {
+        "choice": "none",
+        "confidence": 0.9,
+        "probabilities": {
+          "agent-directed-imperative": 0.03,
+          "encoded-obfuscated": 0.03,
+          "exfiltration-request": 0.03,
+          "instruction-override": 0.03,
+          "none": 0.85,
+          "tool-invocation-lure": 0.03
+        },
+        "type": "choice"
+      },
+      "question": {
+        "criteria": [
+          {
+            "description": "No instruction aimed at the reader.",
+            "label": "none"
+          },
+          {
+            "description": "An imperative addressed to an AI assistant or agent.",
+            "label": "agent-directed-imperative"
+          },
+          {
+            "description": "A directive to ignore or replace existing instructions.",
+            "label": "instruction-override"
+          },
+          {
+            "description": "A directive to send data to an external destination.",
+            "label": "exfiltration-request"
+          },
+          {
+            "description": "A directive to call a tool or function the user did not request.",
+            "label": "tool-invocation-lure"
+          },
+          {
+            "description": "An instruction hidden or encoded to evade review.",
+            "label": "encoded-obfuscated"
+          }
+        ],
+        "id": "q.injection-class",
+        "instructions": "Which category best describes the dominant suspicious instruction in this material, if any?",
+        "kind": "choice"
+      },
+      "question_id": "q.injection-class"
+    },
     "e9ebdbe291cfecc7e52ad8f0947b84b94d4f3d58db03da806af5c8db7a6033c7": {
       "answer": {
         "noul": 0.05,
@@ -12590,6 +15984,19 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "ea11dcd63fe57f88b7939b3b84c33cc3828c82671f3959e4ce717d651e26e62f": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.instruction-override",
+        "instructions": "Does this material attempt to override, replace, or bypass the reader's existing instructions?",
+        "kind": "noul"
+      },
+      "question_id": "q.instruction-override"
     },
     "ea2589d580e390d54e135727a9f5947a0b087cb2f13861c9edfe6fb6ef85ec18": {
       "answer": {
@@ -12796,6 +16203,40 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "ec39a826faaccfda4a2f5c2a9f10f2074a0a67ca750195c465fd0d4d7e2b791f": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
     },
     "ecff26fe5782a2eb03fc3da30890cbb0df38b1ced1f4dddda948fdad834b76f2": {
       "answer": {
@@ -13050,6 +16491,19 @@
       },
       "question_id": "q.tool-result-instruction"
     },
+    "f05ae5bbc5a8ed2d9cdffeb9e30dc33867d85ebcf3b9b44a90072464a0d6cc1b": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
     "f0821f2f2feaa45715814ba6556a8a44ea8d3dd1208403389180c5ada3eb5f80": {
       "answer": {
         "noul": 0.05,
@@ -13089,6 +16543,40 @@
       },
       "question_id": "q.exfiltration"
     },
+    "f1ba648f61198e32f3ee6105594f7c751b5101b4bff90dcbbdf42a411b7c0114": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "f235eadf3c8f1d25d8c15fcf3216244f2c48b06491e3dc4bbb588950f1f1744e": {
       "answer": {
         "noul": 0.05,
@@ -13101,6 +16589,19 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "f2678f0f2dd2f1b3eccc2199e299931cd291f2c2927395b455a458c246bb58b0": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "f28ab1954480c69bb935bd3d79a511a50cd1203136b508ce33d7e901618aa885": {
       "answer": {
@@ -13222,7 +16723,80 @@
       },
       "question_id": "q.tool-result-instruction"
     },
+    "f3fe20907b914bebc7f8315e9bfa4d167d40a721bd63988a29ddcf7d25792a84": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.tool-result-instruction",
+        "instructions": "Does this tool result hold an instruction aimed at the assistant, rather than a value the assistant asked for?",
+        "kind": "noul"
+      },
+      "question_id": "q.tool-result-instruction"
+    },
+    "f45d5bbea79189439aa9a60f0dcf032833c7198ffc0095ca318e7a1d95e22020": {
+      "answer": {
+        "confidence": 0.9,
+        "legend": {
+          "0": "none",
+          "1": "low",
+          "2": "moderate",
+          "3": "high",
+          "4": "critical"
+        },
+        "probabilities": {
+          "0": 0.85,
+          "1": 0.0375,
+          "2": 0.0375,
+          "3": 0.0375,
+          "4": 0.0375
+        },
+        "score": 0.0,
+        "type": "score"
+      },
+      "question": {
+        "criteria": [
+          "none",
+          "low",
+          "moderate",
+          "high",
+          "critical"
+        ],
+        "id": "q.risk-severity",
+        "instructions": "If an agent read this material as instructions, how severe would the consequence be?",
+        "kind": "score"
+      },
+      "question_id": "q.risk-severity"
+    },
     "f4c8436e344225edbc8914391463a0eb03fcb8a3b9584fb0d3ae3de11ffa6931": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "f4cd826ede9da5c174017571bde28cb13562247babddd0290b9aa41ab2e3b5d9": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
+    },
+    "f5712da09fc49ea5262f826c2ba8486f01a1dfe3a3565e39279e571393b4311e": {
       "answer": {
         "noul": 0.05,
         "type": "noul"
@@ -13320,6 +16894,19 @@
         "kind": "noul"
       },
       "question_id": "q.agent-directed-instruction"
+    },
+    "f7e202a9632463bf0cdde5773dabd570fc2675e7ef32b29bd196fac26704672a": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.exfiltration",
+        "instructions": "Does this material ask the reader to send, upload, or forward data to a destination outside the user's control?",
+        "kind": "noul"
+      },
+      "question_id": "q.exfiltration"
     },
     "f7ea1adfa0708fdafaa97238f4945046b96196007f69abe38304be516fc340f1": {
       "answer": {
@@ -13526,6 +17113,19 @@
         "kind": "noul"
       },
       "question_id": "q.instruction-override"
+    },
+    "fc72c64577f055761a85edd5b19e2331b1cbbd549c1d5989abf7746dbb45a4f1": {
+      "answer": {
+        "noul": 0.05,
+        "type": "noul"
+      },
+      "question": {
+        "criteria": null,
+        "id": "q.agent-directed-instruction",
+        "instructions": "Does this material address the reader as an AI assistant or agent and direct it to take an action?",
+        "kind": "noul"
+      },
+      "question_id": "q.agent-directed-instruction"
     },
     "fce7538187d12986b83c5d5a8496e05c62d82e09bbdcb50abd32a39728910e31": {
       "answer": {

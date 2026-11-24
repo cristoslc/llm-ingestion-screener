@@ -256,59 +256,28 @@ def compute_metrics(
         )
     )
 
-    # 6 and 7. Evasion transforms.
+    # 6 and 7. Evasion transforms, reported per named transform.
     transforms = [result for result in ordered if result.corpus == "transforms"]
     if transforms:
-        blocked = sum(1 for result in transforms if result.caught)
+        lookup = {result.fixture_id: result for result in ordered}
+        breakdown = _transform_breakdown(transforms, lookup)
         metrics.append(
             Metric(
                 name="evasion_transform_blocked_rate",
                 status="computed",
-                value=_ratio(blocked, len(transforms)),
-                detail=f"{blocked} of {len(transforms)} transformed fixtures still caught",
-                data={"blocked": blocked, "total": len(transforms)},
+                value=_ratio(breakdown["blocked"], breakdown["total"]),
+                detail=(
+                    f"{breakdown['blocked']} of {breakdown['total']} transformed "
+                    "fixtures still caught"
+                ),
+                data={
+                    "blocked": breakdown["blocked"],
+                    "total": breakdown["total"],
+                    "by_transform": breakdown["by_transform"],
+                },
             )
         )
-        lookup = {result.fixture_id: result for result in ordered}
-        retained = 0
-        base_hits = 0
-        pairs: list[dict[str, object]] = []
-        for result in transforms:
-            if result.derived_from is None:
-                raise EvaluationError(
-                    f"transform fixture {result.fixture_id!r} has no derived_from"
-                )
-            base = lookup.get(result.derived_from)
-            if base is None:
-                raise EvaluationError(
-                    f"transform fixture {result.fixture_id!r} derives from "
-                    f"unknown result {result.derived_from!r}"
-                )
-            base_rules = set(base.rule_ids)
-            if not base_rules:
-                pairs.append(
-                    {
-                        "fixture_id": result.fixture_id,
-                        "base_id": base.fixture_id,
-                        "base_rule_ids": [],
-                        "derived_rule_ids": list(result.rule_ids),
-                        "retained": None,
-                    }
-                )
-                continue
-            surviving = base_rules & set(result.rule_ids)
-            retained += len(surviving)
-            base_hits += len(base_rules)
-            pairs.append(
-                {
-                    "fixture_id": result.fixture_id,
-                    "base_id": base.fixture_id,
-                    "base_rule_ids": sorted(base_rules),
-                    "derived_rule_ids": list(result.rule_ids),
-                    "retained": sorted(surviving),
-                }
-            )
-        if base_hits == 0:
+        if breakdown["base_hits"] == 0:
             metrics.append(
                 _not_applicable(
                     "evasion_transform_rule_retention",
@@ -321,12 +290,17 @@ def compute_metrics(
                 Metric(
                     name="evasion_transform_rule_retention",
                     status="computed",
-                    value=retained / base_hits,
+                    value=breakdown["retained"] / breakdown["base_hits"],
                     detail=(
-                        f"{retained} of {base_hits} base rule hits survive the "
-                        "transform"
+                        f"{breakdown['retained']} of {breakdown['base_hits']} base "
+                        "rule hits survive the transform"
                     ),
-                    data={"retained": retained, "base_hits": base_hits, "pairs": pairs},
+                    data={
+                        "retained": breakdown["retained"],
+                        "base_hits": breakdown["base_hits"],
+                        "pairs": breakdown["pairs"],
+                        "by_transform": breakdown["by_transform"],
+                    },
                 )
             )
     else:
@@ -517,6 +491,90 @@ def compute_metrics(
     metrics.append(_coverage_metric(ordered, coverage_floors))
 
     return MetricsReport(metrics=tuple(metrics))
+
+
+def _transform_breakdown(
+    transforms: Sequence[FixtureResult],
+    lookup: Mapping[str, FixtureResult],
+) -> dict[str, object]:
+    """Per-transform blocked rate, rule retention, and defeated rules.
+
+    A transform's ``defeated_rules`` are the base rule ids that no longer fire
+    on any of its derived fixtures. An empty list means the transform is fully
+    caught by the deterministic rules it was derived from.
+    """
+
+    by_transform: dict[str, dict[str, object]] = {}
+    blocked_total = 0
+    retained_total = 0
+    base_hits_total = 0
+    pairs_all: list[dict[str, object]] = []
+    names = sorted(
+        {result.transform for result in transforms if result.transform is not None}
+    )
+    for name in names:
+        subset = [result for result in transforms if result.transform == name]
+        blocked = sum(1 for result in subset if result.caught)
+        firing: set[str] = set()
+        defeated: set[str] = set()
+        retained = 0
+        base_hits = 0
+        pairs: list[dict[str, object]] = []
+        for result in subset:
+            if result.derived_from is None:
+                raise EvaluationError(
+                    f"transform fixture {result.fixture_id!r} has no derived_from"
+                )
+            base = lookup.get(result.derived_from)
+            if base is None:
+                raise EvaluationError(
+                    f"transform fixture {result.fixture_id!r} derives from "
+                    f"unknown result {result.derived_from!r}"
+                )
+            base_rules = set(base.rule_ids)
+            derived_rules = set(result.rule_ids)
+            firing |= derived_rules
+            surviving = base_rules & derived_rules
+            lost = base_rules - derived_rules
+            defeated |= lost
+            retained += len(surviving)
+            base_hits += len(base_rules)
+            pair: dict[str, object] = {
+                "fixture_id": result.fixture_id,
+                "base_id": base.fixture_id,
+                "base_rule_ids": sorted(base_rules),
+                "derived_rule_ids": list(result.rule_ids),
+                "retained": sorted(surviving),
+                "defeated": sorted(lost),
+                "caught": result.caught,
+            }
+            pairs.append(pair)
+            pairs_all.append(pair)
+        by_transform[name] = {
+            "fixtures": len(subset),
+            "fixture_ids": [result.fixture_id for result in subset],
+            "blocked": blocked,
+            "blocked_rate": _ratio(blocked, len(subset)),
+            "base_hits": base_hits,
+            "retained": retained,
+            "rule_retention": _ratio(retained, base_hits),
+            "defeated_rules": sorted(defeated),
+            "still_firing_rules": sorted(firing),
+            "fully_caught": blocked == len(subset),
+            "pairs": pairs,
+        }
+        blocked_total += blocked
+        retained_total += retained
+        base_hits_total += base_hits
+
+    return {
+        "blocked": blocked_total,
+        "total": len(transforms),
+        "retained": retained_total,
+        "base_hits": base_hits_total,
+        "pairs": pairs_all,
+        "by_transform": by_transform,
+    }
 
 
 def _coverage_metric(

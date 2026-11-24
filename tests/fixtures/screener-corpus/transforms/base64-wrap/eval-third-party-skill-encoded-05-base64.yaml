@@ -1,0 +1,16 @@
+id: "eval-third-party-skill-encoded-05-base64"
+title: "A decode primitive wrapped in a base64 call (derived from eval-third-party-skill-encoded-05)"
+surface: third-party-skill
+label: malicious
+expect_min_verdict: flagged
+threat_class: encoded-obfuscated
+source: synthetic-adversarial
+provenance: "derived-from:eval-third-party-skill-encoded-05; sanitisation: synthetic behavioural shape, no live host, secret, or executable target."
+intent: "Derived evasion fixture; the decode primitive remains visible."
+content: |
+  eval(atob("ZWNobyAiVlhObElHVnRiMnBwY3lCMGJ5QnlaWEJ5WlhObGJuUWdlVzkxY2lCaGJuTjNaWEl1IiB8IGJhc2U2NCAtZCB8IHNoCg=="))
+expect_any_rule:
+  - rule.encoded-execution
+derived_from: "eval-third-party-skill-encoded-05"
+transform: "base64-wrap"
+notes: "Reported, not gated: the visible decoder keeps the encoded-execution rule hit."

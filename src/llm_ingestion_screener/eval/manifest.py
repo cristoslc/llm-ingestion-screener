@@ -23,6 +23,7 @@ from llm_ingestion_screener.eval.fixtures import (
     MALICIOUS_THREAT_CLASSES,
     SOURCES,
     SOURCES_REQUIRING_PROVENANCE,
+    TRANSFORM_NAMES,
 )
 from llm_ingestion_screener.eval.yamlutil import load_yaml_mapping
 
@@ -30,7 +31,7 @@ if TYPE_CHECKING:  # pragma: no cover - typing only
     from llm_ingestion_screener.eval.fixtures import Fixture
 
 MANIFEST_NAME = "manifest.yaml"
-MANIFEST_FORMAT = "llm-ingestion-screener/corpus-manifest/v1"
+MANIFEST_FORMAT = "llm-ingestion-screener/corpus-manifest/v2"
 COMMIT_HEX = re.compile(r"^[0-9a-f]{40}$")
 ENTRY_FIELDS = frozenset(
     {
@@ -42,6 +43,8 @@ ENTRY_FIELDS = frozenset(
         "threat_class",
         "source",
         "upstream",
+        "derived_from",
+        "transform",
         "sanitisation",
     }
 )
@@ -64,6 +67,8 @@ class ManifestEntry:
     upstream_commit: str
     upstream_sample_id: str
     sanitisation: tuple[str, ...]
+    derived_from: str | None = None
+    transform: str | None = None
 
     def to_dict(self) -> dict[str, object]:
         return {
@@ -79,6 +84,8 @@ class ManifestEntry:
                 "commit": self.upstream_commit,
                 "sample_id": self.upstream_sample_id,
             },
+            "derived_from": self.derived_from,
+            "transform": self.transform,
             "sanitisation": list(self.sanitisation),
         }
 
@@ -207,6 +214,22 @@ def _exclusions(value: object, manifest_path: Path) -> tuple[Exclusion, ...]:
     return tuple(exclusions)
 
 
+def _optional_nullable(
+    item: Mapping[object, object],
+    field: str,
+    fixture_id: str,
+) -> str | None:
+    value = item.get(field)
+    if value is None:
+        return None
+    if not isinstance(value, str) or not value.strip():
+        raise EvaluationError(
+            f"corpus manifest fixture {fixture_id!r} field {field!r} must be "
+            "a non-empty string or null"
+        )
+    return value
+
+
 def _entry(
     item: Mapping[object, object],
     pins: Mapping[str, str],
@@ -322,6 +345,25 @@ def _entry(
             f"corpus manifest fixture {fixture_id!r} requires a non-empty "
             "'sanitisation' list"
         )
+    derived_from = _optional_nullable(item, "derived_from", fixture_id)
+    transform = _optional_nullable(item, "transform", fixture_id)
+    if corpus == "transforms":
+        if not derived_from or not transform:
+            raise EvaluationError(
+                f"corpus manifest fixture {fixture_id!r} under transforms/ "
+                "requires both derived_from and transform"
+            )
+        if transform not in TRANSFORM_NAMES:
+            raise EvaluationError(
+                f"corpus manifest fixture {fixture_id!r} names unknown "
+                f"transform {transform!r}"
+            )
+    elif derived_from is not None or transform is not None:
+        raise EvaluationError(
+            f"corpus manifest fixture {fixture_id!r} carries derived_from or "
+            "transform outside the transforms/ corpus"
+        )
+
     sanitisation: list[str] = []
     for step in sanitisation_raw:
         if not isinstance(step, str) or not step.strip():
@@ -343,6 +385,8 @@ def _entry(
         upstream_commit=commit,
         upstream_sample_id=sample_id,
         sanitisation=tuple(sanitisation),
+        derived_from=derived_from,
+        transform=transform,
     )
 
 
@@ -381,6 +425,8 @@ def validate_manifest(
             ("label", fixture.label),
             ("threat_class", fixture.threat_class),
             ("source", fixture.source),
+            ("derived_from", fixture.derived_from),
+            ("transform", fixture.transform),
         ):
             actual = getattr(entry, field)
             if actual != expected:

@@ -1,5 +1,5 @@
 {
-  "corpus_fingerprint": "8b79c5724d07e9021405ce180792bea7fb8c98c5edd39ae4b442e6431d587c94",
+  "corpus_fingerprint": "2e8b079d82d8987271bf8b2c13585221698c39667038e1f542e2c7fe93b4d49e",
   "fixtures": {
     "benign-document-imperative-03": {
       "content_sha256": "edbde1f9e33373961f8bf123988d5e2c1da2deb187f245ecdf8c0a80bb2af1f7",
@@ -209,6 +209,14 @@
       ],
       "verdict": "quarantine"
     },
+    "eval-document-agent-directed-03-pushed": {
+      "content_sha256": "d6878d93c2d13af1d4f76c22a267769384601f2a6103c5668794c4ac8d9f78e2",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
     "eval-document-agent-directed-08": {
       "content_sha256": "62b1ef178d7eb300fbb0a460bc92b26700f0c42460cc779f804b95be9311d305",
       "corpus": "eval",
@@ -226,6 +234,27 @@
       ],
       "verdict": "flagged"
     },
+    "eval-document-encoded-04-base64": {
+      "content_sha256": "5144ffd9f24b3c2ff35bb0e85d0400facdd3a1fce63937287b612a71aaba3f1d",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-document-encoded-04-bracketify": {
+      "content_sha256": "7d1f272f6b46d5a876a4f3fa882a38d4e61fd76fd51af67d2c88302c889f3b84",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "eval-document-encoded-04-bracketify-window": {
+      "content_sha256": "05a8c5be94821b0e4b1a9cfd45ba3a62fa32630207a6ab5111d92d06218ee555",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "eval-document-exfiltration-03": {
       "content_sha256": "5cbcd60df9f0d09bc212ac25b56e84bb21d93890b7c6e21183f3ba174db0086c",
       "corpus": "eval",
@@ -234,6 +263,20 @@
       ],
       "verdict": "quarantine"
     },
+    "eval-document-exfiltration-03-pushed": {
+      "content_sha256": "08acfea0705024002a2f466e9c32756cbe2392b57634765285cd8b66bee3fbc2",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-document-exfiltration-03-split": {
+      "content_sha256": "1fa72f64313a0a9941255042358881a95ee2345af3383ac9970c7ed63b544436",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "eval-document-exfiltration-08": {
       "content_sha256": "54419ed3b66ed17e43d104d40215a444e292f26a4d3bb6b8ca6820c1b8d76f47",
       "corpus": "eval",
@@ -241,6 +284,12 @@
         "rule.exfiltration-request"
       ],
       "verdict": "quarantine"
+    },
+    "eval-document-exfiltration-08-split": {
+      "content_sha256": "414fe3ad69a7833521d0ea61fc7210c5df147d57a5ce70116f89f3cd62b1c6ab",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
     },
     "eval-document-instruction-override-03": {
       "content_sha256": "22fd98e024aeeb471cdf9524aef72c68bcb0ae26a2d13822b21e8621541fa849",
@@ -291,6 +340,15 @@
       ],
       "verdict": "flagged"
     },
+    "eval-document-tool-result-07-pushed": {
+      "content_sha256": "fc1d0926ce139fa563a62769b26713ab0269c042797d7b39584b55974c0a479d",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
     "eval-search-result-agent-directed-02": {
       "content_sha256": "7e8d1ed7463a2e7df45d8720e07bf99b2fbdf05a17fa37245d469a3b5ffeb6f9",
       "corpus": "eval",
@@ -316,6 +374,21 @@
       ],
       "verdict": "flagged"
     },
+    "eval-search-result-encoded-03-base64": {
+      "content_sha256": "1a431012d24c7c09bb35b923d126a3d02f890c5e49e8af3184b25dccd77f5294",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-search-result-encoded-03-bracketify": {
+      "content_sha256": "a4853f7938d384dc720fa7aa5093bec35f6ffe669aed4b6d3a2a6c16442a957e",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "eval-search-result-exfiltration-07": {
       "content_sha256": "da86a70c6bcd7c9bd3c92b4d422070fea0d41a392ef237e48e873eeca21ce470",
       "corpus": "eval",
@@ -323,6 +396,12 @@
         "rule.exfiltration-request"
       ],
       "verdict": "quarantine"
+    },
+    "eval-search-result-exfiltration-07-split": {
+      "content_sha256": "625175a641f110f92b6b81972373b6343a639c3a35f3886d458ee4098c6bb9db",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
     },
     "eval-search-result-instruction-override-02": {
       "content_sha256": "d746770bb7f74afc8367c4572f91b74db408554043720dc15797c89eff265992",
@@ -390,6 +469,15 @@
       ],
       "verdict": "flagged"
     },
+    "eval-third-party-skill-encoded-05-base64": {
+      "content_sha256": "6a7ddc9724f2713e75bfbd801ec02825261a75db4522ef1e6aef0b8a7ce12dbf",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
     "eval-third-party-skill-exfiltration-04": {
       "content_sha256": "a2974ad40b322aa7ed3493f8740e175bcdd802e10929a3e9b41d288b42c3cb9a",
       "corpus": "eval",
@@ -397,6 +485,12 @@
         "rule.exfiltration-request"
       ],
       "verdict": "quarantine"
+    },
+    "eval-third-party-skill-exfiltration-04-split": {
+      "content_sha256": "95d92fc090c39a387606ce60902fff215bfa589da26b84f240bbea5f83b90f42",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
     },
     "eval-third-party-skill-instruction-override-04": {
       "content_sha256": "9a3a2c4ca12088733bbe8860addc2a3b47958a7290d7f324a5d76f7f4c1b5a7c",
@@ -464,6 +558,21 @@
       ],
       "verdict": "flagged"
     },
+    "eval-tool-output-encoded-06-base64": {
+      "content_sha256": "1c64bd14cc74a49c5de53ad2ddf83a45ad4f5c49eba6111c07266f482c7c0d5d",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-encoded-06-bracketify": {
+      "content_sha256": "2b4b964694c0ae074cbfd6abd18fed2be68ac4a8fab81d584b33c6ee1f527241",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "eval-tool-output-encoded-07": {
       "content_sha256": "ad08307b5c3483afba872cfdbe5503191e403e9d2e81eee9f4e64b3f3203ddba",
       "corpus": "eval",
@@ -473,10 +582,40 @@
       ],
       "verdict": "flagged"
     },
+    "eval-tool-output-encoded-07-base64": {
+      "content_sha256": "54463282b1aab20c37352a789d7f83b5a308a450d3acfbf07c35e74e993fa5f2",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-encoded-07-bracketify": {
+      "content_sha256": "703449010b9ca8b62dbc5af8a4983c8b0766657417af6cd477a1c9313811a596",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "eval-tool-output-encoded-07-bracketify-window": {
+      "content_sha256": "ce8adcbd08d20e61ea64792ea849964fa3ed24dcfabc7f61a4c56c5796c6baaf",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "eval-tool-output-encoded-08": {
       "content_sha256": "ca9c358e225234632517c0cf5ee79f7e47518b7f58e7ee9ccbfffc9a363036e5",
       "corpus": "eval",
       "rule_ids": [
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-encoded-08-base64": {
+      "content_sha256": "aefb2d676c9a0cfd1edabab483b710d842ba7913975834354e8a04338f3ab6c6",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.encoded-execution",
         "rule.encoded-execution"
       ],
       "verdict": "flagged"
@@ -489,9 +628,23 @@
       ],
       "verdict": "quarantine"
     },
+    "eval-tool-output-exfiltration-05-split": {
+      "content_sha256": "d41df01a75f3a285fc0878b69eaf0c190d106f5cd407a50135373e0489b53c3d",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "eval-tool-output-instruction-override-05": {
       "content_sha256": "3b8929f97951a9729d610175888843ad29c0e3ef91fb669e449981abdd0b49d2",
       "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-tool-output-instruction-override-05-pushed": {
+      "content_sha256": "f7ab7723535d1b6a3678870352bdf65ac4699b20fd23b341a0f5e9038227402c",
+      "corpus": "transforms",
       "rule_ids": [
         "rule.instruction-override"
       ],
@@ -524,6 +677,15 @@
     "eval-tool-output-tool-result-01": {
       "content_sha256": "52f6774ab78159ab360126d083b0d1b42da1738064b5f48a91b5022d38e55c2b",
       "corpus": "eval",
+      "rule_ids": [
+        "rule.tool-result-injection",
+        "rule.tool-invocation-lure"
+      ],
+      "verdict": "flagged"
+    },
+    "eval-tool-output-tool-result-01-pushed": {
+      "content_sha256": "e6f2a82fa356f9aaffa8fda3eef2e5ca5364f0f79bbc969b18fa519fc9d0a8a3",
+      "corpus": "transforms",
       "rule_ids": [
         "rule.tool-result-injection",
         "rule.tool-invocation-lure"
@@ -574,6 +736,14 @@
       ],
       "verdict": "quarantine"
     },
+    "eval-web-page-agent-directed-01-pushed": {
+      "content_sha256": "e55f59a5a257a3fb64e6dc343d1d29dc0dbcb3a7dd91661063f60ed56e17b90e",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.agent-directed-imperative"
+      ],
+      "verdict": "quarantine"
+    },
     "eval-web-page-agent-directed-06": {
       "content_sha256": "f3ad9d5df54dfc509b0fbdf0cdbb165bbb039e79adf900563a0da7405cd2a8c0",
       "corpus": "eval",
@@ -591,6 +761,15 @@
       ],
       "verdict": "flagged"
     },
+    "eval-web-page-encoded-02-base64": {
+      "content_sha256": "edc44fcca2aa3a0981787b8241d506c9351c18ce99655bd5374cc4c87e41c64a",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.encoded-execution",
+        "rule.encoded-execution"
+      ],
+      "verdict": "flagged"
+    },
     "eval-web-page-exfiltration-01": {
       "content_sha256": "f2488d5e60409fa10218df41a5352fcea6426811543b22ed7eda49e975b1fa2e",
       "corpus": "eval",
@@ -598,6 +777,20 @@
         "rule.exfiltration-request"
       ],
       "verdict": "quarantine"
+    },
+    "eval-web-page-exfiltration-01-pushed": {
+      "content_sha256": "5fc7a13b8b7e5f06c99cc9110dcf71a437b725f2db2a8897081eb8db4fa0ccdd",
+      "corpus": "transforms",
+      "rule_ids": [
+        "rule.exfiltration-request"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-exfiltration-01-split": {
+      "content_sha256": "c4e85962b6b58eae622513b9781b499d954c9c6e7861ef6d4e9aee48fc985cf3",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
     },
     "eval-web-page-exfiltration-06": {
       "content_sha256": "2b0387529fcdfeef9e1b3e80ab9e95e685613b7d97fd5ad3ec970d469f1da0b8",
@@ -608,9 +801,23 @@
       ],
       "verdict": "quarantine"
     },
+    "eval-web-page-exfiltration-06-split": {
+      "content_sha256": "c32ed666f7ec23255c4e65378bcca518e160b7349586699c030b22820903b9a3",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
     "eval-web-page-instruction-override-01": {
       "content_sha256": "adfd013a92b125227b9154bf629c700452a02a28f71be905528777ef078cf6eb",
       "corpus": "eval",
+      "rule_ids": [
+        "rule.instruction-override"
+      ],
+      "verdict": "quarantine"
+    },
+    "eval-web-page-instruction-override-01-pushed": {
+      "content_sha256": "ba903d5b42906968644804f819940cad20d6d8bb1a6238a6917a54f8381737be",
+      "corpus": "transforms",
       "rule_ids": [
         "rule.instruction-override"
       ],
@@ -786,7 +993,7 @@
       "verdict": "quarantine"
     },
     "search-result-exfiltration-request-split": {
-      "content_sha256": "013a01ae4c9ea46c0a1463cf7c5c7438cb6159f00668602defb0eb147a9a7ecb",
+      "content_sha256": "bdf908d8dcc012f51d3c550a6771fb392ca0da493cbff4372abdddd39a3124dd",
       "corpus": "transforms",
       "rule_ids": [],
       "verdict": "clean"
@@ -809,12 +1016,25 @@
       "verdict": "flagged"
     },
     "tool-output-encoded-execution-base64": {
-      "content_sha256": "2f72752c22c1a60405a53fa68a37b1f0c9ca32a0915c79e37cda33d6be6d957a",
+      "content_sha256": "7ffd6a48d685278ef248ea4fc225df82fda11822c17a4b81733584fb319ff0d6",
       "corpus": "transforms",
       "rule_ids": [
+        "rule.encoded-execution",
         "rule.encoded-execution"
       ],
       "verdict": "flagged"
+    },
+    "tool-output-encoded-execution-bracketify": {
+      "content_sha256": "4f1da2b63ce8e3f1751c025cb1019d5ab80f0bf97a285df86bd7d3f72ec9bc41",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
+    },
+    "tool-output-encoded-execution-bracketify-window": {
+      "content_sha256": "562462d803e1b492635eec7b132105c4be1e96e82e73ac7d1dec5bffe179b017",
+      "corpus": "transforms",
+      "rule_ids": [],
+      "verdict": "clean"
     },
     "tool-output-ignore-previous": {
       "content_sha256": "e8f75232f94be365e4f5b07f2d8317ea52e6c9c899e3a3174e9d0ff7d4148c26",
@@ -866,7 +1086,7 @@
     },
     "evasion_transform_rule_retention": {
       "status": "computed",
-      "value": 0.5
+      "value": 0.5294117647058824
     },
     "evidence_record_well_formedness": {
       "status": "computed",

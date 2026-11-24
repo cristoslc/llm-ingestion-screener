@@ -53,14 +53,15 @@ metrics:
     status: gated
 
 # A vacuous 100% recall from deleting fixtures is caught here. The floors are
-# per directory, per surface, and per threat class.
+# per directory, per surface, and per threat class. The transforms floor is
+# 32: four named transforms at a floor of eight derived fixtures each.
 coverage:
   directories:
     golden: 5
     eval: 56
     frontier: 20
     benign: 32
-    transforms: 2
+    transforms: 32
   surfaces:
     web-page: 20
     search-result: 18
