@@ -8,7 +8,11 @@ from pathlib import Path
 import pytest
 
 from llm_ingestion_screener.errors import EvaluationError
-from llm_ingestion_screener.eval.fixtures import CORPUS_DIRECTORIES, load_corpus
+from llm_ingestion_screener.eval.fixtures import (
+    CORPUS_DIRECTORIES,
+    TRANSFORM_NAMES,
+    load_corpus,
+)
 from eval_support import CORPUS, copy_corpus, mutate_yaml
 
 GOLDEN_WEB = "golden/web-page-agent-directed-imperative.yaml"
@@ -20,8 +24,8 @@ TRANSFORM = "transforms/split-string-literals/search-result-exfiltration-request
 
 def test_loads_the_committed_corpus() -> None:
     corpus = load_corpus(CORPUS)
-    assert len(corpus.fixtures) == 115
-    assert len(corpus.by_id) == 115
+    assert len(corpus.fixtures) == 145
+    assert len(corpus.by_id) == 145
     assert len(corpus.fingerprint) == 64
     assert {fixture.corpus for fixture in corpus.fixtures} == set(CORPUS_DIRECTORIES)
     assert all(fixture.path.is_file() for fixture in corpus.fixtures)
@@ -157,6 +161,52 @@ def test_rejects_a_transform_derived_from_an_unknown_fixture(
     )
     with pytest.raises(EvaluationError, match="derives from unknown fixture"):
         load_corpus(root)
+
+
+def test_rejects_a_transform_derived_from_a_benign_fixture(
+    tmp_path: Path,
+) -> None:
+    root = copy_corpus(tmp_path)
+    mutate_yaml(
+        root / TRANSFORM,
+        lambda payload: payload.__setitem__("derived_from", "benign-web-page-markup-01"),
+    )
+    with pytest.raises(EvaluationError, match="derives from benign fixture"):
+        load_corpus(root)
+
+
+def test_rejects_an_unknown_transform_name(tmp_path: Path) -> None:
+    root = copy_corpus(tmp_path)
+    mutate_yaml(
+        root / TRANSFORM,
+        lambda payload: payload.__setitem__("transform", "control-byte-padding"),
+    )
+    with pytest.raises(EvaluationError, match="unknown transform"):
+        load_corpus(root)
+
+
+def test_rejects_a_transform_fixture_in_the_wrong_directory(
+    tmp_path: Path,
+) -> None:
+    root = copy_corpus(tmp_path)
+    mutate_yaml(
+        root / TRANSFORM,
+        lambda payload: payload.__setitem__("transform", "base64-wrap"),
+    )
+    with pytest.raises(EvaluationError, match="names transform 'base64-wrap'"):
+        load_corpus(root)
+
+
+def test_every_transform_directory_meets_the_sample_floor() -> None:
+    corpus = load_corpus(CORPUS)
+    counts: dict[str, int] = {name: 0 for name in TRANSFORM_NAMES}
+    for fixture in corpus.fixtures:
+        if fixture.corpus != "transforms":
+            continue
+        assert fixture.transform in counts
+        counts[fixture.transform] += 1
+    for name, count in counts.items():
+        assert count >= 8, (name, count)
 
 
 def test_rejects_an_unknown_expected_rule_id(tmp_path: Path) -> None:

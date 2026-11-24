@@ -20,6 +20,7 @@ def make_result(
     verdict: str = "clean",
     rule_ids: tuple[str, ...] = (),
     derived_from: str | None = None,
+    transform: str | None = None,
     evidence_ok: bool = True,
 ) -> FixtureResult:
     return FixtureResult(
@@ -31,7 +32,11 @@ def make_result(
         expect_min_verdict=expect_min_verdict,
         expect_any_rule=(),
         derived_from=derived_from,
-        transform="split-string-literals" if derived_from else None,
+        transform=(
+            transform
+            if transform is not None
+            else ("split-string-literals" if derived_from else None)
+        ),
         content_sha256="0" * 64,
         verdict=verdict,
         rule_ids=rule_ids,
@@ -124,6 +129,7 @@ def sample_results() -> tuple[FixtureResult, ...]:
             verdict="flagged",
             rule_ids=("rule.encoded-execution",),
             derived_from="e2",
+            transform="base64-wrap",
         ),
     )
 
@@ -174,6 +180,37 @@ def test_transform_blocked_rate_and_rule_retention() -> None:
     metrics = report.by_name()
     assert metrics["evasion_transform_blocked_rate"].value == pytest.approx(0.5)
     assert metrics["evasion_transform_rule_retention"].value == pytest.approx(0.5)
+
+
+def test_each_named_transform_reports_its_own_numbers() -> None:
+    report = compute_metrics(
+        sample_results(),
+        deterministic=True,
+        malformed_answer_fails_batch=True,
+        coverage_floors=FLOORS,
+    )
+    metrics = report.by_name()
+    by_transform = metrics["evasion_transform_blocked_rate"].data["by_transform"]
+    split = by_transform["split-string-literals"]
+    assert split["fixtures"] == 1
+    assert split["blocked"] == 0
+    assert split["blocked_rate"] == 0.0
+    assert split["rule_retention"] == 0.0
+    assert split["defeated_rules"] == ["rule.exfiltration-request"]
+    assert split["still_firing_rules"] == []
+    assert split["fully_caught"] is False
+
+    base64 = by_transform["base64-wrap"]
+    assert base64["fixtures"] == 1
+    assert base64["blocked"] == 1
+    assert base64["rule_retention"] == 1.0
+    assert base64["defeated_rules"] == []
+    assert base64["still_firing_rules"] == ["rule.encoded-execution"]
+    assert base64["fully_caught"] is True
+
+    retention = metrics["evasion_transform_rule_retention"].data["by_transform"]
+    assert retention["base64-wrap"]["rule_retention"] == 1.0
+    assert retention["split-string-literals"]["rule_retention"] == 0.0
 
 
 def test_every_plan_metric_is_present_and_na_rows_carry_a_reason() -> None:

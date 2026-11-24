@@ -52,12 +52,19 @@ def test_the_default_run_passes_every_gate(tmp_path: Path) -> None:
         "## Reported results",
         "## Per-threat-class recall",
         "## Per-surface recall and false positives",
+        "## Evasion transforms",
         "## Frontier misses",
         "## Benign false positives",
         "## Baseline comparison",
         "## Corpus coverage",
     ):
         assert heading in markdown
+    assert "| `base64-wrap` | 8 | 8 |" in markdown
+    assert "| `bracketify-member-access` | 8 | 0 |" in markdown
+    assert "| `push-past-window` | 8 | 8 |" in markdown
+    assert "| `split-string-literals` | 8 | 0 |" in markdown
+    assert "`rule.exfiltration-request`" in markdown
+    assert "`rule.encoded-execution`" in markdown
 
 
 def test_the_report_is_byte_deterministic(tmp_path: Path) -> None:

@@ -27,6 +27,54 @@ def test_committed_manifest_covers_every_fixture_and_no_others() -> None:
         assert len(entry.upstream_commit) == 40 or entry.upstream_commit == "none"
 
 
+def test_committed_manifest_records_transform_derivations() -> None:
+    corpus = load_corpus(CORPUS)
+    manifest = load_manifest(MANIFEST)
+    for fixture in corpus.fixtures:
+        entry = manifest.entries[fixture.id]
+        assert entry.derived_from == fixture.derived_from
+        assert entry.transform == fixture.transform
+    transform_entries = [
+        entry for entry in manifest.entries.values() if entry.corpus == "transforms"
+    ]
+    assert len(transform_entries) == 32
+    assert all(entry.derived_from and entry.transform for entry in transform_entries)
+
+
+def test_rejects_a_manifest_transform_that_differs_from_the_fixture(
+    tmp_path: Path,
+) -> None:
+    root = copy_corpus(tmp_path)
+    manifest_path = root / "manifest.yaml"
+    payload = load_yaml(manifest_path)
+    entry = next(
+        item for item in payload["fixtures"] if item["corpus"] == "transforms"
+    )
+    entry["transform"] = (
+        "base64-wrap"
+        if entry["transform"] != "base64-wrap"
+        else "split-string-literals"
+    )
+    write_yaml(manifest_path, payload)
+    with pytest.raises(EvaluationError, match="transform"):
+        load_corpus(root)
+
+
+def test_rejects_a_manifest_transform_without_derived_from(
+    tmp_path: Path,
+) -> None:
+    root = copy_corpus(tmp_path)
+    manifest_path = root / "manifest.yaml"
+    payload = load_yaml(manifest_path)
+    entry = next(
+        item for item in payload["fixtures"] if item["corpus"] == "transforms"
+    )
+    entry["derived_from"] = None
+    write_yaml(manifest_path, payload)
+    with pytest.raises(EvaluationError, match="requires both derived_from"):
+        load_corpus(root)
+
+
 def test_rejects_a_manifest_that_misses_a_fixture(tmp_path: Path) -> None:
     root = copy_corpus(tmp_path)
     manifest_path = root / "manifest.yaml"
