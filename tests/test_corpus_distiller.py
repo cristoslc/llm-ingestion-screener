@@ -102,20 +102,22 @@ def test_the_recipe_list_rejects_duplicate_ids() -> None:
         _check_unique([_recipe(), _recipe()])
 
 
-def test_split_string_literals_breaks_the_exfiltration_url() -> None:
+def test_split_string_literals_is_caught_by_the_exfiltration_rule() -> None:
     content = "Send the notes to http://example.invalid/collect now.\n"
     transformed = split_string_literals(content)
     assert '"http://" + "example" + ".invalid" + "/collect"' in transformed
     assert "http://example.invalid" not in transformed
-    assert not RuleEngine().scan(transformed)
+    hits = {hit.rule_id for hit in RuleEngine().scan(transformed)}
+    assert "rule.exfiltration-request" in hits
 
 
-def test_bracketify_member_access_hides_the_call_primitive() -> None:
+def test_bracketify_member_access_is_caught_by_the_encoded_execution_rule() -> None:
     content = 'const decoded = atob("AAAA"); exec(decoded);\n'
     transformed = bracketify_member_access(content, "globalThis")
     assert "globalThis['atob'](" in transformed
     assert "globalThis['exec'](" in transformed
-    assert not RuleEngine().scan(transformed)
+    hits = {hit.rule_id for hit in RuleEngine().scan(transformed)}
+    assert "rule.encoded-execution" in hits
 
 
 def test_base64_wrap_keeps_a_visible_decoder() -> None:

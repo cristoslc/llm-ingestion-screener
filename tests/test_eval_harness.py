@@ -60,9 +60,9 @@ def test_the_default_run_passes_every_gate(tmp_path: Path) -> None:
     ):
         assert heading in markdown
     assert "| `base64-wrap` | 8 | 8 |" in markdown
-    assert "| `bracketify-member-access` | 8 | 0 |" in markdown
+    assert "| `bracketify-member-access` | 8 | 8 |" in markdown
     assert "| `push-past-window` | 8 | 8 |" in markdown
-    assert "| `split-string-literals` | 8 | 0 |" in markdown
+    assert "| `split-string-literals` | 8 | 8 |" in markdown
     assert "`rule.exfiltration-request`" in markdown
     assert "`rule.encoded-execution`" in markdown
 

@@ -25,3 +25,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Per-transform evasion reporting: blocked rate, rule retention, defeated rule ids, and still-firing rules for each transform, in the Markdown report and the JSON metrics; the corpus README and eval-harness doc explain how to read both numbers. No rule or threshold changed.
 - Corpus manifest format `v2`: every row records `derived_from` and `transform`, the loader cross-checks them against the fixture, and an unknown transform name or a transform row without its base is rejected.
 - Loader rejects an unknown transform name, a transform fixture stored under the wrong transform directory, and a transform derived from a benign or missing base; a regenerated baseline and synthetic eval cassette cover the Phase 4 corpus.
+
+### Changed
+
+- Hardened `rule.exfiltration-request`: the directive frame now reaches a destination assembled from adjacent `+`-joined pieces, with single-quoted, double-quoted, bare, or variable fragments and an optionally split scheme, as well as a contiguous URL. The rule id, level, and directive frame are unchanged.
+- Hardened `rule.encoded-execution`: a decode or execute primitive reached through a bracket index on `window`, `globalThis`, `self`, or `global` now matches, with a quoted, variable, or numeric key. The plain call forms and the base64 decode command still match. The rule id and level are unchanged.
+- Regenerated the 16 transform fixtures whose notes and `expect_any_rule` recorded the old defeats, and regenerated the baseline. The two transforms now block 8 of 8 with full rule retention, so the overall evasion blocked rate is 1.0000 (32 of 32) and rule retention is 1.0000 (34 of 34). No gate value moved.

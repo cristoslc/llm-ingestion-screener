@@ -103,6 +103,30 @@ _AGENT_IMPERATIVE = (
     r"execute|reveal|print|delete)\b"
 )
 
+# An exfiltration destination can arrive as one contiguous URL or as adjacent
+# pieces joined with ``+``. The split shape carries the scheme in its first
+# piece, or splits the scheme itself across ``"http" + "://"``. A piece may be
+# quoted with either quote character or left bare, and one piece may be a
+# variable holding a fragment.
+_URL_HEAD = (
+    r"(?:[\"']?https?://[\"']?"
+    r"|[\"']?https?[\"']?\s*\+\s*[\"']?://[\"']?)"
+)
+_URL_PIECE = r"[\"']?[^\s+\"']+[\"']?"
+_URL_JOINED = _URL_HEAD + r"(?:\s*\+\s*" + _URL_PIECE + r")+"
+_URL_CONTIGUOUS = r"https?://[^\s)\]>\"']+"
+_EXFILTRATION_DESTINATION = r"(?:" + _URL_CONTIGUOUS + r"|" + _URL_JOINED + r")"
+
+# A decode or execute primitive can be reached through a member index, not
+# only through a direct call. The index may be a quoted key, a variable, or a
+# number. The receiver is limited to the global objects such a payload uses.
+_MEMBER_INDEX_KEY = r"(?:[\"'][^\"']+[\"']|[A-Za-z_$][\w$]*|\d+)"
+_MEMBER_INDEX_CALL = (
+    r"\b(?:window|globalThis|self|global)\s*\[\s*"
+    + _MEMBER_INDEX_KEY
+    + r"\s*\]\s*\("
+)
+
 DEFAULT_RULES: tuple[Rule, ...] = (
     Rule(
         id=RULE_AGENT_DIRECTED_IMPERATIVE,
@@ -139,13 +163,15 @@ DEFAULT_RULES: tuple[Rule, ...] = (
         level=VerdictLevel.QUARANTINE,
         description=(
             "Text directs a named data object to be sent, uploaded, or "
-            "forwarded to an external URL."
+            "forwarded to an external URL, including one assembled from "
+            "adjacent literal pieces."
         ),
         pattern=re.compile(
             r"\b(?:send|post|upload|forward|transmit|exfiltrate|leak)\s+"
             r"(?:the|all|any|this|these|your|my|our|their|it|them)\b"
             r"[^.\n]{0,80}"
-            r"\bhttps?://[^\s)\]>\"']+",
+            r"\b"
+            + _EXFILTRATION_DESTINATION,
             re.IGNORECASE,
         ),
     ),
@@ -197,12 +223,14 @@ DEFAULT_RULES: tuple[Rule, ...] = (
         id=RULE_ENCODED_EXECUTION,
         level=VerdictLevel.FLAGGED,
         description=(
-            "Text carries a decode-and-execute primitive or a base64 decode "
-            "command."
+            "Text carries a decode-and-execute primitive, a decode primitive "
+            "reached through a member index, or a base64 decode command."
         ),
         pattern=re.compile(
             r"\b(?:eval|exec|atob|fromCharCode|decodeURIComponent)\s*\("
-            r"|\bbase64\s+(?:-d|--decode)\b",
+            r"|"
+            + _MEMBER_INDEX_CALL
+            + r"|\bbase64\s+(?:-d|--decode)\b",
             re.IGNORECASE,
         ),
     ),
