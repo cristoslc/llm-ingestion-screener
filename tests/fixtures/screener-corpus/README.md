@@ -45,11 +45,11 @@ The committed results, as measured by the current rules:
 | Transform | Blocked rate | Rule retention | Rule defeated |
 |---|---|---|---|
 | `base64-wrap` | 8 of 8, 1.0000 | 1.0000 | none; the visible decoder keeps `rule.encoded-execution` firing. |
-| `bracketify-member-access` | 0 of 8, 0.0000 | 0.0000 | `rule.encoded-execution`; the index expression hides the `atob(` and `eval(` primitives. |
+| `bracketify-member-access` | 8 of 8, 1.0000 | 1.0000 | none; `rule.encoded-execution` matches the index-accessed call. |
 | `push-past-window` | 8 of 8, 1.0000 | 1.0000 | none; the screen reads the whole material, so the filler changes nothing. |
-| `split-string-literals` | 0 of 8, 0.0000 | 0.0000 | `rule.exfiltration-request`; the rule needs a contiguous URL. |
+| `split-string-literals` | 8 of 8, 1.0000 | 1.0000 | none; `rule.exfiltration-request` matches the assembled destination. |
 
-The overall reported values are a blocked rate of 16 of 32 (0.5000) and a rule retention of 18 of 34 (0.5294). The two misses are findings for the report and the PR, not a patch: no rule or threshold was changed to catch them. `push-past-window` is fully caught today and stays in the corpus as a guard, so a future scan-time truncation would drop its blocked rate and show up in the report.
+The overall reported values are a blocked rate of 32 of 32 (1.0000) and a rule retention of 34 of 34 (1.0000). Phase 4 first reported 16 of 32 (0.5000) and 18 of 34 (0.5294), with two defeated rules. Those misses were findings at the time; a later change widened the two patterns and the derived fixtures now assert the rule hit. `push-past-window` stays in the corpus as a guard, so a future scan-time truncation would drop its blocked rate and show up in the report.
 
 
 ## Upstreams and pins
@@ -96,4 +96,4 @@ For development without network, pass `--source-dir` pointing at verified local 
 
 ## Known gaps recorded in `frontier/`
 
-The deterministic rules are English-only, need a visible decoder for encoded payloads, need an http(s) URL for an exfiltration hit, and match a narrow agent-address frame. The frontier set records each gap: eight non-English injections, four encoded payloads with no decoder, four paraphrased task-irrelevant requests, two exfiltration requests with no URL, the upstream important-instructions template, and the upstream ignore-previous typo. The transform set records two more: a split destination host defeats the contiguous-URL rule, and an index expression defeats the visible-decoder rule. They are reported, not gated, and no rule or threshold was changed to catch them.
+The deterministic rules are English-only, need a visible decoder for encoded payloads, need an http(s) URL for an exfiltration hit, and match a narrow agent-address frame. The frontier set records each gap: eight non-English injections, four encoded payloads with no decoder, four paraphrased task-irrelevant requests, two exfiltration requests with no URL, the upstream important-instructions template, and the upstream ignore-previous typo. The transform set no longer records a defeat: `split-string-literals` and `bracketify-member-access` are caught by the widened patterns, and their fixtures assert the hit. The frontier gaps are reported, not gated, and no rule threshold was changed to catch them.

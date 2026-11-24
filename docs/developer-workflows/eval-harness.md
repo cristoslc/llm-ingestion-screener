@@ -78,7 +78,7 @@ The report's **Evasion transforms** table gives two numbers per transform, and n
 - **Blocked rate**: the share of derived fixtures that still reach the base fixture's expected verdict.
 - **Rule retention**: the share of the base fixtures' rule hits that still fire after the rewrite. A base rule that fires on no derived fixture is listed as defeated.
 
-The table also names the rules still firing and the defeated rule ids with their descriptions, so a reader can answer which evasion shapes the screen catches, which it misses, and which rule is responsible. The committed results are a 0.5000 blocked rate (16 of 32) and a 0.5294 rule retention (18 of 34): `base64-wrap` and `push-past-window` are fully caught, `split-string-literals` defeats `rule.exfiltration-request`, and `bracketify-member-access` defeats `rule.encoded-execution`. Those two misses are findings, not a patch. No rule or threshold changed in Phase 4.
+The table also names the rules still firing and the defeated rule ids with their descriptions, so a reader can answer which evasion shapes the screen catches, which it misses, and which rule is responsible. The committed results are a 1.0000 blocked rate (32 of 32) and a 1.0000 rule retention (34 of 34): all four transforms are fully caught and no rule is defeated. Phase 4 shipped at a 0.5000 blocked rate (16 of 32) and a 0.5294 rule retention (18 of 34), where `split-string-literals` defeated `rule.exfiltration-request` and `bracketify-member-access` defeated `rule.encoded-execution`. Those two misses were findings at Phase 4 time. A later change widened both patterns, and the transform fixtures were regenerated to assert the rule hit. No gate threshold moved.
 
 ## Corpus provenance
 

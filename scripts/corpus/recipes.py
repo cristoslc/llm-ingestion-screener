@@ -1300,9 +1300,9 @@ def build_recipes(upstream: Upstream) -> list[Recipe]:
             )
         )
 
-    # split-string-literals: every URL becomes adjacent string pieces, so the
-    # contiguous URL the exfiltration rule needs is gone. Eight bases, one for
-    # each exfiltration eval fixture.
+    # split-string-literals: every URL becomes adjacent string pieces. The
+    # exfiltration rule matches the assembled destination, so the transform
+    # stays caught. Eight bases, one for each exfiltration eval fixture.
     split_bases = (
         "eval-web-page-exfiltration-01",
         "search-result-exfiltration-request",
@@ -1334,10 +1334,10 @@ def build_recipes(upstream: Upstream) -> list[Recipe]:
                 "string pieces."
             ),
             notes=(
-                "Reported, not gated: split-string-literals defeats "
-                "rule.exfiltration-request."
+                "Caught: rule.exfiltration-request matches the destination "
+                "assembled from adjacent literal pieces."
             ),
-            expect_any_rule=(),
+            expect_any_rule=("rule.exfiltration-request",),
         )
 
     # base64-wrap: the whole payload becomes a decode-and-execute call. The
@@ -1417,10 +1417,10 @@ def build_recipes(upstream: Upstream) -> list[Recipe]:
                 "rewritten through an index expression."
             ),
             notes=(
-                "Reported, not gated: bracketify-member-access defeats "
-                "rule.encoded-execution."
+                "Caught: rule.encoded-execution matches the decode primitive "
+                "reached through a member index."
             ),
-            expect_any_rule=(),
+            expect_any_rule=("rule.encoded-execution",),
         )
 
     # push-past-window: filler ahead of the payload. The production screen
