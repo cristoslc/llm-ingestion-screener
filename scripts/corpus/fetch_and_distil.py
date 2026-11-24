@@ -35,7 +35,7 @@ from scripts.corpus.upstream import PINS, load_upstream
 CORPUS_DIRECTORIES = ("golden", "eval", "frontier", "benign", "transforms")
 DEFAULT_CORPUS = Path("tests/fixtures/screener-corpus")
 MANIFEST_NAME = "manifest.yaml"
-MANIFEST_FORMAT = "llm-ingestion-screener/corpus-manifest/v1"
+MANIFEST_FORMAT = "llm-ingestion-screener/corpus-manifest/v2"
 CONTROL_CHARACTERS = frozenset(
     [chr(code) for code in range(0x202A, 0x202F)]
     + [chr(code) for code in range(0x2066, 0x206A)]
@@ -115,6 +115,8 @@ def render_manifest(recipes: list[Recipe]) -> str:
                     "commit": recipe.upstream_commit,
                     "sample_id": recipe.upstream_sample_id,
                 },
+                "derived_from": recipe.derived_from,
+                "transform": recipe.transform,
                 "sanitisation": list(recipe.sanitisation),
             }
             for recipe in sorted(recipes, key=lambda item: item.path)

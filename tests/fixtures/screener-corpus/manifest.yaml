@@ -1,4 +1,4 @@
-format: llm-ingestion-screener/corpus-manifest/v1
+format: llm-ingestion-screener/corpus-manifest/v2
 pins:
   ethz-spylab/agentdojo: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
   microsoft/BIPIA: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
@@ -25,6 +25,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: benign-task/train/Programming Help/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -41,6 +43,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/workspace/include/cloud_drive.yaml#initial_files
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -57,6 +61,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/banking/environment.yaml#transactions
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -73,6 +79,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/3
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -87,6 +95,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/4
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -101,6 +111,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/Clickbait/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -117,6 +129,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/Persuasion/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -133,6 +147,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/README
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -149,6 +165,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: benign-task/train/Content Creation/1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -165,6 +183,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: benign-task/train/Language Translation/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -181,6 +201,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: benign-task/train/Learning and Tutoring/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -197,6 +219,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/travel/environment.yaml#flights
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -213,6 +237,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/2
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -227,6 +253,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/Social Interaction/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -243,6 +271,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: benign-task/train/Programming Help/2
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -259,6 +289,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/synthetic/skill-manifest
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -275,6 +307,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/5
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -289,6 +323,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/Instruction/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -305,6 +341,8 @@ fixtures:
     repository: lzwhehe/benign-instruction-bench
     commit: 5d0ae7c438a7b01be2ac0a2e8bc943e45c8f851f
     sample_id: scripts/build_corpus.py#IMPERATIVES
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -321,6 +359,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/workspace/include/inbox.yaml#initial_emails/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -337,6 +377,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/workspace/include/calendar.yaml#initial_events
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -353,6 +395,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/slack/environment.yaml#channel_inbox
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -369,6 +413,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/6
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -383,6 +429,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/8
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -397,6 +445,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/Base Encoding/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -413,6 +463,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: benign-task/train/Information Retrieval/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -429,6 +481,8 @@ fixtures:
     repository: lzwhehe/benign-instruction-bench
     commit: 5d0ae7c438a7b01be2ac0a2e8bc943e45c8f851f
     sample_id: scripts/build_corpus.py#IMPERATIVES
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -445,6 +499,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: data/suites/travel/environment.yaml#user
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -461,6 +517,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/1
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -475,6 +533,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/markup/7
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -489,6 +549,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/Task Automation/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -505,6 +567,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: quoted/README
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -521,6 +585,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask2
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -537,6 +603,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask5
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -553,6 +621,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/Reverse Text/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -569,6 +639,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/workspace/InjectionTask4
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -585,6 +657,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/travel/InjectionTask3
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -601,6 +675,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/workspace/InjectionTask2
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -617,6 +693,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/workspace/InjectionTask5
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -633,6 +711,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Instruction/2
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -649,6 +729,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Social Interaction/4
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -665,6 +747,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/travel/InjectionTask3/get_user_information
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -681,6 +765,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/slack/InjectionTask2/post_message
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -697,6 +783,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -713,6 +801,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/travel/InjectionTask6
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -729,6 +819,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/Substitution Ciphers/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -745,6 +837,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/travel/InjectionTask1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -761,6 +855,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/workspace/InjectionTask1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -777,6 +873,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/travel/InjectionTask4
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -793,6 +891,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Social Interaction/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -809,6 +909,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/Information Dissemination/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -825,6 +927,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/slack/InjectionTask2/post_message
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -841,6 +945,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/banking/InjectionTask4/update_scheduled_transaction
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -857,6 +963,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask3
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -873,6 +981,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/Emoji Substitution/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -889,6 +999,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/workspace/InjectionTask5
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -905,6 +1017,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/workspace/InjectionTask3
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -921,6 +1035,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Persuasion/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -937,6 +1053,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/workspace/InjectionTask0/send_email
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -953,6 +1071,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/workspace/InjectionTask2/create_calendar_event
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -969,6 +1089,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/banking/InjectionTask4/update_scheduled_transaction
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -985,6 +1107,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/travel/InjectionTask3/get_user_information
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1001,6 +1125,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/banking/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1017,6 +1143,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Social Interaction/1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1033,6 +1161,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Persuasion/1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1049,6 +1179,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/Information Dissemination/1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1065,6 +1197,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/banking/InjectionTask8
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1081,6 +1215,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/banking/InjectionTask4
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1097,6 +1233,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Clickbait/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1113,6 +1251,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/workspace/InjectionTask1/delete_file
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1129,6 +1269,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/banking/InjectionTask5/send_money
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1145,6 +1287,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/workspace/InjectionTask0/send_email
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1161,6 +1305,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/workspace/InjectionTask1/delete_file
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1177,6 +1323,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/banking/InjectionTask7/update_password
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1193,6 +1341,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/banking/InjectionTask5/send_money
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1209,6 +1359,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: tool-result-frame/v1/workspace/InjectionTask2/create_calendar_event
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1225,6 +1377,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1241,6 +1395,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/slack/InjectionTask1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1257,6 +1413,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/Base Encoding/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1273,6 +1431,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/workspace/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1289,6 +1449,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/slack/InjectionTask2
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1305,6 +1467,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/workspace/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1321,6 +1485,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: InjecAgentAttack/v1/slack/InjectionTask4
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1337,6 +1503,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Instruction/0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1353,6 +1521,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Instruction/1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1369,6 +1539,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ToolKnowledgeAttack/v1/banking/InjectionTask7/update_password
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1385,6 +1557,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/workspace/InjectionTask3
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1401,6 +1575,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_train/Instruction/3
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1417,6 +1593,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/encoded/3
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1433,6 +1611,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/exfiltration-no-url
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1447,6 +1627,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/german
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1461,6 +1643,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/portuguese
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1475,6 +1659,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/task-irrelevant-paraphrase
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1489,6 +1675,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/french
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1503,6 +1691,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/korean
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1517,6 +1707,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/task-irrelevant-paraphrase
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1531,6 +1723,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/encoded/4
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1547,6 +1741,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/italian
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1561,6 +1757,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/task-irrelevant-paraphrase
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1575,6 +1773,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/encoded/1
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1591,6 +1791,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: IgnorePreviousAttack/v1/workspace/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1607,6 +1809,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/chinese
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1621,6 +1825,8 @@ fixtures:
     repository: microsoft/BIPIA
     commit: a004b69ec0dd446e0afd461d98cb5e96e120a5d0
     sample_id: text_attack_test/encoded/2
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1637,6 +1843,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/exfiltration-no-url
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1651,6 +1859,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1667,6 +1877,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/spanish
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1681,6 +1893,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/non-english/japanese
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1695,6 +1909,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/task-irrelevant-paraphrase
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1709,6 +1925,8 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: exfiltration-goal/v1/workspace/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
@@ -1725,6 +1943,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/bidi-override
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1739,6 +1959,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/tool-invocation-lure
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1753,6 +1975,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: synthetic/instruction-override
+  derived_from: null
+  transform: null
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1767,11 +1991,125 @@ fixtures:
     repository: ethz-spylab/agentdojo
     commit: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
     sample_id: ImportantInstructionsAttack/v1/workspace/InjectionTask0
+  derived_from: null
+  transform: null
   sanitisation:
   - hosts replaced with example.invalid
   - email addresses replaced with example.invalid
   - verbatim upstream payload not stored
   - inert behavioural shape only
+- id: eval-document-encoded-04-base64
+  path: transforms/base64-wrap/eval-document-encoded-04-base64.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-encoded-04
+  derived_from: eval-document-encoded-04
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-search-result-encoded-03-base64
+  path: transforms/base64-wrap/eval-search-result-encoded-03-base64.yaml
+  corpus: transforms
+  surface: search-result
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-search-result-encoded-03
+  derived_from: eval-search-result-encoded-03
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-third-party-skill-encoded-05-base64
+  path: transforms/base64-wrap/eval-third-party-skill-encoded-05-base64.yaml
+  corpus: transforms
+  surface: third-party-skill
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-third-party-skill-encoded-05
+  derived_from: eval-third-party-skill-encoded-05
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-encoded-06-base64
+  path: transforms/base64-wrap/eval-tool-output-encoded-06-base64.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-encoded-06
+  derived_from: eval-tool-output-encoded-06
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-encoded-07-base64
+  path: transforms/base64-wrap/eval-tool-output-encoded-07-base64.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-encoded-07
+  derived_from: eval-tool-output-encoded-07
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-encoded-08-base64
+  path: transforms/base64-wrap/eval-tool-output-encoded-08-base64.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-encoded-08
+  derived_from: eval-tool-output-encoded-08
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-web-page-encoded-02-base64
+  path: transforms/base64-wrap/eval-web-page-encoded-02-base64.yaml
+  corpus: transforms
+  surface: web-page
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-web-page-encoded-02
+  derived_from: eval-web-page-encoded-02
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
 - id: tool-output-encoded-execution-base64
   path: transforms/base64-wrap/tool-output-encoded-execution-base64.yaml
   corpus: transforms
@@ -1783,6 +2121,376 @@ fixtures:
     repository: none
     commit: none
     sample_id: derived-from:tool-output-encoded-execution
+  derived_from: tool-output-encoded-execution
+  transform: base64-wrap
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-document-encoded-04-bracketify-window
+  path: transforms/bracketify-member-access/eval-document-encoded-04-bracketify-window.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-encoded-04
+  derived_from: eval-document-encoded-04
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-document-encoded-04-bracketify
+  path: transforms/bracketify-member-access/eval-document-encoded-04-bracketify.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-encoded-04
+  derived_from: eval-document-encoded-04
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-search-result-encoded-03-bracketify
+  path: transforms/bracketify-member-access/eval-search-result-encoded-03-bracketify.yaml
+  corpus: transforms
+  surface: search-result
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-search-result-encoded-03
+  derived_from: eval-search-result-encoded-03
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-encoded-06-bracketify
+  path: transforms/bracketify-member-access/eval-tool-output-encoded-06-bracketify.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-encoded-06
+  derived_from: eval-tool-output-encoded-06
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-encoded-07-bracketify-window
+  path: transforms/bracketify-member-access/eval-tool-output-encoded-07-bracketify-window.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-encoded-07
+  derived_from: eval-tool-output-encoded-07
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-encoded-07-bracketify
+  path: transforms/bracketify-member-access/eval-tool-output-encoded-07-bracketify.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-encoded-07
+  derived_from: eval-tool-output-encoded-07
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: tool-output-encoded-execution-bracketify-window
+  path: transforms/bracketify-member-access/tool-output-encoded-execution-bracketify-window.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:tool-output-encoded-execution
+  derived_from: tool-output-encoded-execution
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: tool-output-encoded-execution-bracketify
+  path: transforms/bracketify-member-access/tool-output-encoded-execution-bracketify.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: encoded-obfuscated
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:tool-output-encoded-execution
+  derived_from: tool-output-encoded-execution
+  transform: bracketify-member-access
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-document-agent-directed-03-pushed
+  path: transforms/push-past-window/eval-document-agent-directed-03-pushed.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-agent-directed-03
+  derived_from: eval-document-agent-directed-03
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-document-exfiltration-03-pushed
+  path: transforms/push-past-window/eval-document-exfiltration-03-pushed.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-exfiltration-03
+  derived_from: eval-document-exfiltration-03
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-document-tool-result-07-pushed
+  path: transforms/push-past-window/eval-document-tool-result-07-pushed.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: tool-result-injection
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-tool-result-07
+  derived_from: eval-document-tool-result-07
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-instruction-override-05-pushed
+  path: transforms/push-past-window/eval-tool-output-instruction-override-05-pushed.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: instruction-override
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-instruction-override-05
+  derived_from: eval-tool-output-instruction-override-05
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-tool-result-01-pushed
+  path: transforms/push-past-window/eval-tool-output-tool-result-01-pushed.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: tool-result-injection
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-tool-result-01
+  derived_from: eval-tool-output-tool-result-01
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-web-page-agent-directed-01-pushed
+  path: transforms/push-past-window/eval-web-page-agent-directed-01-pushed.yaml
+  corpus: transforms
+  surface: web-page
+  label: malicious
+  threat_class: agent-directed-imperative
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-web-page-agent-directed-01
+  derived_from: eval-web-page-agent-directed-01
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-web-page-exfiltration-01-pushed
+  path: transforms/push-past-window/eval-web-page-exfiltration-01-pushed.yaml
+  corpus: transforms
+  surface: web-page
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-web-page-exfiltration-01
+  derived_from: eval-web-page-exfiltration-01
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-web-page-instruction-override-01-pushed
+  path: transforms/push-past-window/eval-web-page-instruction-override-01-pushed.yaml
+  corpus: transforms
+  surface: web-page
+  label: malicious
+  threat_class: instruction-override
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-web-page-instruction-override-01
+  derived_from: eval-web-page-instruction-override-01
+  transform: push-past-window
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-document-exfiltration-03-split
+  path: transforms/split-string-literals/eval-document-exfiltration-03-split.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-exfiltration-03
+  derived_from: eval-document-exfiltration-03
+  transform: split-string-literals
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-document-exfiltration-08-split
+  path: transforms/split-string-literals/eval-document-exfiltration-08-split.yaml
+  corpus: transforms
+  surface: document
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-document-exfiltration-08
+  derived_from: eval-document-exfiltration-08
+  transform: split-string-literals
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-search-result-exfiltration-07-split
+  path: transforms/split-string-literals/eval-search-result-exfiltration-07-split.yaml
+  corpus: transforms
+  surface: search-result
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-search-result-exfiltration-07
+  derived_from: eval-search-result-exfiltration-07
+  transform: split-string-literals
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-third-party-skill-exfiltration-04-split
+  path: transforms/split-string-literals/eval-third-party-skill-exfiltration-04-split.yaml
+  corpus: transforms
+  surface: third-party-skill
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-third-party-skill-exfiltration-04
+  derived_from: eval-third-party-skill-exfiltration-04
+  transform: split-string-literals
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-tool-output-exfiltration-05-split
+  path: transforms/split-string-literals/eval-tool-output-exfiltration-05-split.yaml
+  corpus: transforms
+  surface: tool-output
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-tool-output-exfiltration-05
+  derived_from: eval-tool-output-exfiltration-05
+  transform: split-string-literals
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-web-page-exfiltration-01-split
+  path: transforms/split-string-literals/eval-web-page-exfiltration-01-split.yaml
+  corpus: transforms
+  surface: web-page
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-web-page-exfiltration-01
+  derived_from: eval-web-page-exfiltration-01
+  transform: split-string-literals
+  sanitisation:
+  - synthetic behavioural shape
+  - no live host, secret, or executable target
+- id: eval-web-page-exfiltration-06-split
+  path: transforms/split-string-literals/eval-web-page-exfiltration-06-split.yaml
+  corpus: transforms
+  surface: web-page
+  label: malicious
+  threat_class: exfiltration-request
+  source: synthetic-adversarial
+  upstream:
+    repository: none
+    commit: none
+    sample_id: derived-from:eval-web-page-exfiltration-06
+  derived_from: eval-web-page-exfiltration-06
+  transform: split-string-literals
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target
@@ -1797,6 +2505,8 @@ fixtures:
     repository: none
     commit: none
     sample_id: derived-from:search-result-exfiltration-request
+  derived_from: search-result-exfiltration-request
+  transform: split-string-literals
   sanitisation:
   - synthetic behavioural shape
   - no live host, secret, or executable target

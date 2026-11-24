@@ -28,6 +28,16 @@ CORPUS_DIRECTORIES: tuple[str, ...] = (
     "transforms",
 )
 
+# The four named evasion transforms of plan section 5.3. A transform name is
+# a closed set: a fixture that names anything else is a corpus error, not a new
+# shape that silently lands outside every report row.
+TRANSFORM_NAMES: tuple[str, ...] = (
+    "base64-wrap",
+    "bracketify-member-access",
+    "push-past-window",
+    "split-string-literals",
+)
+
 FIXTURE_FIELDS: frozenset[str] = frozenset(
     {
         "id",
@@ -302,6 +312,16 @@ def _validate_fixture(
             raise EvaluationError(
                 f"fixture {path} under transforms/ requires both derived_from "
                 "and transform"
+            )
+        if transform not in TRANSFORM_NAMES:
+            raise EvaluationError(
+                f"fixture {path} names unknown transform {transform!r}; "
+                f"expected one of {', '.join(TRANSFORM_NAMES)}"
+            )
+        if path.parent.name != transform:
+            raise EvaluationError(
+                f"fixture {path} is stored under transforms/"
+                f"{path.parent.name} but names transform {transform!r}"
             )
     else:
         if derived_from is not None or transform is not None:

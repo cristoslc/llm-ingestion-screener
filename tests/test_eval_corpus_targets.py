@@ -8,6 +8,7 @@ from llm_ingestion_screener.decision_model import RecordedDecisionModel
 from llm_ingestion_screener.eval.fixtures import (
     BENIGN_THREAT_CLASSES,
     MALICIOUS_THREAT_CLASSES,
+    TRANSFORM_NAMES,
     load_corpus,
 )
 from llm_ingestion_screener.eval.gates import load_gates
@@ -47,6 +48,17 @@ def test_the_committed_corpus_meets_the_phase_three_targets() -> None:
             fixture.surface.value == surface and fixture.label == "benign"
             for fixture in corpus.fixtures
         ), surface
+
+
+def test_every_named_transform_holds_at_least_eight_samples() -> None:
+    corpus = load_corpus(CORPUS)
+    counts = Counter(
+        fixture.transform
+        for fixture in corpus.fixtures
+        if fixture.corpus == "transforms"
+    )
+    for name in TRANSFORM_NAMES:
+        assert counts[name] >= 8, (name, counts[name])
 
 
 def test_every_eval_and_golden_malicious_fixture_meets_its_expected_rule() -> None:

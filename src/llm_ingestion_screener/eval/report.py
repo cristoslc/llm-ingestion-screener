@@ -157,6 +157,74 @@ def render_markdown(
         )
     lines.append("")
 
+    lines.append("## Evasion transforms")
+    lines.append("")
+    lines.append(
+        "Blocked rate is the share of derived fixtures that still reach their "
+        "expected verdict. Rule retention is the share of the base fixtures' "
+        "rule hits that still fire after the transform. A defeated rule is a "
+        "base rule id that no longer fires on any derived fixture."
+    )
+    lines.append("")
+    blocked_metric = metrics_by_name["evasion_transform_blocked_rate"]
+    by_transform = _as_mapping(
+        blocked_metric.data.get("by_transform", {}),
+        "evasion-transform data",
+    )
+    if by_transform:
+        lines.append(
+            "| Transform | Fixtures | Blocked | Blocked rate | Rule retention | "
+            "Rules defeated | Rules still firing |"
+        )
+        lines.append("|---|---|---|---|---|---|---|")
+        for name in sorted(by_transform):
+            block = _as_mapping(by_transform[name], f"transform {name!r}")
+            defeated = block.get("defeated_rules") or []
+            if not isinstance(defeated, list):
+                raise EvaluationError(
+                    f"report data for transform {name!r} defeated rules is not a list"
+                )
+            firing = block.get("still_firing_rules") or []
+            if not isinstance(firing, list):
+                raise EvaluationError(
+                    f"report data for transform {name!r} firing rules is not a list"
+                )
+            defeated_cell = (
+                "none (fully caught)"
+                if not defeated
+                else ", ".join(f"`{_escape(str(rule_id))}`" for rule_id in defeated)
+            )
+            firing_cell = (
+                ", ".join(f"`{_escape(str(rule_id))}`" for rule_id in firing)
+                if firing
+                else "none"
+            )
+            lines.append(
+                f"| `{_escape(str(name))}` | {block['fixtures']} | "
+                f"{block['blocked']} | {_format_value(block['blocked_rate'])} | "
+                f"{_format_value(block['rule_retention'])} | {defeated_cell} | "
+                f"{firing_cell} |"
+            )
+        lines.append("")
+        defeated_all = sorted(
+            {
+                str(rule_id)
+                for block in by_transform.values()
+                for rule_id in (
+                    _as_mapping(block, "transform block").get("defeated_rules") or []
+                )
+            }
+        )
+        if defeated_all:
+            lines.append("Defeated rule ids and their descriptions:")
+            lines.append("")
+            for rule_id in defeated_all:
+                lines.append(f"- `{rule_id}`: {_rule_description(rule_id)}")
+            lines.append("")
+    else:
+        lines.append("The corpus has no transforms/ fixtures.")
+        lines.append("")
+
     lines.append("## Frontier misses")
     lines.append("")
     frontier_misses = [
@@ -347,3 +415,12 @@ def _metric_label(name: str) -> str:
     from llm_ingestion_screener.eval.metrics import METRIC_LABELS
 
     return METRIC_LABELS.get(name, name)
+
+
+def _rule_description(rule_id: str) -> str:
+    from llm_ingestion_screener.rules import DEFAULT_RULES
+
+    for rule in DEFAULT_RULES:
+        if rule.id == rule_id:
+            return rule.description
+    raise EvaluationError(f"report cites unknown rule id {rule_id!r}")
