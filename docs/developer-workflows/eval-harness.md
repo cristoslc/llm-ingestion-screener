@@ -1,6 +1,6 @@
 # Detection eval harness
 
-- **Status:** Phase 3 implemented 2026-11-23. The harness is the Phase 2 runner; the corpus is now the committed-derived set distilled from three pinned upstreams.
+- **Status:** Phase 4 implemented 2026-11-24. The harness is the Phase 2 runner; the corpus is the Phase 3 committed-derived set, now extended with the four named evasion transforms at eight samples each.
 - **Plan:** [`docs/plans/2026-10-29-ingestion-screener-eval-harness.md`](../plans/2026-10-29-ingestion-screener-eval-harness.md), sections 5 to 8.
 - **Production contract:** [`docs/domain-architecture/SCREENING-CORE.md`](../domain-architecture/SCREENING-CORE.md).
 
@@ -56,11 +56,29 @@ tests/fixtures/screener-corpus/
 └── transforms/    named evasion variants derived from eval fixtures
 ```
 
-The corpus holds 115 fixtures: 5 golden, 56 eval, 20 frontier, 32 benign, and 2 transforms. Each malicious class in the plan's taxonomy has at least eight samples and each benign class at least six. Both a malicious and a benign fixture exist on every ingestion surface.
+The corpus holds 145 fixtures: 5 golden, 56 eval, 20 frontier, 32 benign, and 32 transforms. Each malicious class in the plan's taxonomy has at least eight samples and each benign class at least six. Both a malicious and a benign fixture exist on every ingestion surface.
 
-Every fixture is one YAML mapping following plan section 5.1. The loader rejects a run on an unknown verdict, a missing label, a duplicate id, a missing `provenance` for `real-sanitized` or `benchmark-derived`, a non-`example.invalid` host in an exfiltration or command-and-control position, an empty corpus directory, a missing directory, a bad derivation, an unknown expected rule id, or an unknown field. It also rejects a corpus whose manifest misses a fixture, names a fixture that does not exist, disagrees with a fixture's surface, label, class, or source, or gives a benchmark-derived fixture a provenance line that does not name its pinned commit.
+Every fixture is one YAML mapping following plan section 5.1. The loader rejects a run on an unknown verdict, a missing label, a duplicate id, a missing `provenance` for `real-sanitized` or `benchmark-derived`, a non-`example.invalid` host in an exfiltration or command-and-control position, an empty corpus directory, a missing directory, a bad derivation, an unknown expected rule id, or an unknown field. It also rejects a corpus whose manifest misses a fixture, names a fixture that does not exist, disagrees with a fixture's surface, label, class, source, `derived_from`, or `transform`, or gives a benchmark-derived fixture a provenance line that does not name its pinned commit.
 
 Fixtures are sanitised before they enter the repository. Hosts are `example.invalid`, email addresses and financial identifiers are replaced, secrets are stripped, and the behavioural shape is kept without a live payload.
+
+### Named evasion transforms
+
+`transforms/` holds the four named transforms from plan section 5.3, at a floor of eight derived fixtures each (32 total, the `transforms` floor in `tests/eval/gates.yaml`). The floor is eight because a transform base must carry the same threat class, and the two classes these transforms draw on hold eight eval fixtures each. A transform fixture carries `derived_from` and `transform`; the loader rejects a missing base, a benign base, a name outside the four, a fixture stored under the wrong transform directory, and a duplicate id. Each file is produced by the distiller's named rewrite in `scripts/corpus/recipes.py`, never by hand.
+
+| Transform | Rewrite | Base fixtures |
+|---|---|---|
+| `split-string-literals` | The destination host becomes adjacent string pieces. | The eight exfiltration fixtures. |
+| `bracketify-member-access` | A call primitive's member access becomes an index expression. | Five encoded fixtures with a call primitive, three repeated with a different receiver. |
+| `base64-wrap` | The payload becomes `eval(atob("<base64>"))`. | The eight encoded fixtures. |
+| `push-past-window` | At least 64 KiB of filler precedes the payload. | Four rule families, two bases each. |
+
+The report's **Evasion transforms** table gives two numbers per transform, and neither is gated:
+
+- **Blocked rate**: the share of derived fixtures that still reach the base fixture's expected verdict.
+- **Rule retention**: the share of the base fixtures' rule hits that still fire after the rewrite. A base rule that fires on no derived fixture is listed as defeated.
+
+The table also names the rules still firing and the defeated rule ids with their descriptions, so a reader can answer which evasion shapes the screen catches, which it misses, and which rule is responsible. The committed results are a 0.5000 blocked rate (16 of 32) and a 0.5294 rule retention (18 of 34): `base64-wrap` and `push-past-window` are fully caught, `split-string-literals` defeats `rule.exfiltration-request`, and `bracketify-member-access` defeats `rule.encoded-execution`. Those two misses are findings, not a patch. No rule or threshold changed in Phase 4.
 
 ## Corpus provenance
 
@@ -111,7 +129,7 @@ The engine is pure arithmetic over counts. It imports no numpy and no scikit-lea
 | Status | Metrics |
 |---|---|
 | Gated | malicious recall, benign false-positive rate, determinism, evidence-record well-formedness, malformed-answer batch failure, corpus coverage |
-| Reported and computed | per-class recall, evasion blocked rate, evasion rule retention, frontier recall, per-surface recall and FPR |
+| Reported and computed | per-class recall, evasion blocked rate and rule retention (with a per-transform breakdown and defeated rules), frontier recall, per-surface recall and FPR |
 | Reported, not applicable in Phase 3 | blocked-task share (no task id in the schema), detection at a fixed FPR (the verdict is ordinal), latency (recorded client), calibration (no single probability per fixture), out-of-distribution recall (no held-out split), rule-only lift (no control run), format sensitivity (no normalisation pass), threshold sensitivity (no threshold sweep) |
 
 Every not-applicable row carries its reason in the report.
@@ -134,6 +152,6 @@ The runner passes only fixture content, surface, and provenance into `screen()`.
 
 A malformed decision-model answer is probed through the production path on every run. The probe must raise `MalformedAnswerError`; any other outcome fails the gated `malformed_answer_batch_failure` metric. A report that cannot be written raises and fails the command.
 
-## Out of scope in Phase 3
+## Out of scope after Phase 4
 
-The Phase 4 transform suite beyond the two starter variants, the Phase 5 head-to-head, live latency and calibration measurement, and the Phase 6 generators. The live client and its opt-in `model` run still exist in Phase 1 form, but the harness CLI exposes only recorded mode until Phase 5 defines its operating point.
+The Phase 5 head-to-head, live latency and calibration measurement, and the Phase 6 generated transforms. The four named Phase 4 transforms are in the corpus and the report. The live client and its opt-in `model` run still exist in Phase 1 form, but the harness CLI exposes only recorded mode until Phase 5 defines its operating point.

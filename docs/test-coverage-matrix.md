@@ -104,11 +104,14 @@ Master coverage matrix for `llm-ingestion-screener`. Each row is a behaviour; ea
 | Every committed fixture validates | `tests/test_eval_fixtures.py::test_every_committed_fixture_validates` | happy |
 | The committed manifest covers every fixture and no others | `tests/test_eval_manifest.py::test_committed_manifest_covers_every_fixture_and_no_others` | happy |
 | A missing, extra, duplicate, or unpinned manifest row is rejected | `tests/test_eval_manifest.py::test_rejects_a_manifest_that_misses_a_fixture`, `test_rejects_a_manifest_entry_for_a_missing_fixture`, `test_rejects_a_benchmark_fixture_without_a_pinned_upstream`, `test_rejects_a_manifest_commit_that_is_not_the_pin`, `test_rejects_a_provenance_line_without_its_pinned_commit`, `test_rejects_a_duplicate_manifest_id`, `test_rejects_a_missing_manifest` | sad |
+| Every transform manifest row records `derived_from` and `transform`, and a disagreement or a missing base is rejected | `tests/test_eval_manifest.py::test_committed_manifest_records_transform_derivations`, `test_rejects_a_manifest_transform_that_differs_from_the_fixture`, `test_rejects_a_manifest_transform_without_derived_from` | happy, sad |
 | Every fixture satisfies the Phase 3 class and surface targets | `tests/test_eval_corpus_targets.py::test_the_committed_corpus_meets_the_phase_three_targets` | happy |
+| Every named transform holds at least eight derived fixtures | `tests/test_eval_corpus_targets.py::test_every_named_transform_holds_at_least_eight_samples`, `tests/test_eval_fixtures.py::test_every_transform_directory_meets_the_sample_floor` | happy |
 | Every eval and golden malicious fixture meets its expected rule | `tests/test_eval_corpus_targets.py::test_every_eval_and_golden_malicious_fixture_meets_its_expected_rule` | happy |
 | Every benign fixture is clean on the production path, and every eval malicious fixture is caught | `tests/test_eval_corpus_targets.py::test_every_benign_fixture_is_clean_on_the_production_path`, `test_every_eval_malicious_fixture_is_caught` | happy |
 | Frontier holds an expected miss, and the committed coverage floors hold | `tests/test_eval_corpus_targets.py::test_frontier_holds_at_least_one_expected_miss`, `test_the_committed_coverage_floors_hold` | edge |
 | The distiller refuses a missing or moving pin, sanitises hosts, and renders valid YAML | `tests/test_corpus_distiller.py::test_assert_pins_rejects_an_empty_pin_set`, `test_assert_pins_rejects_a_missing_pin`, `test_assert_pins_rejects_a_moving_ref`, `test_clean_replaces_hosts_and_addresses`, `test_clean_keeps_an_ordinary_documentation_host`, `test_offline_without_a_source_directory_refuses_to_run`, `test_render_fixture_is_valid_yaml_with_the_plan_fields`, `test_the_recipe_list_rejects_duplicate_ids` | sad, happy, edge |
+| Each transform rewrite does what its name says and changes the rule outcome | `tests/test_corpus_distiller.py::test_split_string_literals_breaks_the_exfiltration_url`, `test_bracketify_member_access_hides_the_call_primitive`, `test_base64_wrap_keeps_a_visible_decoder`, `test_push_past_window_puts_filler_before_the_payload` | happy, edge |
 | An unknown verdict level is rejected | `tests/test_eval_fixtures.py::test_rejects_an_unknown_verdict` | sad |
 | A missing label is rejected | `tests/test_eval_fixtures.py::test_rejects_a_missing_label` | sad |
 | A duplicate fixture id is rejected | `tests/test_eval_fixtures.py::test_rejects_a_duplicate_id` | sad |
@@ -116,7 +119,7 @@ Master coverage matrix for `llm-ingestion-screener`. Each row is a behaviour; ea
 | A non-`example.invalid` host in an exfiltration position is rejected, while an ordinary URL is allowed | `tests/test_eval_fixtures.py::test_rejects_a_non_example_host_in_an_exfiltration_position`, `test_allows_a_non_example_host_with_no_exfiltration_context` | sad, edge |
 | An empty or missing corpus directory is rejected | `tests/test_eval_fixtures.py::test_rejects_an_empty_corpus_directory`, `test_rejects_a_missing_corpus_directory` | sad |
 | Label and expected verdict cannot contradict | `tests/test_eval_fixtures.py::test_rejects_a_benign_fixture_expecting_a_non_clean_verdict`, `test_rejects_a_malicious_fixture_expecting_clean` | sad |
-| Transform derivations must be complete and point at a malicious base | `tests/test_eval_fixtures.py::test_rejects_a_transform_without_derived_from`, `test_rejects_a_transform_derived_from_an_unknown_fixture` | sad |
+| Transform derivations must be complete, name one of the four transforms, sit in its own directory, and point at a malicious base | `tests/test_eval_fixtures.py::test_rejects_a_transform_without_derived_from`, `test_rejects_a_transform_derived_from_an_unknown_fixture`, `test_rejects_a_transform_derived_from_a_benign_fixture`, `test_rejects_an_unknown_transform_name`, `test_rejects_a_transform_fixture_in_the_wrong_directory` | sad |
 | Unknown rule ids, fields, and malformed YAML are rejected | `tests/test_eval_fixtures.py::test_rejects_an_unknown_expected_rule_id`, `test_rejects_an_unknown_field`, `test_rejects_a_malformed_yaml_file` | sad |
 
 ## Eval runner
@@ -134,6 +137,7 @@ Master coverage matrix for `llm-ingestion-screener`. Each row is a behaviour; ea
 |---|---|---|
 | Recall, false-positive rate, frontier recall, and per-class arithmetic are correct | `tests/test_eval_metrics.py::test_recall_false_positives_and_frontier_arithmetic` | happy |
 | Transform blocked rate and rule retention are correct | `tests/test_eval_metrics.py::test_transform_blocked_rate_and_rule_retention` | happy |
+| Each transform reports its own blocked rate, retention, defeated rules, and still-firing rules | `tests/test_eval_metrics.py::test_each_named_transform_reports_its_own_numbers` | happy |
 | Every plan metric is present and every not-applicable row carries a reason | `tests/test_eval_metrics.py::test_every_plan_metric_is_present_and_na_rows_carry_a_reason` | edge |
 | A short corpus fails its coverage floor | `tests/test_eval_metrics.py::test_coverage_floor_fails_when_a_directory_is_short` | sad |
 | Malformed coverage floors are rejected | `tests/test_eval_metrics.py::test_coverage_floor_requires_a_mapping_per_section` | sad |
@@ -153,7 +157,7 @@ Master coverage matrix for `llm-ingestion-screener`. Each row is a behaviour; ea
 
 | Behaviour | Test | Kind |
 |---|---|---|
-| The default run passes every gate and writes both reports with evidence | `tests/test_eval_harness.py::test_the_default_run_passes_every_gate` | happy |
+| The default run passes every gate and writes both reports with evidence, including the per-transform table and defeated rule ids | `tests/test_eval_harness.py::test_the_default_run_passes_every_gate` | happy |
 | The report is byte-deterministic across runs | `tests/test_eval_harness.py::test_the_report_is_byte_deterministic` | happy |
 | A broken gate fails the run but still writes the report | `tests/test_eval_harness.py::test_a_broken_gate_fails_the_run` | sad |
 | A report-write failure raises | `tests/test_eval_harness.py::test_a_report_write_failure_raises` | sad |
